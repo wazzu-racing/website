@@ -21,19 +21,20 @@
 </svelte:head>
 
 <header class="navbar">
-	<a href="#" class="active">
+	<a href="/" class="active">
 		<img src="racing_logo.png" alt="Wazzu Racing's logo" />
 	</a>
 
 	<div class="links-right">
-		<a href="#">About</a>
-		<a href="#">Sponsors</a>
-		<a href="#">Donate</a>
-		<a href="#">Contact</a>
+		<a href="/about">About</a>
+		<a href="/calendar">Calendar</a>
+		<a href="/sponsors">Sponsors</a>
+		<a href="/donate">Donate</a>
+		<a href="/contact">Contact</a>
 	</div>
 </header>
 
-<main>
+<main class="main">
 	{@render children?.()}
 </main>
 
