@@ -1,0 +1,34 @@
+
+:root{
+    /* WSU primary colors*/
+    --primary-crimson: #A60F2D;
+    --primary-gray: #4D4D4D;
+
+    /* WSU secondary colors*/
+    --secondary-red: #CA1237;
+    --secondary-black: #000000;
+    --secondary-white: #FFFFFF;
+
+    /* WSU accent colors*/
+    --accent-autumn: #FF6727;
+    --accent-goldfinch: #F3E700;
+    --accent-vineyard: #AADC24;
+    --accent-pacific-sky: #5BC3F5;
+    --accent-midnight: #002D61;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main{
+    flex: 1;
+}
+
+html{
+    margin: 0;
+}
