@@ -20,7 +20,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="navbar">
+<header class="navbar">
 	<a href="#" class="active">
 		<img src="racing_logo.png" alt="Wazzu Racing's logo" />
 	</a>
@@ -31,11 +31,13 @@
 		<a href="#">Donate</a>
 		<a href="#">Contact</a>
 	</div>
-</div>
+</header>
 
-{@render children?.()}
+<main>
+	{@render children?.()}
+</main>
 
-<div class="footer">
+<footer class="footer">
 	<div id="vcea">
 		<a href="https://vcea.wsu.edu/">
 			<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a
@@ -68,14 +70,9 @@
 			</li>
 		</ul>
 	</div>
-</div>
+</footer>
 
 <style>
-	body {
-		margin: 0;
-		font-family: Arial, sans-serif;
-	}
-
 	.footer {
 		background-color: var(--primary-gray);
 		padding-top: 17px;
