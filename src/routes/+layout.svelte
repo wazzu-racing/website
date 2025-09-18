@@ -1,11 +1,18 @@
 <script lang="ts">
+	import '../../static/global.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-	import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
+	import { faEnvelope, faLocationPin, faSquareEnvelope } from '@fortawesome/free-solid-svg-icons';
 	import {
 		faLinkedin,
 		faSquareInstagram,
-		faSquareGithub
+		faSquareGithub,
+
+		faSquareTwitter,
+
+		faSquareLinkedin
+
+
 	} from '@fortawesome/free-brands-svg-icons';
 	import { config } from '@fortawesome/fontawesome-svg-core';
 
@@ -14,6 +21,10 @@
 	config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 	let { children } = $props();
+
+
+
+
 </script>
 
 <svelte:head>
@@ -39,77 +50,147 @@
 </main>
 
 <footer class="footer">
-	<div id="vcea">
-		<a href="https://vcea.wsu.edu/">
-			<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a
-		>
-	</div>
 
-	<div class="contact">
+	<!-- <div class="contact">
+		<h1>FOLLOW US</h1>
 		<ul>
-			<li>
-				<a href="https://www.linkedin.com/company/wazzu-racing/"
-					><FontAwesomeIcon icon={faLinkedin} /> Wazzu Racing
-				</a>
-			</li>
 			<li>
 				<a href="https://www.instagram.com/wazzu_racing/">
-					<FontAwesomeIcon icon={faSquareInstagram} /> @wazzu_racing
-				</a>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="https://github.com/wazzu-racing">
-					<FontAwesomeIcon icon={faSquareGithub} /> @wazzu-racing
+					<FontAwesomeIcon icon={faSquareInstagram} />
 				</a>
 			</li>
 			<li>
-				<a href="https://maps.app.goo.gl/15P6iwDgqBRDkxYw6">
-					<FontAwesomeIcon icon={faLocationPin} /> ELB 9
+				<a href="https://x.com/wazzuracing"
+					><FontAwesomeIcon icon={faSquareTwitter} /> 
+				</a>
+			</li>
+			<li>
+				<a href="mailto:someone@example.com"
+					><FontAwesomeIcon icon={faSquareEnvelope} /> 
+				</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/company/wazzu-racing/"
+					><FontAwesomeIcon icon={faSquareLinkedin} /> 
 				</a>
 			</li>
 		</ul>
+
+	</div> -->
+
+	<div class="college">
+
+		<div id="vcea">
+			<a href="https://vcea.wsu.edu/">
+			<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a>
+		</div>
+
+		<div id=location>
+			<h1>
+				Engineering Laboratory<br>900 NE College Ave<br>Pullman, WA 99163
+			</h1>
+
+		</div>
+
 	</div>
+
 </footer>
 
 <style>
+
+	/* .main {
+		background-color: black;
+	} */
 	.footer {
 		background-color: var(--primary-gray);
-		padding-top: 17px;
-		padding-bottom: 17px;
+		/* padding-top: 15px;
+		padding-bottom: 15px;
 		padding-left: 2vw;
-		padding-right: 2vw;
+		padding-right: 2vw; */
 		display: flex;
+		flex-direction: column;
 	}
 
-	.contact {
-		margin-left: auto;
-		display: flex;
+	/* .contact {
+
+		padding-top: 15px;
+		padding-bottom: 15px;		
+		background-color: black;
+		width: 100%;
+	}
+
+	.contact h1 {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		width: 100%;
+		color: var(--secondary-white);
+		text-align: center;
+		margin-bottom: 40px;
 	}
 
 	.contact ul {
+		width: 100%;
+		display: inline-flex;
+
 		text-decoration: none;
 		list-style-type: none;
+		justify-content: center;
 		margin: auto 0;
+		padding-inline-start: 0;
 	}
 
-	.contact ul li a {
+	.contact ul li {
+		justify-content: center;
+		display: inline-flex;
 		text-decoration: none;
 		color: var(--secondary-white);
 		font-size: 16pt;
 	}
 
-	.contact a:hover {
-		text-decoration: underline;
+	.contact ul li a{
+		font-size: 2.25em;
+		color: var(--secondary-white);
+	} */
+
+	.college {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 2vw;
+		padding-right: 2vw;
+		display: flex;
+	}
+
+	#vcea {
+		display:flex;
+		align-content: center;
+		width:100%;
+
 	}
 
 	#vcea img {
+		display: flex;
+		align-content: center;
+		justify-content: center;
 		width: 20vw;
 	}
 
+	#location {
+		display: flex;
+		align-content: center;
+		justify-content: right;
+		width: 100%;
+	}
+
+	#location h1{
+		display: flex;
+		align-self: center;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 100;
+		font-size: 16px;
+		color: var(--secondary-white);
+	}
+
 	.navbar {
-		background-color: var(--primary-gray);
+		background-color: black;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
@@ -122,13 +203,15 @@
 	}
 
 	.navbar a {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 100;
 		display: block;
 		margin: auto 0;
 		color: var(--secondary-white);
 		text-align: center;
 		padding: 14px 20px;
 		text-decoration: none;
-		font-size: 24pt;
+		font-size: 14pt;
 	}
 
 	.navbar a img {
@@ -136,11 +219,14 @@
 	}
 
 	.navbar a:hover {
-		background-color: var(--primary-crimson);
+		color: var(--primary-crimson);
 	}
 
 	.navbar a.active {
-		background-color: var(--secondary-gray);
+
+		background-color: black;
 		float: left;
 	}
+
+	
 </style>
