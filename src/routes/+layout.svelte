@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '../../static/global.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faEnvelope, faLocationPin, faSquareEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -7,12 +6,8 @@
 		faLinkedin,
 		faSquareInstagram,
 		faSquareGithub,
-
 		faSquareTwitter,
-
 		faSquareLinkedin
-
-
 	} from '@fortawesome/free-brands-svg-icons';
 	import { config } from '@fortawesome/fontawesome-svg-core';
 
@@ -21,10 +16,6 @@
 	config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 	let { children } = $props();
-
-
-
-
 </script>
 
 <svelte:head>
@@ -50,7 +41,6 @@
 </main>
 
 <footer class="footer">
-
 	<!-- <div class="contact">
 		<h1>FOLLOW US</h1>
 		<ul>
@@ -61,17 +51,17 @@
 			</li>
 			<li>
 				<a href="https://x.com/wazzuracing"
-					><FontAwesomeIcon icon={faSquareTwitter} /> 
+					><FontAwesomeIcon icon={faSquareTwitter} />
 				</a>
 			</li>
 			<li>
 				<a href="mailto:someone@example.com"
-					><FontAwesomeIcon icon={faSquareEnvelope} /> 
+					><FontAwesomeIcon icon={faSquareEnvelope} />
 				</a>
 			</li>
 			<li>
 				<a href="https://www.linkedin.com/company/wazzu-racing/"
-					><FontAwesomeIcon icon={faSquareLinkedin} /> 
+					><FontAwesomeIcon icon={faSquareLinkedin} />
 				</a>
 			</li>
 		</ul>
@@ -79,25 +69,21 @@
 	</div> -->
 
 	<div class="college">
-
 		<div id="vcea">
 			<a href="https://vcea.wsu.edu/">
-			<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a>
+				<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a
+			>
 		</div>
 
-		<div id=location>
+		<div id="location">
 			<h1>
-				Engineering Laboratory<br>900 NE College Ave<br>Pullman, WA 99163
+				Engineering Laboratory<br />900 NE College Ave<br />Pullman, WA 99163
 			</h1>
-
 		</div>
-
 	</div>
-
 </footer>
 
 <style>
-
 	/* .main {
 		background-color: black;
 	} */
@@ -114,7 +100,7 @@
 	/* .contact {
 
 		padding-top: 15px;
-		padding-bottom: 15px;		
+		padding-bottom: 15px;
 		background-color: black;
 		width: 100%;
 	}
@@ -160,10 +146,9 @@
 	}
 
 	#vcea {
-		display:flex;
+		display: flex;
 		align-content: center;
-		width:100%;
-
+		width: 100%;
 	}
 
 	#vcea img {
@@ -180,7 +165,7 @@
 		width: 100%;
 	}
 
-	#location h1{
+	#location h1 {
 		display: flex;
 		align-self: center;
 		font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -223,10 +208,7 @@
 	}
 
 	.navbar a.active {
-
 		background-color: black;
 		float: left;
 	}
-
-	
 </style>
