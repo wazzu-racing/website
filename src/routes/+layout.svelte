@@ -51,33 +51,6 @@
 
 <footer class="footer">
 
-	<!-- <div class="contact">
-		<h1>FOLLOW US</h1>
-		<ul>
-			<li>
-				<a href="https://www.instagram.com/wazzu_racing/">
-					<FontAwesomeIcon icon={faSquareInstagram} />
-				</a>
-			</li>
-			<li>
-				<a href="https://x.com/wazzuracing"
-					><FontAwesomeIcon icon={faSquareTwitter} /> 
-				</a>
-			</li>
-			<li>
-				<a href="mailto:someone@example.com"
-					><FontAwesomeIcon icon={faSquareEnvelope} /> 
-				</a>
-			</li>
-			<li>
-				<a href="https://www.linkedin.com/company/wazzu-racing/"
-					><FontAwesomeIcon icon={faSquareLinkedin} /> 
-				</a>
-			</li>
-		</ul>
-
-	</div> -->
-
 	<div class="college">
 
 		<div id="vcea">
@@ -110,46 +83,6 @@
 		display: flex;
 		flex-direction: column;
 	}
-
-	/* .contact {
-
-		padding-top: 15px;
-		padding-bottom: 15px;		
-		background-color: black;
-		width: 100%;
-	}
-
-	.contact h1 {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		width: 100%;
-		color: var(--secondary-white);
-		text-align: center;
-		margin-bottom: 40px;
-	}
-
-	.contact ul {
-		width: 100%;
-		display: inline-flex;
-
-		text-decoration: none;
-		list-style-type: none;
-		justify-content: center;
-		margin: auto 0;
-		padding-inline-start: 0;
-	}
-
-	.contact ul li {
-		justify-content: center;
-		display: inline-flex;
-		text-decoration: none;
-		color: var(--secondary-white);
-		font-size: 16pt;
-	}
-
-	.contact ul li a{
-		font-size: 2.25em;
-		color: var(--secondary-white);
-	} */
 
 	.college {
 		padding-top: 15px;

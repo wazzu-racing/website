@@ -27,34 +27,60 @@
 
 
 
-<div class=bod>
+<div class="bod">
 
-	<div class=info>
+	<div class="info"> 
+	<!-- The video -->
+		<video autoplay muted loop>
+			<source src="src/lib/assets/carSlideshow.mp4" type="video/mp4">
+		</video>
 
-		<h1>Welcome to Wazzu Racing!</h1>
-
-		<p>We're still working on our website, it should be complete soon!</p>
-
-		<p>
-			We meet every Saturday at 11 AM in <a href="https://maps.app.goo.gl/15P6iwDgqBRDkxYw6">ELB 9</a>.
-			Come see what we're up to!
-		</p>
+		<div class="content">
+			<h1>Washington State University</h1>
+			<h1>Wazzu Racing</h1>
+			<p>Washington State Univiersity Formuala SAE | Cars Designed Built and Tested by Student Engineers</p>
+		</div>
 
 	</div>
 
+	<!-- could delete this section -->
 	<div class="meetInfo">
 
 		<div class="Join">
 			<h1>Join Us</h1>
-			<h2>info</h2>
-			<p>Meet every Saturday at 11AM in ELB 9</p>
+			<h2>Formula SAE at Washington State University. Formula-style racing car conceived, designed, and fabriacted by students.</h2>
+			<p>Meet us at ELB 9 every Saturday at 11AM</p>
 
 		</div>
 		
 		<div class="Collage">
 
+			<div class="Collumn">
+				<img src="src/lib/assets/One.jpeg" alt=" ">
+				<img src="src/lib/assets/Five.jpeg" alt=" ">
+				<img src="src/lib/assets/Nine.jpeg" alt=" ">
+				<img src="src/lib/assets/Twelve.jpeg" alt=" ">
+			</div>
+
+			<div class="Collumn">
+				<img src="src/lib/assets/Two.jpeg" alt=" ">
+				<img src="src/lib/assets/Six.jpeg" alt=" ">
+				<img src="src/lib/assets/Ten.png" alt=" ">
+				<img src="src/lib/assets/Eight.png" alt=" ">
+			</div>
+
+			<div class="Collumn">
+				<img src="src/lib/assets/Three.jpeg" alt=" ">
+				<img src="src/lib/assets/Seven.jpeg" alt=" ">
+				<img src="src/lib/assets/Eleven.png" alt=" ">
+				<img src="src/lib/assets/Four.png" alt=" ">
+			</div>
+
+
+
 		</div>
 	</div>
+	<!-- could delete this section -->
 
 
 	<div class="contact">
@@ -90,15 +116,117 @@
 
 <style>
 
-	.meetInfo {
 
-		/* background-color: red; */
+
+	.bod {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.info {
+		display: flex;
+		/* display: relative; */
+	}
+
+	.info video {
+		min-width: 100%;
+		min-height: 100%;
+	} 
+
+	.content {
+		position: absolute;
+		width: 100%
+		
+		/* color: var(--secondary-white) */
+	}
+
+	.content h1 {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 600;
+		font-size: 7em;
+		color: var(--secondary-white);
+		text-align: center;
+	}
+
+	.content p {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 600;
+		font-size: 1.5em;
+		color: var(--secondary-white);
+		text-align: center;
 
 	}
 
+	
+
+	.meetInfo {
+
+		display: flex;
+		width: 100%;
+
+	}
+
+	.Join {
+		/* background-color: black; */
+		display: flex;
+		flex-direction: column;
+		width:30%;
+		padding-top: 5px;
+		padding-right: 24px;
+		padding-bottom: 24px;
+		padding-left: 24px;
+
+	}
+
+	.Join h1 {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 600;
+		font-size: 5em;
+		margin-block-start: 0.67em;
+		margin-block-end: 0.67em;
+		color: var(--primary-crimson);
+	}
+
+	.Join h2 {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 100;
+		font-size: 1.7em;
+		/* color: var(--secondary-white); */
+	}
+
+	.Join p {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 100;
+		font-size: 1.5em;
+		/* color: var(--secondary-white); */
+	}
+
+	.Collage {
+		/* background-color: black; */
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width:70%;
+	}
+
+	.Collumn {
+		display: flex;
+	}
+
+	.Collumn img{
+		width: 22%;
+	
+
+		margin-top: 8px;
+		margin-right: 8px;
+		margin-bottom: 8px;
+		margin-left: 8px;
+		/* vertical-align: middle; */
+	}
+
+	/**----------------------------------*/
+
 	.contact {
-		/* display: flex;
-		flex-direction:column; */
 
 		align-content:end;
 		padding-top: 15px;
