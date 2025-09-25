@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '../../static/global.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faEnvelope, faLocationPin, faSquareEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -7,12 +6,8 @@
 		faLinkedin,
 		faSquareInstagram,
 		faSquareGithub,
-
 		faSquareTwitter,
-
 		faSquareLinkedin
-
-
 	} from '@fortawesome/free-brands-svg-icons';
 	import { config } from '@fortawesome/fontawesome-svg-core';
 
@@ -21,10 +16,6 @@
 	config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 	let { children } = $props();
-
-
-
-
 </script>
 
 <svelte:head>
@@ -52,25 +43,21 @@
 <footer class="footer">
 
 	<div class="college">
-
 		<div id="vcea">
 			<a href="https://vcea.wsu.edu/">
-			<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a>
+				<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a
+			>
 		</div>
 
-		<div id=location>
+		<div id="location">
 			<h1>
-				Engineering Laboratory<br>900 NE College Ave<br>Pullman, WA 99163
+				Engineering Laboratory<br />900 NE College Ave<br />Pullman, WA 99163
 			</h1>
-
 		</div>
-
 	</div>
-
 </footer>
 
 <style>
-
 	/* .main {
 		background-color: black;
 	} */
@@ -84,6 +71,46 @@
 		flex-direction: column;
 	}
 
+	/* .contact {
+
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: black;
+		width: 100%;
+	}
+
+	.contact h1 {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		width: 100%;
+		color: var(--secondary-white);
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	.contact ul {
+		width: 100%;
+		display: inline-flex;
+
+		text-decoration: none;
+		list-style-type: none;
+		justify-content: center;
+		margin: auto 0;
+		padding-inline-start: 0;
+	}
+
+	.contact ul li {
+		justify-content: center;
+		display: inline-flex;
+		text-decoration: none;
+		color: var(--secondary-white);
+		font-size: 16pt;
+	}
+
+	.contact ul li a{
+		font-size: 2.25em;
+		color: var(--secondary-white);
+	} */
+
 	.college {
 		padding-top: 15px;
 		padding-bottom: 15px;
@@ -93,10 +120,9 @@
 	}
 
 	#vcea {
-		display:flex;
+		display: flex;
 		align-content: center;
-		width:100%;
-
+		width: 100%;
 	}
 
 	#vcea img {
@@ -113,7 +139,7 @@
 		width: 100%;
 	}
 
-	#location h1{
+	#location h1 {
 		display: flex;
 		align-self: center;
 		font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -156,10 +182,7 @@
 	}
 
 	.navbar a.active {
-
 		background-color: black;
 		float: left;
 	}
-
-	
 </style>
