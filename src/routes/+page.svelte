@@ -1,4 +1,5 @@
 <!-- // is this main -->
+<!-- yes this is the main -->
 
 <script>
 	import favicon from '$lib/assets/favicon.svg';

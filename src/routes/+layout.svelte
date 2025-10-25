@@ -41,7 +41,6 @@
 </main>
 
 <footer class="footer">
-
 	<div class="college">
 		<div id="vcea">
 			<a href="https://vcea.wsu.edu/">
@@ -58,9 +57,11 @@
 </footer>
 
 <style>
-	/* .main {
-		background-color: black;
-	} */
+	.main {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
 	.footer {
 		background-color: var(--primary-gray);
 		/* padding-top: 15px;
