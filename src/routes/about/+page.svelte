@@ -18,17 +18,6 @@
 	/>
 </svelte:head>
 
-<header class="hero">
-	<img class="logo" src={logo} alt="Wazzu Racing logo" />
-	<div class="heroText">
-		<h1>About Wazzu Racing</h1>
-		<p class="tagline">
-			Washington State University's Formula SAE team — designing, building, and racing a
-			student-built formula car for over {yearsCompeting} years.
-		</p>
-	</div>
-</header>
-
 <main class="container">
 	<section class="intro sideBySide">
 		<div class="text">
