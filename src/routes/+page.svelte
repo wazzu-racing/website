@@ -151,10 +151,6 @@
 				<span class="stat-num">100+</span>
 				<span class="stat-label">Student Alumni</span>
 			</div>
-			<div class="stat">
-				<span class="stat-num">1 / year</span>
-				<span class="stat-label">Car Design Cycle</span>
-			</div>
 		</aside>
 	</section>
 
