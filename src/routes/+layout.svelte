@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faEnvelope, faLocationPin, faSquareEnvelope } from '@fortawesome/free-solid-svg-icons';
 	import {
@@ -18,17 +17,14 @@
 	let { children } = $props();
 </script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-</svelte:head>
-
 <header class="navbar">
 	<a href="/" class="active">
-		<img src="racing_logo.png" alt="Wazzu Racing's logo" />
+		<img id="logo" src="racing_logo.png" alt="Wazzu Racing's logo" />
 	</a>
 
 	<div class="links-right">
 		<a href="/about">About</a>
+		<a href="/members">Members</a>
 		<a href="/calendar">Calendar</a>
 		<a href="/sponsors">Sponsors</a>
 		<a href="/donate">Donate</a>
@@ -64,53 +60,9 @@
 
 	.footer {
 		background-color: var(--primary-gray);
-		/* padding-top: 15px;
-		padding-bottom: 15px;
-		padding-left: 2vw;
-		padding-right: 2vw; */
 		display: flex;
 		flex-direction: column;
 	}
-
-	/* .contact {
-
-		padding-top: 15px;
-		padding-bottom: 15px;
-		background-color: black;
-		width: 100%;
-	}
-
-	.contact h1 {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		width: 100%;
-		color: var(--secondary-white);
-		text-align: center;
-		margin-bottom: 40px;
-	}
-
-	.contact ul {
-		width: 100%;
-		display: inline-flex;
-
-		text-decoration: none;
-		list-style-type: none;
-		justify-content: center;
-		margin: auto 0;
-		padding-inline-start: 0;
-	}
-
-	.contact ul li {
-		justify-content: center;
-		display: inline-flex;
-		text-decoration: none;
-		color: var(--secondary-white);
-		font-size: 16pt;
-	}
-
-	.contact ul li a{
-		font-size: 2.25em;
-		color: var(--secondary-white);
-	} */
 
 	.college {
 		padding-top: 15px;
@@ -175,7 +127,7 @@
 	}
 
 	.navbar a img {
-		width: 22vw;
+		width: 16vw;
 	}
 
 	.navbar a:hover {
