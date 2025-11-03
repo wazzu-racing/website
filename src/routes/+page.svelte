@@ -196,11 +196,11 @@
 
 <style>
 	:root {
-		--crimson: #b51c1c;
-		--crimson-dark: #941516;
-		--muted: #6b6f73;
-		--bg: #f7f7f7;
-		--text: #111;
+		--crimson: #a60f2d; /* The WSU crimson color */
+		--crimson-dark: #ca1237; /* Actually WSU red, a secondary color */
+		--muted: #4d4d4d; /* WSU gray */
+		--white: #ffffff;
+		--text: #000000;
 	}
 
 	.page {
@@ -212,7 +212,7 @@
 			Roboto,
 			Arial;
 		color: var(--text);
-		background: var(--bg);
+		background: var(--white);
 		margin: 0;
 	}
 
@@ -287,7 +287,7 @@
 		/* larger, bolder, and higher-contrast heading */
 		font-size: clamp(2.6rem, 8vw, 5rem);
 		margin: 0.25rem 0 0.5rem;
-		color: #ffffff;
+		color: var(--white);
 		font-weight: 900;
 		text-shadow: 0 10px 36px rgba(0, 0, 0, 0.75);
 		letter-spacing: 0.5px;
@@ -296,7 +296,7 @@
 	.subtitle {
 		/* larger and more readable subtitle */
 		margin: 0.5rem 0 1rem;
-		color: #ffffff;
+		color: var(--white);
 		font-size: 1.25rem;
 		font-weight: 600;
 		opacity: 0.98;
@@ -366,7 +366,7 @@
 	}
 
 	.about-stats {
-		background: #fff;
+		background: var(--white);
 		border-radius: 8px;
 		padding: 1rem;
 		box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
@@ -407,7 +407,7 @@
 		overflow: hidden;
 		padding: 0;
 		border: none;
-		background: #fff;
+		background: var(--white);
 		cursor: pointer;
 		aspect-ratio: 4/3;
 		display: block;
@@ -460,7 +460,7 @@
 	.lb-close {
 		position: absolute;
 		background: transparent;
-		color: #fff;
+		color: var(--white);
 		border: none;
 		font-size: 22px;
 		cursor: pointer;
