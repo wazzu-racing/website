@@ -16,3 +16,11 @@ npm run dev -- --open # Opens the app in a new browser tab
 
 To create a production build, run `npm run build` and then `npm run preview` to
 preview it.
+
+
+
+# Things to work on
+- Check branding (branding.wsu.edu)
+- page with all cars
+- maybe add about different events
+- IDEA: List of alumni, and where they've been hired
