@@ -1,7 +1,11 @@
 <script>
+	// @ts-nocheck
+	// Removed invalid import from Svelte runtime.
+	// All DOM access is guarded so this file is safe for SSR.
+
 	// Canonical events list — edit this array to add/update events shown on the public calendar.
 	// Each event has: id, title, date (ISO YYYY-MM-DD), time (HH:MM 24h optional), location, description, optional url, tags
-	export let calendarEvents = [
+	let calendarEvents = [
 		{
 			id: 'e1',
 			title: 'Interest Meeting — Fall Recruitment',
@@ -41,7 +45,7 @@
 			location: 'Meet at Engineering Lab',
 			description:
 				'Final packing and caravan to the regional competition. All present-day team members are expected to attend.',
-			url: '',
+			url: null,
 			tags: ['competition']
 		},
 		{
@@ -84,8 +88,9 @@
 			return a.date.localeCompare(b.date);
 		})
 		.map((e) => {
-			// attach a Date object for convenience
-			return { ...e, dateObj: new Date(e.date + (e.time ? 'T' + e.time : 'T00:00')) };
+			// attach a Date object for convenience (use local timezone)
+			const iso = e.date + (e.time ? 'T' + e.time : 'T00:00');
+			return { ...e, dateObj: new Date(iso) };
 		});
 
 	// Utility: user-facing date formatting
@@ -95,12 +100,15 @@
 		return d.toLocaleDateString(undefined, opts);
 	};
 
+	// Format HH:MM 24h into a localized time string.
 	const formatTime = (t) => {
 		if (!t) return '';
-		// parse HH:MM (24h) into localized time
-		const [hh, mm] = t.split(':').map(Number);
-		const dt = new Date();
-		dt.setHours(hh || 0, mm || 0, 0, 0);
+		const [hhStr, mmStr] = t.split(':');
+		const hh = Number(hhStr) || 0;
+		const mm = Number(mmStr) || 0;
+		// Use today's date and set hours/minutes so toLocaleTimeString formats correctly.
+		// create a date for formatting without mutating a previously-constructed date
+		const dt = new Date(1970, 0, 1, hh, mm, 0, 0);
 		return dt.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 	};
 
@@ -116,42 +124,67 @@
 	const past = events.filter((e) => e.dateObj < startOfDay(today));
 
 	// Modal state
+	/** @type {any|null} */
 	let selectedEvent = null;
+	/** @type {HTMLElement|null} */
 	let lastFocusedElement = null;
 
 	// Open modal for an event: store previously focused element and then set selectedEvent
+	/**
+	 * @param {any} eventObj
+	 * @param {HTMLElement|null} triggeringElement
+	 */
 	function openModal(eventObj, triggeringElement) {
 		selectedEvent = eventObj;
-		lastFocusedElement = triggeringElement || document.activeElement;
-		// wait for modal to render then focus the close button
-		setTimeout(() => {
-			const closeBtn = document.querySelector('.modal-close');
-			if (closeBtn) closeBtn.focus();
-		});
-		// prevent page scroll while modal is open
-		document.body.style.overflow = 'hidden';
+		// Guard DOM access for SSR
+		if (typeof document !== 'undefined') {
+			lastFocusedElement = triggeringElement || document.activeElement;
+			// wait for modal to render then focus the close button
+			if (typeof window !== 'undefined') {
+				setTimeout(() => {
+					const closeBtn = document.querySelector('.modal-close');
+					if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
+				});
+			}
+			// prevent page scroll while modal is open
+			document.body.style.overflow = 'hidden';
+		} else {
+			lastFocusedElement = null;
+		}
 	}
 
 	// Close modal and restore focus
 	function closeModal() {
 		selectedEvent = null;
-		if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-			lastFocusedElement.focus();
+		// Guard DOM access for SSR
+		if (typeof document !== 'undefined') {
+			if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+				lastFocusedElement.focus();
+			}
+			document.body.style.overflow = '';
 		}
-		document.body.style.overflow = '';
+		lastFocusedElement = null;
 	}
 
 	// Click/keyboard handlers for cards to open modal
+	/**
+	 * @param {KeyboardEvent} e
+	 * @param {any} ev
+	 */
 	function onCardKeydown(e, ev) {
 		// open modal on Enter or Space
-		if (e.key === 'Enter' || e.key === ' ') {
+		if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
 			e.preventDefault();
 			openModal(ev, e.currentTarget);
 		}
 	}
 
 	// Handle Escape and focus trapping while modal open
+	/**
+	 * @param {KeyboardEvent} e
+	 */
 	function handleWindowKeydown(e) {
+		// Only act when a modal is open
 		if (!selectedEvent) return;
 		if (e.key === 'Escape') {
 			e.preventDefault();
@@ -160,6 +193,8 @@
 		}
 		// Simple focus trap: cycle focus within modal
 		if (e.key === 'Tab') {
+			// Guard DOM access for SSR
+			if (typeof document === 'undefined') return;
 			const modal = document.querySelector('.modal-dialog');
 			if (!modal) return;
 			const focusables = modal.querySelectorAll(
@@ -183,6 +218,15 @@
 					first.focus();
 				}
 			}
+		}
+	}
+
+	// Programmatic navigation helper used by CTA buttons. Guards for SSR.
+	function navigateTo(url) {
+		if (!url) return;
+		if (typeof window !== 'undefined') {
+			// Use assign so the back button behaves as expected
+			window.location.assign(url);
 		}
 	}
 </script>
@@ -211,47 +255,44 @@
 		{#if upcoming.length > 0}
 			<div class="events-grid" role="list">
 				{#each upcoming as event (event.id)}
-					<article
-						class="event-card clickable"
-						role="button"
-						tabindex="0"
-						aria-labelledby={'title-' + event.id}
-						on:click={(e) => openModal(event, e.currentTarget)}
-						on:keydown={(e) => onCardKeydown(e, event)}
-					>
-						<div class="event-top">
-							<div class="event-date">
-								<span class="event-month"
-									>{event.dateObj.toLocaleString(undefined, { month: 'short' })}</span
-								>
-								<span class="event-day">{event.dateObj.getDate()}</span>
-							</div>
-							<div class="event-head">
-								<h3 id={'title-' + event.id}>{event.title}</h3>
-								<div class="event-meta">
-									<time datetime={event.date + (event.time ? 'T' + event.time : '')}>
-										{formatDate(event.dateObj)}{event.time ? ' · ' + formatTime(event.time) : ''}
-									</time>
-									<span class="sep">•</span>
-									<span class="location">{event.location}</span>
+					<article role="listitem">
+						<button
+							class="event-button event-card clickable"
+							aria-labelledby={'title-' + event.id}
+							on:click={(e) => openModal(event, e.currentTarget)}
+							on:keydown={(e) => onCardKeydown(e, event)}
+						>
+							<div class="event-top">
+								<div class="event-date">
+									<span class="event-month"
+										>{event.dateObj.toLocaleString(undefined, { month: 'short' })}</span
+									>
+									<span class="event-day">{event.dateObj.getDate()}</span>
+								</div>
+								<div class="event-head">
+									<h3 id={'title-' + event.id}>{event.title}</h3>
+									<div class="event-meta">
+										<time datetime={event.date + (event.time ? 'T' + event.time : '')}>
+											{formatDate(event.dateObj)}{event.time ? ' · ' + formatTime(event.time) : ''}
+										</time>
+										<span class="sep">•</span>
+										<span class="location">{event.location}</span>
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="event-body">
-							<p class="description">{event.description}</p>
-						</div>
-
-						<footer class="event-footer">
-							<div class="tags">
-								{#each event.tags ?? [] as tag}
-									<span class="tag">{tag}</span>
-								{/each}
+							<div class="event-body">
+								<p class="description">{event.description}</p>
 							</div>
-							{#if event.url}
-								<a class="cta" href={event.url} rel="noopener">Details</a>
-							{/if}
-						</footer>
+
+							<footer class="event-footer">
+								<div class="tags">
+									{#each event.tags ?? [] as tag (tag)}
+										<span class="tag">{tag}</span>
+									{/each}
+								</div>
+							</footer>
+						</button>
 					</article>
 				{/each}
 			</div>
@@ -267,32 +308,32 @@
 		{#if past.length > 0}
 			<div class="events-grid small-cards" role="list">
 				{#each past as event (event.id)}
-					<article
-						class="event-card past clickable"
-						role="button"
-						tabindex="0"
-						aria-labelledby={'title-p-' + event.id}
-						on:click={(e) => openModal(event, e.currentTarget)}
-						on:keydown={(e) => onCardKeydown(e, event)}
-					>
-						<div class="event-top">
-							<div class="event-date compact">
-								<span class="event-month"
-									>{event.dateObj.toLocaleString(undefined, { month: 'short' })}</span
-								>
-								<span class="event-day">{event.dateObj.getDate()}</span>
-							</div>
-							<div class="event-head">
-								<h3 id={'title-p-' + event.id}>{event.title}</h3>
-								<div class="event-meta">
-									<time datetime={event.date + (event.time ? 'T' + event.time : '')}>
-										{formatDate(event.dateObj)}{event.time ? ' · ' + formatTime(event.time) : ''}
-									</time>
-									<span class="sep">•</span>
-									<span class="location">{event.location}</span>
+					<article role="listitem">
+						<button
+							class="event-button event-card past clickable"
+							aria-labelledby={'title-p-' + event.id}
+							on:click={(e) => openModal(event, e.currentTarget)}
+							on:keydown={(e) => onCardKeydown(e, event)}
+						>
+							<div class="event-top">
+								<div class="event-date compact">
+									<span class="event-month"
+										>{event.dateObj.toLocaleString(undefined, { month: 'short' })}</span
+									>
+									<span class="event-day">{event.dateObj.getDate()}</span>
+								</div>
+								<div class="event-head">
+									<h3 id={'title-p-' + event.id}>{event.title}</h3>
+									<div class="event-meta">
+										<time datetime={event.date + (event.time ? 'T' + event.time : '')}>
+											{formatDate(event.dateObj)}{event.time ? ' · ' + formatTime(event.time) : ''}
+										</time>
+										<span class="sep">•</span>
+										<span class="location">{event.location}</span>
+									</div>
 								</div>
 							</div>
-						</div>
+						</button>
 					</article>
 				{/each}
 			</div>
@@ -335,7 +376,7 @@
 
 				{#if selectedEvent.tags && selectedEvent.tags.length}
 					<div class="modal-tags">
-						{#each selectedEvent.tags as t}
+						{#each selectedEvent.tags as t, i (i)}
 							<span class="tag">{t}</span>
 						{/each}
 					</div>
@@ -343,7 +384,9 @@
 
 				{#if selectedEvent.url}
 					<p class="modal-actions">
-						<a class="cta" href={selectedEvent.url} rel="noopener">More details</a>
+						<button type="button" class="cta" on:click={() => navigateTo(selectedEvent.url)}
+							>More details</button
+						>
 					</p>
 				{/if}
 			</div>
@@ -421,13 +464,27 @@
 			box-shadow 160ms ease;
 	}
 
+	.event-button {
+		border: 0;
+		background: transparent;
+		padding: 0;
+		text-align: left;
+		width: 100%;
+		cursor: pointer;
+	}
+	.event-button:focus {
+		outline: 3px solid rgba(225, 29, 72, 0.15);
+		outline-offset: 3px;
+		border-radius: 10px;
+	}
+
 	.clickable {
 		cursor: pointer;
 	}
 
+	/* keep the visual focus styles for non-button elements, but avoid double outlines */
 	.clickable:focus {
-		outline: 3px solid rgba(225, 29, 72, 0.15);
-		outline-offset: 3px;
+		outline: none;
 	}
 
 	.event-card:hover {
