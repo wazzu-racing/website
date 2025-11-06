@@ -99,20 +99,8 @@ Pullman, WA 99163`;
 					<li>All items from personal donation tier</li>
 				</ul>
 			</article>
-
-			<article class="sponsor-card">
-				<h3>Personal Donation</h3>
-				<p class="amount">(Under $750 or equivalent in products or services)</p>
-				<ul>
-					<li>Thank you letter</li>
-					<li>
-						Newsletter with updates on the current design and manufacturing of this year’s car
-					</li>
-				</ul>
-			</article>
 		</div>
 
-		<!-- Sponsorship packet download -->
 		<div class="sponsor-packet">
 			<p>
 				Want to see sponsorship options and benefits in detail? Download our sponsorship packet
@@ -122,56 +110,6 @@ Pullman, WA 99163`;
 				>Download Sponsorship Packet (PDF)</a
 			>
 		</div>
-	</section>
-
-	<section class="in-kind">
-		<h2>In-kind & technical donations</h2>
-		<p>
-			Material, tooling, or professional services are highly valuable (e.g., machining time,
-			composite materials, electronics components, or software licenses). If you can provide in-kind
-			support, please reach out so we can coordinate logistics and proper acknowledgement.
-		</p>
-
-		<div class="cta-row">
-			<a class="btn" href={'mailto:' + contactEmail}>Propose an In-Kind Donation</a>
-		</div>
-	</section>
-
-	<section class="mailing">
-		<h2>Donate by check</h2>
-		<p>
-			Checks may be made payable to "Wazzu Racing" (or to the WSU Foundation — note Wazzu Racing on
-			the memo) and mailed to:
-		</p>
-
-		<pre class="address">{mailingAddress}</pre>
-
-		<p class="note">
-			If you need a tax receipt, let us know which method you used and we'll help ensure you receive
-			the proper documentation.
-		</p>
-	</section>
-
-	<section class="impact">
-		<h2>How your support helps</h2>
-		<ul>
-			<li>Prototype materials and manufacturing (chassis, suspension, aero)</li>
-			<li>Electronics, sensors, and data acquisition</li>
-			<li>Testing, event logistics, and travel</li>
-			<li>Student workshops, safety equipment, and training</li>
-		</ul>
-	</section>
-
-	<section class="contact-card">
-		<h2>Contact</h2>
-		<p>
-			For sponsorship packets, donation processing questions, or to discuss partnership
-			opportunities, please contact:
-		</p>
-
-		<p><strong>Email:</strong> <a href={'mailto:' + contactEmail}>{contactEmail}</a></p>
-		<p><strong>Mailing address:</strong></p>
-		<pre class="address">{mailingAddress}</pre>
 	</section>
 </main>
 
