@@ -12,8 +12,8 @@
 
 	const tiers = [
 		{
-			id: 'platinum',
-			title: 'Platinum Partners',
+			id: 'crimson',
+			title: 'Crimson Partners',
 			description: 'Our top-tier partners who provide exceptional support and resources.',
 			sponsors: [
 				{ name: 'Platinum Co. 1', url: '#', logo: placeholderLogo },
@@ -42,8 +42,20 @@
 			]
 		},
 		{
-			id: 'supporters',
-			title: 'Supporters',
+			id: 'bronze',
+			title: 'Bronze Partners',
+			description: 'Contributers',
+			sponsors: [
+				{ name: 'Supporter 1', url: '#', logo: placeholderLogo },
+				{ name: 'Supporter 2', url: '#', logo: placeholderLogo },
+				{ name: 'Supporter 3', url: '#', logo: placeholderLogo },
+				{ name: 'Supporter 4', url: '#', logo: placeholderLogo },
+				{ name: 'Supporter 5', url: '#', logo: placeholderLogo }
+			]
+		},
+		{
+			id: 'personal',
+			title: 'Personal Supporters',
 			description: 'Organizations and friends who help keep Wazzu Racing moving.',
 			sponsors: [
 				{ name: 'Supporter 1', url: '#', logo: placeholderLogo },
