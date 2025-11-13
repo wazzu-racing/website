@@ -24,3 +24,16 @@ preview it.
 - page with all cars
 - maybe add about different events
 - IDEA: List of alumni, and where they've been hired
+
+
+
+
+- [ ] alumni (top bar > current members, alumni)
+- [ ] officers on main page
+- [ ] better contrast on top page
+- [ ] car gallery page
+  - [ ] tiled layout for different cars, click to see more.
+- [ ] enroll in newsletter, both in contact and about
+- [ ] update sponsorship packet file
+- [ ] buy merch page
+- [ ] wishlist on donate page
