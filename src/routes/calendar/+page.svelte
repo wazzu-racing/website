@@ -3,82 +3,12 @@
 	// Removed invalid import from Svelte runtime.
 	// All DOM access is guarded so this file is safe for SSR.
 
-	// Canonical events list — edit this array to add/update events shown on the public calendar.
-	// Each event has: id, title, date (ISO YYYY-MM-DD), time (HH:MM 24h optional), location, description, optional url, tags
-	let calendarEvents = [
-		{
-			id: 'e1',
-			title: 'Interest Meeting — Fall Recruitment',
-			date: '2025-09-03',
-			time: '18:00',
-			location: 'Engineering Lab (Room 210)',
-			description:
-				'Introductory meeting for new and returning students. Learn about subteams, time commitments, and how to get involved.',
-			url: '/contact',
-			tags: ['recruitment', 'meeting']
-		},
-		{
-			id: 'e2',
-			title: 'Shop Night — Fabrication Session',
-			date: '2025-09-09',
-			time: '17:30',
-			location: 'Wazzu Racing Shop',
-			description:
-				'Open build session. Bring closed-toe shoes and safety glasses. All majors welcome.',
-			tags: ['build', 'workshop']
-		},
-		{
-			id: 'e3',
-			title: 'Community Outreach — High School Demo',
-			date: '2025-10-02',
-			time: '10:00',
-			location: 'Pullman High School Gym',
-			description:
-				'Our outreach team will present the car and talk about engineering opportunities to local high school students.',
-			tags: ['outreach', 'demo']
-		},
-		{
-			id: 'e4',
-			title: 'Regional Competition — Prep & Departure',
-			date: '2025-05-12',
-			time: '08:00',
-			location: 'Meet at Engineering Lab',
-			description:
-				'Final packing and caravan to the regional competition. All present-day team members are expected to attend.',
-			url: null,
-			tags: ['competition']
-		},
-		{
-			id: 'e5',
-			title: 'Autumn Public Shop Night',
-			date: '2025-11-20',
-			time: '18:00',
-			location: 'Engineering Laboratory — Shop Area',
-			description:
-				'Public shop night with guided tours of the current car and Q&A with subteam leads. All majors welcome.',
-			tags: ['shop', 'public']
-		},
-		{
-			id: 'e6',
-			title: 'Community STEM Day — Demo & Talk',
-			date: '2025-12-05',
-			time: '11:00',
-			location: 'Campus Quad',
-			description:
-				'Wazzu Racing demo vehicle on display with short presentation about engineering pathways and team roles.',
-			tags: ['outreach', 'demo']
-		},
-		{
-			id: 'e7',
-			title: 'Winter Design Review (Open Session)',
-			date: '2026-01-15',
-			time: '16:30',
-			location: 'Engineering Lecture Hall 204',
-			description:
-				'An open walkthrough of our winter design progress; good opportunity for prospective members to see technical work.',
-			tags: ['review', 'meeting']
-		}
-	];
+	// Canonical events list is now centralized in src/lib/content/entries.js.
+	// Edit that file to add/update events and newsletter articles.
+	import { entries } from '$lib/content/entries';
+
+	// derive calendarEvents from the shared entries store (only items with type 'event')
+	let calendarEvents = entries.filter((e) => e.type === 'event');
 
 	// derive a sorted copy of events (soonest first)
 	const events = calendarEvents
@@ -247,6 +177,9 @@
 		<h1>Calendar</h1>
 		<p class="lede">
 			Public events, meetings, and competition dates. Click an event to view more details.
+		</p>
+		<p>
+			<button class="cta" on:click={() => navigateTo('/newsletter')}>Newsletter</button>
 		</p>
 	</header>
 

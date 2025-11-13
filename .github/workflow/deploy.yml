@@ -29,8 +29,19 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Install dependencies (website)
+        # Install dependencies for the Svelte site located in the `website` subfolder.
+        run: pnpm --dir website install --frozen-lockfile
+
+      - name: Generate newsletter articles
+        # Run the local script that converts markdown files into the generated JSON
+        # used by the app. This must run before building so the generated JSON is
+        # included in the built site.
+        run: node website/scripts/generate-articles.mjs
+
+      - name: Build site
+        # Build the SvelteKit site (produces `build/` inside the `website` folder).
+        run: pnpm --dir website build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -39,7 +50,8 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'build/'
+          # Upload the build output from the website subfolder.
+          path: 'website/build/'
 
   deploy:
     needs: build
