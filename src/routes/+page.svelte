@@ -104,6 +104,8 @@
 		<!-- background and image (keeps a visible photo at the top) -->
 		<div class="hero-visual" style={"background-image: `url('${slides[current].src}')`"}>
 			<img class="hero-img" src={slides[current].src} alt="" aria-hidden="true" />
+			<!-- Gradient overlay for better text contrast -->
+			<div class="hero-gradient"></div>
 		</div>
 
 		<!-- Overlay contains the main headline and CTAs, centered and visually above the image -->
@@ -239,6 +241,17 @@
 		z-index: 0;
 	}
 
+	.hero-gradient {
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(0, 0, 0, 0.35) 0%,
+			rgba(0, 0, 0, 0.55) 100%
+		);
+		z-index: 1;
+	}
+
 	/* explicit image ensures the topmost visible image loads (decorative alt) */
 	.hero-img {
 		display: block;
@@ -250,7 +263,7 @@
 
 	.hero-overlay {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -264,23 +277,22 @@
 		max-width: 1100px;
 		text-align: center;
 		color: #fff;
-		/* removed the dark translucent box so the photo shows through cleanly */
-		background: transparent;
-		/* keep a modest backdrop blur / shadow only for legibility without a full black box */
 		padding: 2.25rem 1.5rem;
-		border-radius: 12px;
 		pointer-events: auto;
-		text-shadow: 0 6px 28px rgba(0, 0, 0, 0.6);
 	}
 
 	.university {
 		/* Doubled size for prominence; responsive with clamp */
 		font-size: clamp(2.1rem, 4.4vw, 3rem);
 		letter-spacing: 1px;
-		opacity: 0.98;
 		margin-bottom: 0.25rem;
-		color: var(--crimson);
+		color: #fff;
 		font-weight: 700;
+		text-shadow:
+			0 2px 4px rgba(0, 0, 0, 0.9),
+			0 4px 12px rgba(0, 0, 0, 0.7),
+			0 0 30px rgba(0, 0, 0, 0.5);
+		-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
 	}
 
 	.team {
@@ -289,8 +301,12 @@
 		margin: 0.25rem 0 0.5rem;
 		color: var(--white);
 		font-weight: 900;
-		text-shadow: 0 10px 36px rgba(0, 0, 0, 0.75);
+		text-shadow:
+			0 3px 6px rgba(0, 0, 0, 1),
+			0 6px 18px rgba(0, 0, 0, 0.8),
+			0 10px 40px rgba(0, 0, 0, 0.6);
 		letter-spacing: 0.5px;
+		-webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.4);
 	}
 
 	.subtitle {
@@ -299,7 +315,10 @@
 		color: var(--white);
 		font-size: 1.25rem;
 		font-weight: 600;
-		opacity: 0.98;
+		text-shadow:
+			0 2px 4px rgba(0, 0, 0, 0.9),
+			0 4px 12px rgba(0, 0, 0, 0.7),
+			0 0 25px rgba(0, 0, 0, 0.5);
 	}
 
 	/* HERO CONTROLS (dots-only and CTA under hero) */
