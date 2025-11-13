@@ -15,16 +15,39 @@
 	config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 	let { children } = $props();
+	let membersDropdownOpen = $state(false);
+
+	function toggleMembersDropdown() {
+		membersDropdownOpen = !membersDropdownOpen;
+	}
+
+	function closeMembersDropdown() {
+		membersDropdownOpen = false;
+	}
 </script>
 
 <header class="navbar">
 	<a href="/" class="active">
-		<img id="logo" src="racing_logo.png" alt="Wazzu Racing's logo" />
+		<img id="logo" src="/racing_logo.png" alt="Wazzu Racing's logo" />
 	</a>
 
 	<div class="links-right">
 		<a href="/about">About</a>
-		<a href="/members">Members</a>
+		<div class="dropdown" role="navigation" onmouseleave={closeMembersDropdown}>
+			<button
+				class="dropdown-toggle"
+				onclick={toggleMembersDropdown}
+				onmouseenter={() => (membersDropdownOpen = true)}
+			>
+				Members ▾
+			</button>
+			{#if membersDropdownOpen}
+				<div class="dropdown-menu">
+					<a href="/members/current" onclick={closeMembersDropdown}>Current Members</a>
+					<a href="/members/alumni" onclick={closeMembersDropdown}>Alumni</a>
+				</div>
+			{/if}
+		</div>
 		<a href="/calendar">Calendar</a>
 		<a href="/sponsors">Sponsors</a>
 		<a href="/donate">Donate</a>
@@ -40,7 +63,10 @@
 	<div class="college">
 		<div id="vcea">
 			<a href="https://vcea.wsu.edu/">
-				<img src="vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" /></a
+				<img
+					src="/vcea.png"
+					alt="Logo for the Voiland College of Engineering and Architecture"
+				/></a
 			>
 		</div>
 
@@ -103,7 +129,7 @@
 
 	.navbar {
 		background-color: black;
-		overflow: hidden;
+		overflow: visible;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -137,5 +163,52 @@
 	.navbar a.active {
 		background-color: black;
 		float: left;
+	}
+
+	/* Dropdown styles */
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-toggle {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: 100;
+		background: none;
+		border: none;
+		color: var(--secondary-white);
+		cursor: pointer;
+		font-size: 14pt;
+		padding: 14px 20px;
+		margin: 0;
+		display: block;
+	}
+
+	.dropdown-toggle:hover {
+		color: var(--primary-crimson);
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background-color: black;
+		min-width: 180px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1000;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.dropdown-menu a {
+		padding: 12px 20px;
+		text-align: left;
+		display: block;
+		font-size: 14pt;
+	}
+
+	.dropdown-menu a:hover {
+		background-color: #1a1a1a;
+		color: var(--primary-crimson);
 	}
 </style>
