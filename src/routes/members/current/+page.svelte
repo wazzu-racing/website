@@ -275,24 +275,6 @@
 		margin-top: 0.5rem;
 	}
 
-	/* Tweak the Member card appearance when used here */
-	.member-card {
-		/* allow the Member component's internal width clamp to work,
-		   but make the grid item fill available space */
-		width: 100%;
-		border-radius: 12px;
-		transition:
-			transform 160ms ease,
-			box-shadow 160ms ease;
-		cursor: default;
-	}
-
-	.member-card:hover,
-	.member-card:focus-within {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-	}
-
 	/* Make the image area a bit taller on wider screens */
 	@media (min-width: 900px) {
 		.members-grid {
@@ -309,10 +291,5 @@
 		.page-header {
 			margin-bottom: 1rem;
 		}
-	}
-
-	/* Utility: if you want a highlighted heading */
-	.page-header .highlight {
-		color: var(--accent);
 	}
 </style>

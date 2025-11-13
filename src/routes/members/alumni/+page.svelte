@@ -2,20 +2,6 @@
 	import Member from '$lib/components/Member.svelte';
 	import photo from '$lib/assets/WR/ChatGPT_Image_4_15_2025.png';
 
-	// canonical list of subteams to render sections for (order matters)
-	const subteams = [
-		'Aero Composites',
-		'Business and Cost',
-		'Chassis',
-		'Cockpit Controls',
-		'Data Aquisition',
-		'Drivetrain',
-		'Electrical',
-		'Engine',
-		'Suspension',
-		'Vehicle Dynamics'
-	];
-
 	// Alumni members data
 	const members = [
 		{
@@ -84,25 +70,6 @@
 			about: 'Lead driver for three competition seasons.'
 		}
 	];
-
-	// helper to get members in a given subteam
-	/**
-	 * Get members for a subteam
-	 * @param {string} team - subteam name to filter by
-	 * @returns {Array<any>} array of member objects belonging to the subteam
-	 */
-	const getMembersForSubteam = (team) => members.filter((m) => (m.subteams || []).includes(team));
-
-	// leadership: find specific leadership roles by subteam entries
-	const leadershipRoles = ['President', 'Vice President', 'Chief Engineer', 'Safety Lead'];
-	const leadership = members.filter((m) =>
-		(m.subteams || []).some((r) => leadershipRoles.includes(r))
-	);
-
-	// drivers: either flagged by `isDriver` or appear in a subteam that includes 'Driver'
-	const drivers = members.filter(
-		(m) => m.isDriver || (m.subteams || []).some((s) => /driver/i.test(s))
-	);
 </script>
 
 <main class="members-page">
@@ -167,12 +134,6 @@
 		margin-top: 1.75rem;
 	}
 
-	.subteam-section h2 {
-		margin: 0 0 0.5rem 0;
-		font-size: 1.125rem;
-		color: #0f172a;
-	}
-
 	/* Responsive grid: larger cards, fewer per row */
 	.members-grid {
 		display: grid;
@@ -181,24 +142,6 @@
 		gap: 1.25rem;
 		align-items: start;
 		margin-top: 0.5rem;
-	}
-
-	/* Tweak the Member card appearance when used here */
-	.member-card {
-		/* allow the Member component's internal width clamp to work,
-		   but make the grid item fill available space */
-		width: 100%;
-		border-radius: 12px;
-		transition:
-			transform 160ms ease,
-			box-shadow 160ms ease;
-		cursor: default;
-	}
-
-	.member-card:hover,
-	.member-card:focus-within {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 	}
 
 	/* Make the image area a bit taller on wider screens */
@@ -217,10 +160,5 @@
 		.page-header {
 			margin-bottom: 1rem;
 		}
-	}
-
-	/* Utility: if you want a highlighted heading */
-	.page-header .highlight {
-		color: var(--accent);
 	}
 </style>
