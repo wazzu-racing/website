@@ -8,6 +8,11 @@
 	import hero2 from '$lib/assets/WR/4.jpg';
 	import hero3 from '$lib/assets/WR/5.jpg';
 
+	// Car image for officers section
+	import carImage from '$lib/assets/WR/e.png';
+
+	// Gallery images (commented out since gallery is disabled)
+	/*
 	import g1 from '$lib/assets/WR/1.png';
 	import g2 from '$lib/assets/WR/3.jpg';
 	import g3 from '$lib/assets/WR/10.jpg';
@@ -17,6 +22,7 @@
 	import g7 from '$lib/assets/WR/16.png';
 	import g8 from '$lib/assets/WR/19.jpg';
 	import g9 from '$lib/assets/WR/backgroundless_clean.png';
+	*/
 
 	const slides = [hero1, hero2, hero3].map((src, i) => ({ id: i, src }));
 	let current = 0;
@@ -45,7 +51,8 @@
 		}
 	}
 
-	// Gallery (lightbox)
+	// Gallery (lightbox) - commented out since gallery is disabled
+	/*
 	const gallery = [
 		{ src: g1, alt: 'Wazzu Racing — car front' },
 		{ src: g2, alt: 'Wazzu Racing — pit crew' },
@@ -60,8 +67,10 @@
 
 	let lightboxOpen = false;
 	let lightboxIndex = 0;
+	*/
 
-	/** @param {number} i */
+	// Lightbox functions (commented out since gallery is currently disabled)
+	/*
 	function openLightbox(i) {
 		lightboxIndex = i;
 		lightboxOpen = true;
@@ -81,13 +90,21 @@
 		lightboxIndex = (lightboxIndex - 1 + gallery.length) % gallery.length;
 	}
 
-	/** @param {KeyboardEvent} e */
 	function lbKey(e) {
 		if (!lightboxOpen) return;
 		if (e.key === 'Escape') closeLightbox();
 		if (e.key === 'ArrowRight') lbNext();
 		if (e.key === 'ArrowLeft') lbPrev();
 	}
+	*/
+
+	// Officers data
+	const officers = [
+		{ name: 'Malcom', role: 'President' },
+		{ name: 'Noah', role: 'Vice President' },
+		{ name: 'Mason', role: 'Chief Engineer' },
+		{ name: 'Sophia', role: 'Safety Lead' }
+	];
 </script>
 
 <svelte:head>
@@ -156,8 +173,43 @@
 		</aside>
 	</section>
 
+	<!-- OFFICERS -->
+	<section id="officers" class="officers">
+		<article class="officer-entry">
+			<div class="officer-image">
+				<img src={carImage} alt="Wazzu Racing car" />
+			</div>
+
+			<div class="officer-info">
+				<div class="officer-header">
+					<h2>Team Leadership</h2>
+					<span class="year">2025–2026</span>
+				</div>
+
+				<p class="officer-description">
+					Our officers lead the team through design, fabrication, and competition. They coordinate
+					project timelines, manage resources, and ensure technical excellence across all
+					subsystems.
+				</p>
+
+				<div class="team-leads">
+					<h3>Current Officers</h3>
+					<ul>
+						{#each officers as officer (officer.name)}
+							<li>
+								<strong>{officer.name}</strong> — {officer.role}
+							</li>
+						{/each}
+					</ul>
+				</div>
+
+				<a href="/members" class="learn-more" data-sveltekit-preload-data>Meet the Full Team →</a>
+			</div>
+		</article>
+	</section>
+
 	<!-- GALLERY -->
-	<section id="gallery" class="gallery" aria-label="Team gallery">
+	<!-- <section id="gallery" class="gallery" aria-label="Team gallery">
 		<h2>Gallery</h2>
 		<div class="grid">
 			{#each gallery as item, i (i)}
@@ -170,12 +222,12 @@
 				</button>
 			{/each}
 		</div>
-	</section>
+	</section> -->
 
 	<!-- site footer removed here (redundant with sitewide footer) -->
 
-	<!-- LIGHTBOX -->
-	{#if lightboxOpen}
+	<!-- LIGHTBOX (disabled since gallery is commented out) -->
+	<!-- {#if lightboxOpen}
 		<div
 			class="lightbox"
 			role="dialog"
@@ -193,7 +245,7 @@
 			</div>
 			<button class="lb-next" on:click={lbNext} aria-label="Next">›</button>
 		</div>
-	{/if}
+	{/if} -->
 </main>
 
 <style>
@@ -408,6 +460,128 @@
 		font-size: 0.92rem;
 	}
 
+	/* OFFICERS */
+	.officers {
+		max-width: 1200px;
+		margin: 2.5rem auto 2.5rem;
+		padding: 0 1rem;
+	}
+
+	.officer-entry {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.5rem;
+		align-items: start;
+		padding: 2rem;
+		background: #fafafa;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+		transition: box-shadow 0.3s ease;
+	}
+
+	.officer-entry:hover {
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.officer-image {
+		width: 100%;
+		aspect-ratio: 4/3;
+		border-radius: 8px;
+		overflow: hidden;
+		background: #ffffff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.officer-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+		transition: transform 0.3s ease;
+	}
+
+	.officer-entry:hover .officer-image img {
+		transform: scale(1.05);
+	}
+
+	.officer-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.officer-header {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.officer-header h2 {
+		margin: 0;
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--crimson);
+	}
+
+	.year {
+		font-size: 1.25rem;
+		color: var(--muted);
+		font-weight: 600;
+	}
+
+	.officer-description {
+		font-size: 1rem;
+		color: #333;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.team-leads {
+		margin: 0;
+	}
+
+	.team-leads h3 {
+		font-size: 1rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin: 0 0 0.5rem 0;
+		font-weight: 600;
+	}
+
+	.team-leads ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.team-leads li {
+		color: #444;
+		margin-bottom: 0.25rem;
+		font-size: 0.95rem;
+	}
+
+	.team-leads strong {
+		color: #222;
+	}
+
+	.learn-more {
+		display: inline-block;
+		color: var(--crimson);
+		font-weight: 600;
+		text-decoration: none;
+		margin-top: 0.5rem;
+		transition: color 0.2s ease;
+	}
+
+	.learn-more:hover {
+		color: var(--crimson-dark);
+		text-decoration: underline;
+	}
+
 	/* GALLERY */
 	.gallery {
 		max-width: 1200px;
@@ -524,11 +698,30 @@
 			margin-top: 0.5rem;
 			gap: 10px;
 		}
+		.officer-entry {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.officer-header h2 {
+			font-size: 1.75rem;
+		}
 	}
 
 	@media (max-width: 420px) {
 		.hero {
 			height: 52vh;
+		}
+		.officer-entry {
+			padding: 1.5rem;
+		}
+
+		.officer-header h2 {
+			font-size: 1.5rem;
+		}
+
+		.year {
+			font-size: 1.1rem;
 		}
 	}
 </style>
