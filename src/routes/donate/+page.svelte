@@ -9,7 +9,7 @@ Pullman, WA 99163`;
 		'https://foundation.wsu.edu/give/?fund=99981d7c-3c77-4fed-a76b-1267a2069cae&utm_source=sae-formula&utm_medium=wsu-link&utm_campaign=voiland-college-of-engineering-and-architecture';
 
 	// Sponsor packet PDF (bundled asset)
-	import sponsorPacket from '$lib/assets/2025-2026 WR Sponsor Packet.pdf';
+	import sponsorPacket from '$lib/assets/Wazzu_Racing_Sponsorship_Packet.pdf';
 </script>
 
 <svelte:head>
@@ -58,7 +58,7 @@ Pullman, WA 99163`;
 		<div class="sponsor-grid">
 			<article class="sponsor-card">
 				<h3>Crimson Package</h3>
-				<p class="amount">($2500+ or equivalent in products or services)</p>
+				<p class="amount">($4000+ or equivalent in products or services)</p>
 				<ul>
 					<li>Logos of your choice on this year’s car and/or apparel</li>
 					<li>Personal shop tour</li>
@@ -70,7 +70,7 @@ Pullman, WA 99163`;
 
 			<article class="sponsor-card">
 				<h3>Gold Package</h3>
-				<p class="amount">($1750 or equivalent in products or services)</p>
+				<p class="amount">($2500 or equivalent in products or services)</p>
 				<ul>
 					<li>Featured on team media with special recognition</li>
 					<li>Large logo on this year’s car</li>
@@ -79,9 +79,11 @@ Pullman, WA 99163`;
 				</ul>
 			</article>
 
+			<br />
+
 			<article class="sponsor-card">
 				<h3>Silver Package</h3>
-				<p class="amount">($1250 or equivalent in products or services)</p>
+				<p class="amount">($1500 or equivalent in products or services)</p>
 				<ul>
 					<li>Specific social media post about your company</li>
 					<li>Medium logo on this year’s car</li>
@@ -92,7 +94,7 @@ Pullman, WA 99163`;
 
 			<article class="sponsor-card">
 				<h3>Bronze Package</h3>
-				<p class="amount">($750 or equivalent in products or services)</p>
+				<p class="amount">($1000 or equivalent in products or services)</p>
 				<ul>
 					<li>Small logo or name on this year’s car</li>
 					<li>Wazzu Racing hat and T-shirt</li>
