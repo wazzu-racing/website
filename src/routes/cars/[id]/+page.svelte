@@ -66,14 +66,14 @@
 			</aside>
 		</section>
 
-		<section class="technical-details">
+		<!-- <section class="technical-details">
 			<h2>Technical Highlights</h2>
 			<ul class="tech-list">
 				{#each car.technicalHighlights as highlight, i (i)}
 					<li>{highlight}</li>
 				{/each}
 			</ul>
-		</section>
+		</section> -->
 	</article>
 
 	<nav class="car-navigation">
