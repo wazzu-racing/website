@@ -129,6 +129,10 @@
 			>. Follow our club pages and social media for the latest build updates and event
 			announcements.
 		</p>
+		<p>
+			Stay informed with our <a href="/newsletter">newsletter</a> for updates on events, build progress,
+			and team news.
+		</p>
 	</section>
 </main>
 

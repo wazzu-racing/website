@@ -41,9 +41,10 @@
 			<a href="https://github.com/wazzu-racing" target="_blank" rel="noopener">GitHub</a>
 		</p>
 
-		<p class="note">
-			If you'd like to meet or schedule a visit, include suggested dates and the purpose of your
-			visit in the email and we will respond with available times.
+		<h3>Newsletter</h3>
+		<p>
+			Stay updated on events, build progress, and team news:
+			<a href="/newsletter" class="newsletter-link">View Newsletter</a>
 		</p>
 	</section>
 </main>
@@ -122,6 +123,16 @@
 		margin-top: 1rem;
 		color: #555;
 		font-size: 0.95rem;
+	}
+
+	.newsletter-link {
+		color: #8a0000;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+	.newsletter-link:hover {
+		text-decoration: underline;
 	}
 
 	@media (max-width: 600px) {

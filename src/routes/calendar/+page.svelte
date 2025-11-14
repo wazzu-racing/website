@@ -178,9 +178,6 @@
 		<p class="lede">
 			Public events, meetings, and competition dates. Click an event to view more details.
 		</p>
-		<p>
-			<button class="cta" on:click={() => navigateTo('/newsletter')}>Newsletter</button>
-		</p>
 	</header>
 
 	<section aria-label="Upcoming events" class="events-section">
