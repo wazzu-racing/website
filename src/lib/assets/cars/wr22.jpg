@@ -1,0 +1,33 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4D4D4D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A60F2D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="#3a3a3a"/>
+
+  <!-- Car silhouette -->
+  <path d="M 170 365 L 220 295 L 300 265 L 470 265 L 540 295 L 600 335 L 630 365 L 630 415 L 170 415 Z" fill="url(#grad3)" stroke="#fff" stroke-width="2"/>
+
+  <!-- Wheels -->
+  <circle cx="270" cy="415" r="40" fill="#333" stroke="#fff" stroke-width="3"/>
+  <circle cx="270" cy="415" r="20" fill="#666"/>
+  <circle cx="530" cy="415" r="40" fill="#333" stroke="#fff" stroke-width="3"/>
+  <circle cx="530" cy="415" r="20" fill="#666"/>
+
+  <!-- Roll hoop -->
+  <rect x="360" y="240" width="6" height="25" fill="#fff"/>
+  <path d="M 340 240 Q 370 220 400 240" fill="none" stroke="#fff" stroke-width="4"/>
+
+  <!-- Intake -->
+  <rect x="300" y="265" width="35" height="12" fill="#333" stroke="#fff" stroke-width="1"/>
+
+  <!-- Cockpit detail -->
+  <ellipse cx="380" cy="300" rx="35" ry="20" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
+
+  <!-- Text -->
+  <text x="400" y="515" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#A60F2D" text-anchor="middle">WR-22</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="24" fill="#fff" text-anchor="middle">2022 · Return to Competition</text>
+</svg>

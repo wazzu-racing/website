@@ -1,0 +1,31 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CA1237;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A60F2D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="#2a2a2a"/>
+
+  <!-- Car silhouette -->
+  <path d="M 160 360 L 210 290 L 290 260 L 460 260 L 530 290 L 590 330 L 640 360 L 640 410 L 160 410 Z" fill="url(#grad2)" stroke="#fff" stroke-width="2"/>
+
+  <!-- Wheels -->
+  <circle cx="260" cy="410" r="40" fill="#333" stroke="#fff" stroke-width="3"/>
+  <circle cx="260" cy="410" r="20" fill="#666"/>
+  <circle cx="540" cy="410" r="40" fill="#333" stroke="#fff" stroke-width="3"/>
+  <circle cx="540" cy="410" r="20" fill="#666"/>
+
+  <!-- Wing -->
+  <rect x="550" y="280" width="75" height="6" fill="#CA1237" stroke="#fff" stroke-width="2"/>
+  <rect x="555" y="286" width="4" height="30" fill="#fff"/>
+  <rect x="615" y="286" width="4" height="30" fill="#fff"/>
+
+  <!-- Intake -->
+  <rect x="290" y="260" width="40" height="15" fill="#333" stroke="#fff" stroke-width="1"/>
+
+  <!-- Text -->
+  <text x="400" y="510" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#CA1237" text-anchor="middle">WR-23</text>
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="24" fill="#fff" text-anchor="middle">2023 · Steel Space Frame + Aero</text>
+</svg>

@@ -18,6 +18,7 @@
 
 	<div class="links-right">
 		<a href="/about">About</a>
+		<a href="/cars">Cars</a>
 		<div class="dropdown" role="navigation" onmouseleave={closeMembersDropdown}>
 			<button
 				class="dropdown-toggle"
