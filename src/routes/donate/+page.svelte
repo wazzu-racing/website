@@ -1,5 +1,5 @@
 <script>
-	const contactEmail = 'wazzuracing@wsu.edu';
+	const contactEmail = 'wazzu.racing@wsu.edu';
 	const mailingAddress = `Wazzu Racing
 c/o Voiland College of Engineering and Architecture
 Engineering Laboratory Building

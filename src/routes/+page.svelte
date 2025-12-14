@@ -1,5 +1,6 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
+	import { fade } from 'svelte/transition';
 	// Ensure Font Awesome CSS is present (import kept)
 	import '@fortawesome/fontawesome-svg-core/styles.css';
 
@@ -100,10 +101,10 @@
 
 	// Officers data
 	const officers = [
-		{ name: 'Malcom', role: 'President' },
-		{ name: 'Noah', role: 'Vice President' },
-		{ name: 'Mason', role: 'Chief Engineer' },
-		{ name: 'Sophia', role: 'Safety Lead' }
+		{ name: 'Malcolm', lastname: 'Childs', role: 'President' },
+		{ name: 'Carson', lastname: 'Clary', role: 'Vice President' },
+		{ name: 'Kasey', lastname: 'Kirschling', role: 'Chief Engineer' },
+		{ name: 'Alex', lastname: 'Diaz', role: 'Safety Officer' }
 	];
 </script>
 
@@ -119,8 +120,19 @@
 	<!-- HERO -->
 	<section class="hero" aria-label="Wazzu Racing hero">
 		<!-- background and image (keeps a visible photo at the top) -->
-		<div class="hero-visual" style={"background-image: `url('${slides[current].src}')`"}>
-			<img class="hero-img" src={slides[current].src} alt="" aria-hidden="true" />
+		<div class="hero-visual">
+			{#each slides as slide (slide.id)}
+				{#if slide.id === current}
+					<img
+						class="hero-img"
+						src={slide.src}
+						alt=""
+						aria-hidden="true"
+						in:fade={{ duration: 600 }}
+						out:fade={{ duration: 400 }}
+					/>
+				{/if}
+			{/each}
 			<!-- Gradient overlay for better text contrast -->
 			<div class="hero-gradient"></div>
 		</div>
@@ -153,15 +165,18 @@
 	<!-- ABOUT / JOIN -->
 	<section id="about" class="about">
 		<div class="about-main">
-			<h2>What we do</h2>
+			<h2>About Us</h2>
 			<p>
-				Wazzu Racing is Washington State University's Formula SAE team. Each year students from
-				across engineering and related disciplines design, fabricate, and test a new single-seat
-				race car, learning hands-on skills and competing at national and international events.
+				Wazzu Racing is Washington State University's Formula SAE team.
+
+				<!-- Wazzu Racing is Washington
+				State University's Formula SAE team. Each year students from across engineering and related
+				disciplines design, fabricate, and test a new single-seat race car, learning hands-on skills
+				and competing at national and international events. -->
 			</p>
 			<p class="meet">Meetings: ELB 9 · Saturdays · 11:00 AM</p>
 		</div>
-		<aside class="about-stats" aria-hidden="true">
+		<!-- <aside class="about-stats" aria-hidden="true">
 			<div class="stat">
 				<span class="stat-num">10+</span>
 				<span class="stat-label">Years Competing</span>
@@ -170,7 +185,7 @@
 				<span class="stat-num">100+</span>
 				<span class="stat-label">Student Alumni</span>
 			</div>
-		</aside>
+		</aside> -->
 	</section>
 
 	<!-- OFFICERS -->
@@ -197,13 +212,15 @@
 					<ul>
 						{#each officers as officer (officer.name)}
 							<li>
-								<strong>{officer.name}</strong> — {officer.role}
+								<strong>{officer.name} {officer.lastname}</strong> — {officer.role}
 							</li>
 						{/each}
 					</ul>
 				</div>
 
-				<a href="/members" class="learn-more" data-sveltekit-preload-data>Meet the Full Team →</a>
+				<a href="/members/current/" class="learn-more" data-sveltekit-preload-data
+					>Meet the Full Team →</a
+				>
 			</div>
 		</article>
 	</section>
@@ -288,9 +305,8 @@
 	.hero-visual {
 		position: absolute;
 		inset: 0;
-		background-size: cover;
-		background-position: center;
 		z-index: 0;
+		background: #000;
 	}
 
 	.hero-gradient {
@@ -306,11 +322,12 @@
 
 	/* explicit image ensures the topmost visible image loads (decorative alt) */
 	.hero-img {
+		position: absolute;
+		inset: 0;
 		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		/* keep image for layout and preloading, but we use background image visually */
 	}
 
 	.hero-overlay {
@@ -340,10 +357,10 @@
 		margin-bottom: 0.25rem;
 		color: #fff;
 		font-weight: 700;
-		text-shadow:
+		/*text-shadow:
 			0 2px 4px rgba(0, 0, 0, 0.9),
 			0 4px 12px rgba(0, 0, 0, 0.7),
-			0 0 30px rgba(0, 0, 0, 0.5);
+			0 0 30px rgba(0, 0, 0, 0.5);*/
 		-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
 	}
 
@@ -353,10 +370,10 @@
 		margin: 0.25rem 0 0.5rem;
 		color: var(--white);
 		font-weight: 900;
-		text-shadow:
+		/*text-shadow:
 			0 3px 6px rgba(0, 0, 0, 1),
 			0 6px 18px rgba(0, 0, 0, 0.8),
-			0 10px 40px rgba(0, 0, 0, 0.6);
+			0 10px 40px rgba(0, 0, 0, 0.6);*/
 		letter-spacing: 0.5px;
 		-webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.4);
 	}
@@ -367,10 +384,10 @@
 		color: var(--white);
 		font-size: 1.25rem;
 		font-weight: 600;
-		text-shadow:
+		/*text-shadow:
 			0 2px 4px rgba(0, 0, 0, 0.9),
 			0 4px 12px rgba(0, 0, 0, 0.7),
-			0 0 25px rgba(0, 0, 0, 0.5);
+			0 0 25px rgba(0, 0, 0, 0.5);*/
 	}
 
 	/* HERO CONTROLS (dots-only and CTA under hero) */
@@ -434,30 +451,6 @@
 		color: var(--muted);
 		font-weight: 700;
 		margin-top: 0.35rem;
-	}
-
-	.about-stats {
-		background: var(--white);
-		border-radius: 8px;
-		padding: 1rem;
-		box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
-	}
-
-	.stat {
-		text-align: center;
-		padding: 0.45rem 0;
-	}
-
-	.stat-num {
-		display: block;
-		font-weight: 800;
-		color: var(--crimson);
-		font-size: 1.2rem;
-	}
-
-	.stat-label {
-		color: var(--muted);
-		font-size: 0.92rem;
 	}
 
 	/* OFFICERS */
@@ -580,104 +573,6 @@
 	.learn-more:hover {
 		color: var(--crimson-dark);
 		text-decoration: underline;
-	}
-
-	/* GALLERY */
-	.gallery {
-		max-width: 1200px;
-		margin: 0 auto 2.5rem;
-		padding: 0 1rem;
-	}
-
-	.grid {
-		display: grid;
-		gap: 12px;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	}
-
-	.grid-item {
-		border-radius: 8px;
-		overflow: hidden;
-		padding: 0;
-		border: none;
-		background: var(--white);
-		cursor: pointer;
-		aspect-ratio: 4/3;
-		display: block;
-	}
-
-	.grid-item img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		display: block;
-		transition: transform 0.22s ease;
-	}
-
-	.grid-item:hover img {
-		transform: scale(1.03);
-	}
-
-	/* LIGHTBOX */
-	.lightbox {
-		position: fixed;
-		inset: 0;
-		background: rgba(0, 0, 0, 0.85);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 2rem;
-		z-index: 2000;
-	}
-
-	.lb-inner {
-		max-width: min(1100px, 96vw);
-		max-height: 86vh;
-		text-align: center;
-	}
-
-	.lb-inner img {
-		max-width: 100%;
-		max-height: 78vh;
-		object-fit: contain;
-		border-radius: 6px;
-	}
-
-	.lb-caption {
-		color: #ddd;
-		margin-top: 0.6rem;
-	}
-
-	.lb-prev,
-	.lb-next,
-	.lb-close {
-		position: absolute;
-		background: transparent;
-		color: var(--white);
-		border: none;
-		font-size: 22px;
-		cursor: pointer;
-		padding: 6px;
-	}
-
-	.lb-close {
-		right: 18px;
-		top: 18px;
-		font-size: 20px;
-	}
-
-	.lb-prev {
-		left: 18px;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 28px;
-	}
-
-	.lb-next {
-		right: 18px;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 28px;
 	}
 
 	/* Responsive tweaks */

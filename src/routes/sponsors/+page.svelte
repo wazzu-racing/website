@@ -14,6 +14,7 @@
 		{
 			id: 'crimson',
 			title: 'Crimson Partners',
+			color: '--primary-crimson',
 			description: 'Our top-tier partners who provide exceptional support and resources.',
 			sponsors: [
 				{ name: 'Platinum Co. 1', url: '#', logo: placeholderLogo },
@@ -23,6 +24,7 @@
 		{
 			id: 'gold',
 			title: 'Gold Partners',
+			color: 'yellow',
 			description: 'Major sponsors who enable key subsystems and long-term support.',
 			sponsors: [
 				{ name: 'Gold Co. 1', url: '#', logo: placeholderLogo },
@@ -33,6 +35,7 @@
 		{
 			id: 'silver',
 			title: 'Silver Partners',
+			color: 'green',
 			description: 'Important contributors who support manufacturing, materials, and testing.',
 			sponsors: [
 				{ name: 'Silver Co. 1', url: '#', logo: placeholderLogo },
@@ -44,6 +47,7 @@
 		{
 			id: 'bronze',
 			title: 'Bronze Partners',
+			color: 'blue',
 			description: 'Contributers',
 			sponsors: [
 				{ name: 'Supporter 1', url: '#', logo: placeholderLogo },
@@ -56,6 +60,7 @@
 		{
 			id: 'personal',
 			title: 'Personal Supporters',
+			color: 'black',
 			description: 'Organizations and friends who help keep Wazzu Racing moving.',
 			sponsors: [
 				{ name: 'Supporter 1', url: '#', logo: placeholderLogo },
@@ -88,11 +93,19 @@
 		</div>
 	</section>
 
+	<section class="cta">
+		<p>
+			Interested in sponsoring Wazzu Racing? Learn about sponsorship levels and benefits on our
+			<a href="/contact">contact</a> page or email us at
+			<a href="mailto:wazzu.racing@wsu.edu">wazzu.racing@wsu.edu</a>.
+		</p>
+	</section>
+
 	<section class="tiers">
 		{#each tiers as tier}
 			<article id={tier.id} class="tier">
 				<header class="tier-header">
-					<div class="tier-title">{tier.title}</div>
+					<div class="tier-title" style="color: {tier.color}">{tier.title}</div>
 					{#if tier.description}
 						<p class="tier-desc">{tier.description}</p>
 					{/if}
@@ -112,21 +125,13 @@
 								<img src={sponsor.logo} alt={sponsor.name + ' logo'} loading="lazy" />
 							</div>
 							<div class="sponsor-info">
-								<div class="sponsor-name">{sponsor.name}</div>
+								<div class="sponsor-name" style="color: {tier.color}">{sponsor.name}</div>
 							</div>
 						</a>
 					{/each}
 				</div>
 			</article>
 		{/each}
-	</section>
-
-	<section class="cta">
-		<p>
-			Interested in sponsoring Wazzu Racing? Learn about sponsorship levels and benefits on our
-			<a href="/contact">contact</a> page or email us at
-			<a href="mailto:contact@wazzuracing.wsu.edu">contact@wazzuracing.wsu.edu</a>.
-		</p>
 	</section>
 </main>
 

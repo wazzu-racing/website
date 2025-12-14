@@ -22,7 +22,7 @@
 
 		<p>
 			Email:
-			<a class="email" href="mailto:wazzuracing@wsu.edu">wazzuracing@wsu.edu</a>
+			<a class="email" href="mailto:wazzu.racing@wsu.edu">wazzu.racing@wsu.edu</a>
 		</p>
 
 		<h3>Mailing address</h3>

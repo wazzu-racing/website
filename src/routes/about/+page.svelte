@@ -21,44 +21,104 @@
 <main class="container">
 	<section class="intro sideBySide">
 		<div class="text">
+			<h2>About Us</h2>
+			<em>Rough intro about the team</em>
+
 			<p>
-				Wazzu Racing is a student-led Formula SAE (FSAE) team at Washington State University. We
+				<!-- Wazzu Racing is a student-led Formula SAE (FSAE) team at Washington State University. We
 				design, build, and compete with a formula-style race car in an international competition
 				with universities from around the world. The program challenges students to apply classroom
 				theory to practical engineering problems — from CAD and composites to vehicle dynamics and
-				project management.
+				project management. -->
 			</p>
 
 			<p>
-				Over the past two decades the team has grown in technical depth and student leadership.
+				<!-- Over the past two decades the team has grown in technical depth and student leadership.
 				Members gain hands-on experience in mechanical and electrical systems, controls,
 				manufacturing, and the business aspects of motorsport projects such as cost reporting and
-				presentations.
+				presentations. -->
 			</p>
 		</div>
 
 		<figure class="leadImage">
 			<img src={teamPicture} alt="Wazzu Racing team posing in front of the car" />
-			<figcaption>Team and car at a regional competition</figcaption>
+			<figcaption>Figure caption</figcaption>
 		</figure>
 	</section>
 
 	<section class="whatWeDo">
-		<h2>What we build</h2>
+		<h2>About the car</h2>
+
+		<em>Some technical details about the car</em>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+
 		<p>
-			Each year we design and fabricate a new competition car. Work spans chassis and suspension
+			<!-- Each year we design and fabricate a new competition car. Work spans chassis and suspension
 			design, powertrain integration, aerodynamics, electronics, and safety systems. Prototyping and
 			testing are central — we iterate using data acquisition and driver feedback to improve
-			performance and reliability.
+			performance and reliability. -->
 		</p>
 
 		<ul>
-			<li>Full vehicle design and manufacturing each season</li>
+			<!-- <li>Full vehicle design and manufacturing each season</li>
 			<li>Aero development and CFD-informed updates</li>
 			<li>Data-driven testing and performance tuning</li>
-			<li>Documentation, cost analysis, and business presentations for static events</li>
+			<li>Documentation, cost analysis, and business presentations for static events</li> -->
 		</ul>
 	</section>
+
+	<section class="join">
+		<h2>Join the team</h2>
+		<p>
+			We welcome students from any major. Whether you're interested in design, fabrication,
+			electronics, programming, or business, there's a place for you. No prior FSAE experience is
+			required — we run workshops and mentorships to bring new members up to speed.
+		</p>
+	</section>
+
+	<section class="impact">
+		<h2>Impact & partnerships</h2>
+		<p>
+			Wazzu Racing has helped hundreds of students develop real-world engineering skills and
+			professional experience. Alumni have gone on to careers in motorsports, automotive, aerospace,
+			and other technical fields. We value collaborations with industry partners and alumni —
+			sponsorships, mentorship, and in-kind support all make a meaningful difference.
+		</p>
+	</section>
+
+	<section class="contact">
+		<h2>Contact</h2>
+		<p>
+			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzuracing@wsu.edu"
+				>wazzuracing@wsu.edu</a
+			>. Follow our club pages and social media for the latest build updates and event
+			announcements.
+		</p>
+		<p>
+			Stay informed with our <a href="/newsletter">newsletter</a> for updates on events, build progress,
+			and team news.
+		</p>
+	</section>
+
+	<!-- <div class="howTo">
+		<h3>How to get involved</h3>
+		<ol>
+			<li>Attend an interest meeting (check our events or socials for dates)</li>
+			<li>
+				Contact our officers or reach out via email: <a href="mailto:wazzuracing@wsu.edu"
+					>wazzuracing@wsu.edu</a
+				>
+			</li>
+			<li>
+				Join a subteam: chassis, powertrain, aero, controls, manufacturing, marketing, or business
+			</li>
+		</ol>
+	</div> -->
 
 	<section class="gallery">
 		<h2>Gallery</h2>
@@ -86,60 +146,7 @@
 			</figure>
 		</div>
 	</section>
-
-	<section class="join">
-		<h2>Join the team</h2>
-		<p>
-			We welcome students from any major. Whether you're interested in design, fabrication,
-			electronics, programming, or business, there's a place for you. No prior FSAE experience is
-			required — we run workshops and mentorships to bring new members up to speed.
-		</p>
-
-		<div class="howTo">
-			<h3>How to get involved</h3>
-			<ol>
-				<li>Attend an interest meeting (check our events or socials for dates)</li>
-				<li>
-					Contact our officers or reach out via email: <a href="mailto:wazzuracing@wsu.edu"
-						>wazzuracing@wsu.edu</a
-					>
-				</li>
-				<li>
-					Join a subteam: chassis, powertrain, aero, controls, manufacturing, marketing, or business
-				</li>
-			</ol>
-		</div>
-	</section>
-
-	<section class="impact">
-		<h2>Impact & partnerships</h2>
-		<p>
-			Wazzu Racing has helped hundreds of students develop real-world engineering skills and
-			professional experience. Alumni have gone on to careers in motorsports, automotive, aerospace,
-			and other technical fields. We value collaborations with industry partners and alumni —
-			sponsorships, mentorship, and in-kind support all make a meaningful difference.
-		</p>
-	</section>
-
-	<section class="contact">
-		<h2>Contact</h2>
-		<p>
-			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzuracing@wsu.edu"
-				>wazzuracing@wsu.edu</a
-			>. Follow our club pages and social media for the latest build updates and event
-			announcements.
-		</p>
-		<p>
-			Stay informed with our <a href="/newsletter">newsletter</a> for updates on events, build progress,
-			and team news.
-		</p>
-	</section>
 </main>
-
-<footer class="siteFooter">
-	<p>© Wazzu Racing — Washington State University</p>
-	<p>Competing in Formula SAE for {yearsCompeting} years</p>
-</footer>
 
 <style>
 	:global(body) {

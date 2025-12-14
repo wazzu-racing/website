@@ -28,12 +28,12 @@ preview it.
 
 
 
-- [ ] alumni (top bar > current members, alumni)
-- [ ] officers on main page
-- [ ] better contrast on top page
-- [ ] car gallery page
-  - [ ] tiled layout for different cars, click to see more.
-- [ ] enroll in newsletter, both in contact and about
-- [ ] update sponsorship packet file
+- [X] alumni (top bar > current members, alumni)
+- [X] better contrast on top page
+- [X] officers on main page
+- [X] car gallery page
+  - [X] tiled layout for different cars, click to see more.
+- [X] enroll in newsletter, both in contact and about
+- [X] update sponsorship packet file
 - [ ] buy merch page
 - [ ] wishlist on donate page

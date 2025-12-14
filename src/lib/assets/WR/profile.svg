@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <style>
+    :root {
+      --primary-gray: #9ca3af;
+      --primary-crimson: #dc143c;
+    }
+  </style>
+
+  <!-- Gray background -->
+  <rect width="200" height="200" fill="var(--primary-gray)"/>
+
+  <!-- Crimson user silhouette -->
+  <g fill="var(--primary-crimson)">
+    <!-- Head (circle) -->
+    <circle cx="100" cy="65" r="32"/>
+
+    <!-- Body (rounded shape) -->
+    <path d="M 100 102
+             C 70 102, 45 115, 45 140
+             L 45 170
+             C 45 178, 50 183, 60 183
+             L 140 183
+             C 150 183, 155 178, 155 170
+             L 155 140
+             C 155 115, 130 102, 100 102 Z"/>
+  </g>
+</svg>

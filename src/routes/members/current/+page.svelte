@@ -1,6 +1,7 @@
 <script>
 	import Member from '$lib/components/Member.svelte';
-	import photo from '$lib/assets/WR/ChatGPT_Image_4_15_2025.png';
+	// import photo from '$lib/assets/WR/ChatGPT_Image_4_15_2025.png';
+	import photo from '$lib/assets/WR/profile.svg';
 
 	// canonical list of subteams to render sections for (order matters)
 	const subteams = [
@@ -16,10 +17,44 @@
 		'Vehicle Dynamics'
 	];
 
+	const members = [
+		{
+			name: 'Malcom',
+			picture: photo,
+			subteams: ['Business and Cost', 'President'],
+			major: 'IDK',
+			years: 'IDK',
+			about: 'TBD'
+		},
+		{
+			name: 'Carson',
+			picture: photo,
+			subteams: ['Business and Cost', 'Data Aquisition', 'Vice President'],
+			major: 'Electrical Engineering',
+			years: 'IDK',
+			about: 'TBD'
+		},
+		{
+			name: 'Blake',
+			picture: photo,
+			subteams: ['Data Aquisition'],
+			major: 'Computer Science',
+			years: 'IDK',
+			about: 'TBD'
+		},
+		{
+			name: 'Calvin',
+			picture: photo,
+			subteams: ['Data Aquisition', 'Vehicle Dynamics'],
+			years: 'IDK',
+			about: 'TBD'
+		}
+	];
+
 	// Replace or extend this array with real member data (e.g. fetched from a CMS or API).
 	// Each member can belong to multiple subteams by listing them in `subteams`.
 	// Note: titles have been removed as top-level fields and are instead included in the `subteams` array.
-	const members = [
+	const oldMembers = [
 		{
 			name: 'Malcom',
 			picture: photo,
