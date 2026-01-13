@@ -1,81 +1,26 @@
-<script>
+<script lang="ts">
 	import Member from '$lib/components/Member.svelte';
-	import photo from '$lib/assets/WR/ChatGPT_Image_4_15_2025.png';
+	// import photo from '$lib/assets/WR/ChatGPT_Image_4_15_2025.png';
 
 	// Alumni members data
-	const members = [
-		{
-			name: 'Sarah Chen',
-			picture: photo,
-			subteams: ['Business and Cost', 'President'],
-			major: 'Mechanical Engineering',
-			years: '2019–2022',
-			about: 'Former team president, now working as a design engineer at Tesla.'
-		},
-		{
-			name: 'Marcus Johnson',
-			picture: photo,
-			subteams: ['Drivetrain', 'Chief Engineer'],
-			major: 'Mechanical Engineering',
-			years: '2018–2021',
-			about: 'Led technical development for three competition seasons.'
-		},
-		{
-			name: 'Emily Rodriguez',
-			picture: photo,
-			subteams: ['Aero Composites', 'Aerodynamics'],
-			major: 'Aerospace Engineering',
-			years: '2020–2023',
-			about: "Pioneered the team's first full carbon fiber aero package."
-		},
-		{
-			name: 'David Kim',
-			picture: photo,
-			subteams: ['Electrical', 'Data Aquisition'],
-			major: 'Electrical Engineering',
-			years: '2019–2022',
-			about: "Developed the team's data acquisition system from the ground up."
-		},
-		{
-			name: 'Rachel Thompson',
-			picture: photo,
-			subteams: ['Suspension', 'Vehicle Dynamics'],
-			major: 'Mechanical Engineering',
-			years: '2018–2021',
-			about: 'Optimized suspension geometry and setup procedures.'
-		},
-		{
-			name: 'James Wilson',
-			picture: photo,
-			subteams: ['Engine', 'Powertrain'],
-			major: 'Mechanical Engineering',
-			years: '2017–2020',
-			about: 'Managed engine tuning and reliability testing.'
-		},
-		{
-			name: 'Amanda Lee',
-			picture: photo,
-			subteams: ['Chassis', 'Safety Lead'],
-			major: 'Mechanical Engineering',
-			years: '2019–2022',
-			about: 'Established safety protocols still used by the team today.'
-		},
-		{
-			name: 'Tyler Brown',
-			picture: photo,
-			subteams: ['Vehicle Dynamics', 'Driver'],
-			isDriver: true,
-			major: 'Mechanical Engineering',
-			years: '2018–2021',
-			about: 'Lead driver for three competition seasons.'
-		}
-	];
+	const members: {
+		name: string;
+		picture: string;
+		subteams: string[];
+		major: string;
+		years: string;
+		about: string;
+	}[] = [];
 </script>
 
 <main class="members-page">
 	<header class="page-header">
 		<h1>Alumni</h1>
 		<p class="lede">Honoring past team members who helped build the foundation of Wazzu Racing.</p>
+
+		<section id="comingsoon">
+			<h2>Coming soon - we're working to show our alumni here</h2>
+		</section>
 	</header>
 
 	<!-- All Alumni -->
@@ -118,9 +63,7 @@
 	}
 
 	h1 {
-		font-size: clamp(1.5rem, 2.2vw, 2.2rem);
 		margin: 0;
-		letter-spacing: -0.02em;
 		color: #0f172a;
 	}
 

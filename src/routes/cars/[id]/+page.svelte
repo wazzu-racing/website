@@ -120,10 +120,8 @@
 	}
 
 	.car-header h1 {
-		font-size: 3rem;
 		color: var(--primary-crimson);
 		margin: 0;
-		font-weight: 700;
 	}
 
 	.year {
@@ -164,10 +162,8 @@
 	}
 
 	.description h2 {
-		font-size: 1.75rem;
 		color: var(--primary-crimson);
 		margin: 0 0 1.5rem 0;
-		font-weight: 700;
 	}
 
 	.description p {
@@ -191,23 +187,15 @@
 	}
 
 	.info-card h3 {
-		font-size: 1.1rem;
 		color: var(--primary-gray);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
 		margin: 0 0 1rem 0;
-		font-weight: 600;
 		border-bottom: 2px solid var(--primary-crimson);
 		padding-bottom: 0.5rem;
 	}
 
 	.info-card h4 {
-		font-size: 0.9rem;
 		color: var(--primary-gray);
-		text-transform: uppercase;
-		letter-spacing: 0.3px;
 		margin: 1rem 0 0.5rem 0;
-		font-weight: 600;
 	}
 
 	.competition-details .event-name {
@@ -286,10 +274,8 @@
 	}
 
 	.technical-details h2 {
-		font-size: 1.75rem;
 		color: var(--primary-crimson);
 		margin: 0 0 1.5rem 0;
-		font-weight: 700;
 	}
 
 	.tech-list {
@@ -339,10 +325,6 @@
 			gap: 2rem;
 		}
 
-		.car-header h1 {
-			font-size: 2.25rem;
-		}
-
 		.year {
 			font-size: 1.25rem;
 		}
@@ -359,10 +341,6 @@
 	@media (max-width: 600px) {
 		.container {
 			padding: 1.5rem 1rem;
-		}
-
-		.car-header h1 {
-			font-size: 1.75rem;
 		}
 
 		.year {

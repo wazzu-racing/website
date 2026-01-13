@@ -357,25 +357,7 @@
 		margin-bottom: 0.25rem;
 		color: #fff;
 		font-weight: 700;
-		/*text-shadow:
-			0 2px 4px rgba(0, 0, 0, 0.9),
-			0 4px 12px rgba(0, 0, 0, 0.7),
-			0 0 30px rgba(0, 0, 0, 0.5);*/
 		-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
-	}
-
-	.team {
-		/* larger, bolder, and higher-contrast heading */
-		font-size: clamp(2.6rem, 8vw, 5rem);
-		margin: 0.25rem 0 0.5rem;
-		color: var(--white);
-		font-weight: 900;
-		/*text-shadow:
-			0 3px 6px rgba(0, 0, 0, 1),
-			0 6px 18px rgba(0, 0, 0, 0.8),
-			0 10px 40px rgba(0, 0, 0, 0.6);*/
-		letter-spacing: 0.5px;
-		-webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.4);
 	}
 
 	.subtitle {
@@ -384,10 +366,6 @@
 		color: var(--white);
 		font-size: 1.25rem;
 		font-weight: 600;
-		/*text-shadow:
-			0 2px 4px rgba(0, 0, 0, 0.9),
-			0 4px 12px rgba(0, 0, 0, 0.7),
-			0 0 25px rgba(0, 0, 0, 0.5);*/
 	}
 
 	/* HERO CONTROLS (dots-only and CTA under hero) */
@@ -434,17 +412,6 @@
 		grid-template-columns: 1fr 280px;
 		gap: 1.35rem;
 		align-items: start;
-	}
-
-	.about-main h2 {
-		margin: 0 0 0.5rem 0;
-		color: var(--crimson);
-	}
-
-	.about-main p {
-		margin: 0 0 0.5rem 0;
-		color: #333;
-		line-height: 1.55;
 	}
 
 	.meet {
@@ -514,9 +481,6 @@
 
 	.officer-header h2 {
 		margin: 0;
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--crimson);
 	}
 
 	.year {
@@ -534,15 +498,6 @@
 
 	.team-leads {
 		margin: 0;
-	}
-
-	.team-leads h3 {
-		font-size: 1rem;
-		color: var(--muted);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		margin: 0 0 0.5rem 0;
-		font-weight: 600;
 	}
 
 	.team-leads ul {
@@ -586,9 +541,7 @@
 		.hero-text {
 			padding: 1.25rem;
 		}
-		.team {
-			font-size: clamp(1.4rem, 7.5vw, 2.6rem);
-		}
+
 		.hero-controls-below {
 			margin-top: 0.5rem;
 			gap: 10px;
@@ -596,10 +549,6 @@
 		.officer-entry {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
-		}
-
-		.officer-header h2 {
-			font-size: 1.75rem;
 		}
 	}
 
@@ -609,10 +558,6 @@
 		}
 		.officer-entry {
 			padding: 1.5rem;
-		}
-
-		.officer-header h2 {
-			font-size: 1.5rem;
 		}
 
 		.year {

@@ -115,9 +115,7 @@
 	}
 
 	h1 {
-		font-size: clamp(1.4rem, 2.2vw, 2rem);
 		margin: 0;
-		letter-spacing: -0.02em;
 		color: #0f172a;
 	}
 
@@ -155,7 +153,6 @@
 
 	.article-title {
 		margin: 0;
-		font-size: 1.05rem;
 	}
 
 	.article-link {

@@ -5,16 +5,15 @@
 	import car2 from '$lib/assets/WR/4.jpg';
 	import pits from '$lib/assets/WR/30.jpg';
 	import shop from '$lib/assets/WR/5.jpg';
-
-	// The user indicated the team has been competing for 20 years.
-	const yearsCompeting = 20;
 </script>
 
 <svelte:head>
 	<title>About — Wazzu Racing</title>
 	<meta
 		name="description"
-		content="Wazzu Racing — Washington State University's Formula SAE team. We design, build, and race a formula-style car while teaching students practical engineering and teamwork."
+		content="Wazzu Racing — Washington State University's Formula SAE team.
+		We design, build, and race a formula-style car while teaching students
+		practical engineering and teamwork."
 	/>
 </svelte:head>
 
@@ -22,21 +21,19 @@
 	<section class="intro sideBySide">
 		<div class="text">
 			<h2>About Us</h2>
-			<em>Rough intro about the team</em>
+			<!-- <em>Rough intro about the team</em> -->
 
 			<p>
-				<!-- Wazzu Racing is a student-led Formula SAE (FSAE) team at Washington State University. We
-				design, build, and compete with a formula-style race car in an international competition
-				with universities from around the world. The program challenges students to apply classroom
-				theory to practical engineering problems — from CAD and composites to vehicle dynamics and
-				project management. -->
+				Wazzu Racing is a student-led Formula SAE team at Washington State University. Every year we
+				design and build a formula-style race car. Then every May we travel to the Michigan
+				International Speedway to compete against 119 other universities in a variety of events.
 			</p>
 
 			<p>
-				<!-- Over the past two decades the team has grown in technical depth and student leadership.
-				Members gain hands-on experience in mechanical and electrical systems, controls,
-				manufacturing, and the business aspects of motorsport projects such as cost reporting and
-				presentations. -->
+				In addition to building a car, student on the team learn valuable skills &mdash from CAD to
+				aerodynamics to vehicle suspension &mdash; that will be useful later in life. In addition to
+				applying what they learn in class, students have to go above and beyond to learn new skills,
+				while also gaining hands-on experience in exactly what it takes to create an entire racecar.
 			</p>
 		</div>
 
@@ -47,15 +44,30 @@
 	</section>
 
 	<section class="whatWeDo">
-		<h2>About the car</h2>
+		<h2>About Formula SAE</h2>
 
-		<em>Some technical details about the car</em>
+		Formula SAE is a yearly collegiate competition. Students design and build small open-wheeled
+		racecars, then race them against other teams from all around the globe. Each year teams travel
+		to Michigan International Speedway to compete.
+
+		<!-- Formula SAE is an annual collegiate competition where students design,
+		build, and race a small open-wheeled racecar against other college
+		teams. Teams from all across the globe travel to Michigan International
+		Speedway each year to compete in this event. The competition is broken
+		into two categories: static events and dynamic events. Static events are
+		where industry professionals judge the quality of the car and the team
+		through a series of reports and presentations. Dynamic events are where
+		the car races a series of time trials against other teams. The five
+		dynamic events are Acceleration, Endurance, Autocross, Efficiency, and
+		Skidpad. A breakdown of the events and scoring is below. -->
+
+		<!-- <em>Some technical details about the car</em> -->
+		<!-- <br />
+		<br /> -->
+		<!-- <br />
 		<br />
 		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+		<br /> -->
 
 		<p>
 			<!-- Each year we design and fabricate a new competition car. Work spans chassis and suspension
@@ -179,7 +191,6 @@
 
 	.heroText h1 {
 		margin: 0;
-		font-size: 1.6rem;
 	}
 
 	.heroText .tagline {
@@ -219,7 +230,6 @@
 
 	h2 {
 		margin-top: 1.75rem;
-		font-size: 1.2rem;
 	}
 
 	.whatWeDo ul,
@@ -283,9 +293,7 @@
 		.hero {
 			padding: 1rem;
 		}
-		.heroText h1 {
-			font-size: 1.25rem;
-		}
+
 		.gallery .grid {
 			grid-template-columns: 1fr;
 		}

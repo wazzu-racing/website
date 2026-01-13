@@ -175,7 +175,6 @@
 
 	.title {
 		margin: 0;
-		font-size: clamp(1.6rem, 3.8vw, 2.6rem);
 		color: #111;
 	}
 
@@ -200,7 +199,6 @@
 
 	.tier-title {
 		color: var(--primary-crimson);
-		font-size: 1.05rem;
 		font-weight: 800;
 		letter-spacing: 0.4px;
 	}

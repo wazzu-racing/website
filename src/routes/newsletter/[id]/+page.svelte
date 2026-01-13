@@ -179,7 +179,6 @@
 	}
 	.title {
 		margin: 0 0 0.25rem 0;
-		font-size: clamp(1.25rem, 2.5vw, 1.6rem);
 	}
 	.meta {
 		color: var(--muted);

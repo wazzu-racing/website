@@ -12,7 +12,7 @@
 </script>
 
 <header class="navbar">
-	<a href="/" class="active">
+	<a href="/">
 		<img id="logo" src="/racing_logo.png" alt="Wazzu Racing's logo" />
 	</a>
 
@@ -36,8 +36,8 @@
 		</div>
 		<a href="/calendar">Calendar</a>
 		<a href="/sponsors">Sponsors</a>
-		<a href="/donate">Donate</a>
 		<a href="/contact">Contact</a>
+		<a class="donate" href="/donate">Donate</a>
 	</div>
 </header>
 
@@ -108,7 +108,7 @@
 		display: flex;
 		align-self: center;
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 100;
+		font-weight: 300;
 		font-size: 16px;
 		color: var(--secondary-white);
 	}
@@ -123,17 +123,17 @@
 
 	.links-right {
 		margin-left: auto;
+
 		display: flex;
 	}
 
 	.navbar a {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 100;
+		font-weight: 300;
 		display: block;
-		margin: auto 0;
+		margin: auto 14px;
 		color: var(--secondary-white);
 		text-align: center;
-		padding: 14px 20px;
 		text-decoration: none;
 		font-size: 14pt;
 	}
@@ -159,7 +159,7 @@
 
 	.dropdown-toggle {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 100;
+		font-weight: 300;
 		background: none;
 		border: none;
 		color: var(--secondary-white);
@@ -196,5 +196,18 @@
 	.dropdown-menu a:hover {
 		background-color: #1a1a1a;
 		color: var(--primary-crimson);
+	}
+
+	#logo {
+		/*height: 50%;*/
+		height: 6vh;
+		width: auto;
+		/*position: relative;*/
+	}
+
+	.donate {
+		background-color: var(--primary-crimson);
+		border-radius: 5px;
+		padding: 10px;
 	}
 </style>

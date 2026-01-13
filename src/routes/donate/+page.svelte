@@ -145,7 +145,6 @@ Pullman, WA 99163`;
 
 	h1 {
 		margin: 0 0 0.45rem 0;
-		font-size: 1.6rem;
 		color: #8a0000;
 	}
 

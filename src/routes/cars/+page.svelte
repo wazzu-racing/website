@@ -82,10 +82,8 @@
 	}
 
 	.page-header h1 {
-		font-size: 2.5rem;
 		color: var(--primary-crimson);
 		margin: 0 0 1rem 0;
-		font-weight: 700;
 	}
 
 	.intro {
@@ -170,8 +168,6 @@
 
 	.car-header h2 {
 		margin: 0;
-		font-size: 2rem;
-		font-weight: 700;
 	}
 
 	.car-header h2 a {
@@ -205,12 +201,8 @@
 
 	.team-leads h3,
 	.competition-summary h3 {
-		font-size: 1rem;
 		color: var(--primary-gray);
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
 		margin: 0 0 0.5rem 0;
-		font-weight: 600;
 	}
 
 	.team-leads ul,
@@ -289,10 +281,6 @@
 			order: initial;
 		}
 
-		.page-header h1 {
-			font-size: 2rem;
-		}
-
 		.intro {
 			font-size: 1rem;
 		}
@@ -309,10 +297,6 @@
 
 		.car-entry {
 			padding: 1.5rem;
-		}
-
-		.car-header h2 {
-			font-size: 1.5rem;
 		}
 
 		.year {

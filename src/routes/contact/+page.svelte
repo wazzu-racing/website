@@ -66,7 +66,6 @@
 
 	.heroText h1 {
 		margin: 0;
-		font-size: 1.6rem;
 	}
 
 	.tagline {
@@ -90,13 +89,11 @@
 
 	h2 {
 		margin-top: 0;
-		font-size: 1.15rem;
 	}
 
 	h3 {
 		margin-bottom: 0.25rem;
 		margin-top: 1rem;
-		font-size: 1rem;
 	}
 
 	a.email {

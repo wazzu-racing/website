@@ -278,9 +278,7 @@
 	}
 
 	h1 {
-		font-size: clamp(1.5rem, 2.2vw, 2.2rem);
 		margin: 0;
-		letter-spacing: -0.02em;
 		color: #0f172a;
 	}
 
@@ -296,7 +294,6 @@
 
 	.subteam-section h2 {
 		margin: 0 0 0.5rem 0;
-		font-size: 1.125rem;
 		color: #0f172a;
 	}
 
