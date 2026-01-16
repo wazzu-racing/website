@@ -12,6 +12,8 @@
 	// Car image for officers section
 	import carImage from '$lib/assets/WR/e.png';
 
+	import teamPicture from '$lib/assets/WR/zeppos-team-picture.png';
+
 	// Gallery images (commented out since gallery is disabled)
 	/*
 	import g1 from '$lib/assets/WR/1.png';
@@ -167,25 +169,14 @@
 		<div class="about-main">
 			<h2>About Us</h2>
 			<p>
-				Wazzu Racing is Washington State University's Formula SAE team.
-
-				<!-- Wazzu Racing is Washington
-				State University's Formula SAE team. Each year students from across engineering and related
-				disciplines design, fabricate, and test a new single-seat race car, learning hands-on skills
-				and competing at national and international events. -->
+				Wazzu Racing is the Formula SAE team for Washington State University. Every year we design
+				and build a race car, then compete against other teams at the Michigan International
+				Speedway.
 			</p>
-			<p class="meet">Meetings: ELB 9 · Saturdays · 11:00 AM</p>
 		</div>
-		<!-- <aside class="about-stats" aria-hidden="true">
-			<div class="stat">
-				<span class="stat-num">10+</span>
-				<span class="stat-label">Years Competing</span>
-			</div>
-			<div class="stat">
-				<span class="stat-num">100+</span>
-				<span class="stat-label">Student Alumni</span>
-			</div>
-		</aside> -->
+		<div class="about-image">
+			<img src={teamPicture} alt="The team with the car" />
+		</div>
 	</section>
 
 	<!-- OFFICERS -->
@@ -409,15 +400,38 @@
 		margin: 1.25rem auto 2rem;
 		padding: 0 1rem;
 		display: grid;
-		grid-template-columns: 1fr 280px;
-		gap: 1.35rem;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.5rem;
 		align-items: start;
 	}
 
-	.meet {
-		color: var(--muted);
-		font-weight: 700;
-		margin-top: 0.35rem;
+	.about-main {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.about-main h2 {
+		margin: 0 0 0.5rem 0;
+	}
+
+	.about-main p {
+		margin: 0;
+		line-height: 1.6;
+	}
+
+	.about-image {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.about-image img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 8px;
 	}
 
 	/* OFFICERS */
@@ -432,15 +446,6 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 2.5rem;
 		align-items: start;
-		padding: 2rem;
-		background: #fafafa;
-		border-radius: 12px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-		transition: box-shadow 0.3s ease;
-	}
-
-	.officer-entry:hover {
-		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 	}
 
 	.officer-image {
@@ -459,11 +464,6 @@
 		height: 100%;
 		object-fit: contain;
 		display: block;
-		transition: transform 0.3s ease;
-	}
-
-	.officer-entry:hover .officer-image img {
-		transform: scale(1.05);
 	}
 
 	.officer-info {
@@ -556,8 +556,8 @@
 		.hero {
 			height: 52vh;
 		}
-		.officer-entry {
-			padding: 1.5rem;
+		.about-image {
+			margin-top: 1rem;
 		}
 
 		.year {
