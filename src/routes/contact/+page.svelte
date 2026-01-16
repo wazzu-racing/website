@@ -8,44 +8,40 @@
 
 <main class="container">
 	<section class="hero">
-		<div class="heroText">
-			<h1>Contact</h1>
-			<p class="tagline">
-				For membership questions, sponsorship inquiries, or general information, email us and we'll
-				get back to you.
-			</p>
-		</div>
+		<h1>Contact</h1>
 	</section>
 
 	<section class="contactCard">
-		<h2>Get in touch</h2>
-
 		<p>
-			Email:
-			<a class="email" href="mailto:wazzu.racing@wsu.edu">wazzu.racing@wsu.edu</a>
+			Feel free to email us at <a href="mailto:wazzu.racing@wsu.edu">wazzu.racing@wsu.edu</a>
+			for any questions you may have. We'll get back to you as soon as possible.
 		</p>
 
-		<h3>Mailing address</h3>
-		<address>
-			Engineering Laboratory<br />
-			900 NE College Ave<br />
-			Pullman, WA 99163
-		</address>
+		<h2>Social Media</h2>
+		Check out our social media accounts:
 
-		<h3>Follow</h3>
-		<p class="socials">
-			<a href="https://www.instagram.com/wazzu_racing" target="_blank" rel="noopener">Instagram</a>
-			·
-			<a href="https://www.linkedin.com/wazzu-racing" target="_blank" rel="noopener">LinkedIn</a>
-			·
-			<a href="https://github.com/wazzu-racing" target="_blank" rel="noopener">GitHub</a>
-		</p>
+		<ul>
+			<li>
+				<a target="_blank" rel="noopener" href="https://www.instagram.com/wazzu_racing"
+					>@wazzu_racing</a
+				> on Instagram
+			</li>
+			<li>
+				<a target="_blank" rel="noopener" href="https://www.linkedin.com/company/wazzu-racing/"
+					>wazzu-racing</a
+				> on LinkedIn
+			</li>
+			<li>
+				<a target="_blank" rel="noopener" href="https://github.com/wazzu-racing">wazzu-racing</a> on
+				GitHub
+			</li>
+		</ul>
 
-		<h3>Newsletter</h3>
-		<p>
-			Stay updated on events, build progress, and team news:
-			<a href="/newsletter" class="newsletter-link">View Newsletter</a>
-		</p>
+		<h2>Join the Club</h2>
+		If you are a student at WSU and you are interested in joining the club, first
+		<a href="https://discord.gg/PQjz8bKtX9" target="_blank" rel="noopener">join our Discord</a>,
+		then come to one of our general meetings (11AM every Saturday, in our
+		<a href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7" target="_blank" rel="noopener">shop</a>).
 	</section>
 </main>
 
@@ -54,61 +50,6 @@
 		max-width: 1100px;
 		margin: 2rem auto;
 		padding: 0 1rem;
-	}
-
-	.tagline {
-		margin: 0.25rem 0 0;
-		color: #444;
-		font-size: 0.95rem;
-	}
-
-	.card {
-		background: transparent;
-		border-radius: 0;
-		padding: 0;
-		box-shadow: none;
-		border: none;
-	}
-
-	.contactCard {
-		margin-top: 1.25rem;
-		max-width: 820px;
-	}
-
-	a.email {
-		color: #8a0000;
-		text-decoration: none;
-		font-weight: 500;
-	}
-
-	a.email:hover {
-		text-decoration: underline;
-	}
-
-	.socials a {
-		color: #8a0000;
-		text-decoration: none;
-		margin-right: 0.4rem;
-	}
-
-	.socials a:hover {
-		text-decoration: underline;
-	}
-
-	.note {
-		margin-top: 1rem;
-		color: #555;
-		font-size: 0.95rem;
-	}
-
-	.newsletter-link {
-		color: #8a0000;
-		text-decoration: none;
-		font-weight: 500;
-	}
-
-	.newsletter-link:hover {
-		text-decoration: underline;
 	}
 
 	@media (max-width: 600px) {
