@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
+	import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+	import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+
 	let { children } = $props();
 	let membersDropdownOpen = $state(false);
 
@@ -57,10 +61,39 @@
 			>
 		</div>
 
-		<div id="location">
-			<h1>
-				Engineering Laboratory<br />900 NE College Ave<br />Pullman, WA 99163
-			</h1>
+		<div id="social-icons">
+			<a
+				href="https://www.instagram.com/wazzu_racing"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Instagram"
+			>
+				<FontAwesomeIcon icon={faInstagram} size="2x" />
+			</a>
+			<a
+				href="https://www.linkedin.com/company/wazzu-racing/"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="LinkedIn"
+			>
+				<FontAwesomeIcon icon={faLinkedin} size="2x" />
+			</a>
+			<a
+				href="https://github.com/wazzu-racing"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="GitHub"
+			>
+				<FontAwesomeIcon icon={faGithub} size="2x" />
+			</a>
+			<a
+				href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Location"
+			>
+				<FontAwesomeIcon icon={faLocationDot} size="2x" />
+			</a>
 		</div>
 	</div>
 </footer>
@@ -98,20 +131,21 @@
 		width: 20vw;
 	}
 
-	#location {
+	#social-icons {
 		display: flex;
-		align-content: center;
+		align-items: center;
 		justify-content: right;
+		gap: 24px;
 		width: 100%;
 	}
 
-	#location h1 {
-		display: flex;
-		align-self: center;
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 300;
-		font-size: 16px;
+	#social-icons a {
 		color: var(--secondary-white);
+		transition: color 0.3s ease;
+	}
+
+	#social-icons a:hover {
+		color: var(--primary-crimson);
 	}
 
 	.navbar {
@@ -145,11 +179,6 @@
 
 	.navbar a:hover {
 		color: var(--primary-crimson);
-	}
-
-	.navbar a.active {
-		background-color: black;
-		float: left;
 	}
 
 	/* Dropdown styles */
