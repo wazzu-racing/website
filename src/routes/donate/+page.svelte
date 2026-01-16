@@ -143,11 +143,6 @@ Pullman, WA 99163`;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 	}
 
-	h1 {
-		margin: 0 0 0.45rem 0;
-		color: #8a0000;
-	}
-
 	/* Use the same paragraph styling as other pages */
 	p {
 		margin: 0 0 0.75rem 0;

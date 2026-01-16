@@ -34,7 +34,8 @@
 				</div>
 			{/if}
 		</div>
-		<a href="/calendar">Calendar</a>
+		<!-- <a href="/calendar">Calendar</a> -->
+		<!-- TODO Coming soon -->
 		<a href="/sponsors">Sponsors</a>
 		<a href="/contact">Contact</a>
 		<a class="donate" href="/donate">Donate</a>

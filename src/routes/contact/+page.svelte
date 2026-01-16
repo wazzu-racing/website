@@ -56,18 +56,6 @@
 		padding: 0 1rem;
 	}
 
-	.hero {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding: 1rem 0;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-	}
-
-	.heroText h1 {
-		margin: 0;
-	}
-
 	.tagline {
 		margin: 0.25rem 0 0;
 		color: #444;
@@ -85,15 +73,6 @@
 	.contactCard {
 		margin-top: 1.25rem;
 		max-width: 820px;
-	}
-
-	h2 {
-		margin-top: 0;
-	}
-
-	h3 {
-		margin-bottom: 0.25rem;
-		margin-top: 1rem;
 	}
 
 	a.email {

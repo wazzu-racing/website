@@ -77,13 +77,9 @@
 	}
 
 	.page-header {
-		text-align: center;
+		/*text-align: center;*/
+		text-align: justify;
 		margin-bottom: 3rem;
-	}
-
-	.page-header h1 {
-		color: var(--primary-crimson);
-		margin: 0 0 1rem 0;
 	}
 
 	.intro {
@@ -301,10 +297,6 @@
 
 		.year {
 			font-size: 1.1rem;
-		}
-
-		.page-header h1 {
-			font-size: 1.75rem;
 		}
 	}
 </style>

@@ -18,9 +18,9 @@
 </svelte:head>
 
 <main class="container">
+	<h1>About Us</h1>
 	<section class="intro sideBySide">
 		<div class="text">
-			<h2>About Us</h2>
 			<!-- <em>Rough intro about the team</em> -->
 
 			<p>

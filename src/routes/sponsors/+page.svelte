@@ -84,7 +84,6 @@
 <main class="sponsors-page">
 	<section class="hero">
 		<div class="hero-inner">
-			<div class="badge">Washington State University</div>
 			<h1 class="title">Sponsors & Partners</h1>
 			<p class="lead">
 				Thank you to the companies, alumni, and friends who support Wazzu Racing. Your contributions
@@ -163,7 +162,7 @@
 	.hero-inner {
 		max-width: 1100px;
 		margin: 0 auto;
-		text-align: center;
+		text-align: justify;
 	}
 
 	.badge {

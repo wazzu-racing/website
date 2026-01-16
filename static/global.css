@@ -44,6 +44,7 @@ p{
 /* Heading styles */
 h1 {
     font-size: 4rem;
+    text-align: center;
     margin: 0.25rem 0 0.5rem;
     /*color: var(--secondary-white);*/
     font-weight: 900;
