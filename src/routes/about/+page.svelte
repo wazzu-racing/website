@@ -21,8 +21,6 @@
 	<h1>About Us</h1>
 	<section class="intro sideBySide">
 		<div class="text">
-			<!-- <em>Rough intro about the team</em> -->
-
 			<p>
 				Wazzu Racing is a student-led Formula SAE team at Washington State University. Every year we
 				design and build a formula-style race car. Then every May we travel to the Michigan
@@ -30,25 +28,32 @@
 			</p>
 
 			<p>
-				In addition to building a car, student on the team learn valuable skills &mdash from CAD to
+				In addition to building a car, student on the team learn valuable skills &mdash; from CAD to
 				aerodynamics to vehicle suspension &mdash; that will be useful later in life. In addition to
 				applying what they learn in class, students have to go above and beyond to learn new skills,
 				while also gaining hands-on experience in exactly what it takes to create an entire racecar.
+			</p>
+
+			<p>
+				Currently ranked 60th out of the 120 teams that competed in Michigan 2025, we are
+				continually striving to improve.
 			</p>
 		</div>
 
 		<figure class="leadImage">
 			<img src={teamPicture} alt="Wazzu Racing team posing in front of the car" />
-			<figcaption>Figure caption</figcaption>
+			<figcaption>The team with the car at competition in 2025</figcaption>
 		</figure>
 	</section>
 
 	<section class="whatWeDo">
 		<h2>About Formula SAE</h2>
 
-		Formula SAE is a yearly collegiate competition. Students design and build small open-wheeled
-		racecars, then race them against other teams from all around the globe. Each year teams travel
-		to Michigan International Speedway to compete.
+		<p>
+			Formula SAE is a yearly collegiate competition. Students design and build small open-wheeled
+			racecars, then race them against other teams from all around the globe. Each year teams travel
+			to Michigan International Speedway to compete.
+		</p>
 
 		<!-- Formula SAE is an annual collegiate competition where students design,
 		build, and race a small open-wheeled racecar against other college
@@ -106,8 +111,8 @@
 	<section class="contact">
 		<h2>Contact</h2>
 		<p>
-			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzuracing@wsu.edu"
-				>wazzuracing@wsu.edu</a
+			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzu.racing@wsu.edu"
+				>wazzu.racing@wsu.edu</a
 			>. Follow our club pages and social media for the latest build updates and event
 			announcements.
 		</p>
@@ -115,48 +120,6 @@
 			Stay informed with our <a href="/newsletter">newsletter</a> for updates on events, build progress,
 			and team news.
 		</p>
-	</section>
-
-	<!-- <div class="howTo">
-		<h3>How to get involved</h3>
-		<ol>
-			<li>Attend an interest meeting (check our events or socials for dates)</li>
-			<li>
-				Contact our officers or reach out via email: <a href="mailto:wazzuracing@wsu.edu"
-					>wazzuracing@wsu.edu</a
-				>
-			</li>
-			<li>
-				Join a subteam: chassis, powertrain, aero, controls, manufacturing, marketing, or business
-			</li>
-		</ol>
-	</div> -->
-
-	<section class="gallery">
-		<h2>Gallery</h2>
-		<p class="galleryIntro">A few snapshots from the shop, the pits, and on track.</p>
-
-		<div class="grid">
-			<figure>
-				<img src={car1} alt="Wazzu Racing car on track" />
-				<figcaption>On-track testing</figcaption>
-			</figure>
-
-			<figure>
-				<img src={car2} alt="Close-up of a car component" />
-				<figcaption>Component detail and craftsmanship</figcaption>
-			</figure>
-
-			<figure>
-				<img src={pits} alt="Pit area and crew working on the car" />
-				<figcaption>Pit crew during an event</figcaption>
-			</figure>
-
-			<figure>
-				<img src={shop} alt="Students working in the shop" />
-				<figcaption>Hands-on build sessions in the shop</figcaption>
-			</figure>
-		</div>
 	</section>
 </main>
 
@@ -215,6 +178,7 @@
 	.text {
 		flex: 1 1 420px;
 		min-width: 260px;
+		text-align: justify;
 	}
 
 	.leadImage {
@@ -230,11 +194,6 @@
 
 	h2 {
 		margin-top: 1.75rem;
-	}
-
-	.whatWeDo ul,
-	.highlights ul {
-		padding-left: 1.2rem;
 	}
 
 	.gallery .grid {
@@ -262,18 +221,6 @@
 		margin-top: 0.4rem;
 	}
 
-	.join .howTo ol {
-		padding-left: 1.2rem;
-	}
-
-	.siteFooter {
-		margin-top: 2.5rem;
-		padding: 1.2rem;
-		text-align: center;
-		color: #666;
-		border-top: 1px solid rgba(0, 0, 0, 0.04);
-	}
-
 	a {
 		color: #8a0000;
 		text-decoration: none;
@@ -290,10 +237,6 @@
 	}
 
 	@media (max-width: 560px) {
-		.hero {
-			padding: 1rem;
-		}
-
 		.gallery .grid {
 			grid-template-columns: 1fr;
 		}
