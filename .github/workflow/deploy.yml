@@ -1,13 +1,15 @@
-name: Deploy from Svelte to Github Pages
-
-# By the way this is taken from
-# https://www.captaincodeman.com/deploy-a-sveltekit-app-to-github-pages
+# Workflow to build and deploy a SvelteKit website to GitHub Pages
+name: Deploy static SvelteKit content to Pages
 
 on:
-  # Trigger the workflow on every push to the main branch
+  # Runs on pushes targeting the default branch
   push:
-    branches: [main]
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -20,41 +22,41 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-site:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: actions/checkout@v4
+
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          version: 8
-      - name: Install dependencies (website)
-        # Install dependencies for the Svelte site located in the `website` subfolder.
-        run: pnpm --dir website install --frozen-lockfile
+          node-version: 24
+          # cache: pnpm
 
-      - name: Generate newsletter articles
-        # Run the local script that converts markdown files into the generated JSON
-        # used by the app. This must run before building so the generated JSON is
-        # included in the built site.
-        run: node website/scripts/generate-articles.mjs
-
-      - name: Build site
-        # Build the SvelteKit site (produces `build/` inside the `website` folder).
-        run: pnpm --dir website build
+      - name: Install dependencies
+        run: npm install
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
-          static_site_generator: sveltekit
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v1
+          static_site_generator: 'sveltekit'
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          # Upload the build output from the website subfolder.
-          path: 'website/build/'
+          path: 'build/'
 
   deploy:
-    needs: build
+    needs: build-site
     runs-on: ubuntu-latest
 
     environment:
@@ -62,6 +64,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
