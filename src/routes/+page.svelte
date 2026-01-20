@@ -178,7 +178,7 @@
 				Formula SAE is a collegiate design competition organized by the Society of Automotive
 				Engineers. The competition is based on a formula race car with which students are granted
 				the opportunity to design , build, and compete on an international playing field. By
-				competing, students are challenged with applying classroom knowledge to real world prob lems
+				competing, students are challenged with applying classroom knowledge to real world problems
 				that bolster their ability to communicate and work in teams. Leadership roles in the team
 				further demand an ever-improving capacity to manage projects and leadership to succeed.
 			</p>
