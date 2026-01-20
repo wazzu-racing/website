@@ -181,53 +181,6 @@
 		color: var(--primary-crimson);
 	}
 
-	/* Dropdown styles */
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-
-	.dropdown-toggle {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 300;
-		background: none;
-		border: none;
-		color: var(--secondary-white);
-		cursor: pointer;
-		font-size: 14pt;
-		padding: 14px 20px;
-		margin: 0;
-		display: block;
-	}
-
-	.dropdown-toggle:hover {
-		color: var(--primary-crimson);
-	}
-
-	.dropdown-menu {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		background-color: black;
-		min-width: 180px;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-		z-index: 1000;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.dropdown-menu a {
-		padding: 12px 20px;
-		text-align: left;
-		display: block;
-		font-size: 14pt;
-	}
-
-	.dropdown-menu a:hover {
-		background-color: #1a1a1a;
-		color: var(--primary-crimson);
-	}
-
 	#logo {
 		/*height: 50%;*/
 		height: 6vh;

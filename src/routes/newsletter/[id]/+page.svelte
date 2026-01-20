@@ -211,11 +211,6 @@
 		line-height: 1.6;
 	}
 
-	.article-body img {
-		max-width: 100%;
-		height: auto;
-	}
-
 	.article-footer {
 		margin-top: 1.25rem;
 		display: flex;

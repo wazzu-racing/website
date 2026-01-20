@@ -151,11 +151,7 @@ Pullman, WA 99163`;
 	}
 
 	.donation-options,
-	.corporate,
-	.in-kind,
-	.mailing,
-	.impact,
-	.contact-card {
+	.corporate {
 		margin-top: 1.4rem;
 	}
 
@@ -164,12 +160,6 @@ Pullman, WA 99163`;
 		flex-wrap: wrap;
 		gap: 10px;
 		margin-top: 0.6rem;
-	}
-
-	.packet-row {
-		display: flex;
-		gap: 10px;
-		margin-top: 0.9rem;
 	}
 
 	.btn {
@@ -240,36 +230,12 @@ Pullman, WA 99163`;
 		flex-grow: 1;
 	}
 
-	.tier-list {
-		padding-left: 1.05rem;
-		color: #333;
-	}
-
-	.address {
-		background: #f9f9f9;
-		border-radius: 6px;
-		padding: 10px;
-		font-family:
-			ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Helvetica Neue', monospace;
-		font-size: 0.95rem;
-		white-space: pre-wrap;
-	}
-
-	.note {
-		font-size: 0.95rem;
-		color: #555;
-		margin-top: 0.6rem;
-	}
-
 	@media (max-width: 720px) {
 		.heroRow {
 			flex-direction: column;
 			align-items: flex-start;
 		}
 		.cta-row {
-			flex-direction: column;
-		}
-		.packet-row {
 			flex-direction: column;
 		}
 	}

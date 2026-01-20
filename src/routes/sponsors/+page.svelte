@@ -165,13 +165,6 @@
 		text-align: justify;
 	}
 
-	.badge {
-		font-weight: 700;
-		color: var(--primary-crimson);
-		letter-spacing: 0.6px;
-		margin-bottom: 0.35rem;
-	}
-
 	.title {
 		margin: 0;
 		color: #111;

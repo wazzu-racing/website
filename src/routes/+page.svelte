@@ -529,20 +529,6 @@
 		color: #222;
 	}
 
-	.learn-more {
-		display: inline-block;
-		color: var(--crimson);
-		font-weight: 600;
-		text-decoration: none;
-		margin-top: 0.5rem;
-		transition: color 0.2s ease;
-	}
-
-	.learn-more:hover {
-		color: var(--crimson-dark);
-		text-decoration: underline;
-	}
-
 	/* Responsive tweaks */
 	@media (max-width: 860px) {
 		.about {
