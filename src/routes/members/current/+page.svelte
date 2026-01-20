@@ -9,7 +9,7 @@
 		'Business and Cost',
 		'Chassis',
 		'Cockpit Controls',
-		'Data Aquisition',
+		'Data Acquisition',
 		'Drivetrain',
 		'Electrical',
 		'Engine',
@@ -29,7 +29,7 @@
 		{
 			name: 'Carson',
 			picture: photo,
-			subteams: ['Business and Cost', 'Data Aquisition', 'Vice President'],
+			subteams: ['Business and Cost', 'Data Acquisition', 'Vice President'],
 			major: 'Electrical Engineering',
 			years: 'IDK',
 			about: 'TBD'
@@ -37,7 +37,7 @@
 		{
 			name: 'Blake',
 			picture: photo,
-			subteams: ['Data Aquisition'],
+			subteams: ['Data Acquisition'],
 			major: 'Computer Science',
 			years: 'IDK',
 			about: 'TBD'
@@ -45,7 +45,7 @@
 		{
 			name: 'Calvin',
 			picture: photo,
-			subteams: ['Data Aquisition', 'Vehicle Dynamics'],
+			subteams: ['Data Acquisition', 'Vehicle Dynamics'],
 			years: 'IDK',
 			about: 'TBD'
 		}
@@ -67,7 +67,7 @@
 		{
 			name: 'Calvin',
 			picture: photo,
-			subteams: ['Data Aquisition', 'Vehicle Dynamics'],
+			subteams: ['Data Acquisition', 'Vehicle Dynamics'],
 			major: 'Computer Science',
 			years: '2025-2025',
 			about: 'Collects and analyses data from car sensors to provide data for other subteams.'
@@ -99,7 +99,7 @@
 		{
 			name: 'Liam',
 			picture: photo,
-			subteams: ['Electrical', 'Data Aquisition', 'Electronics'],
+			subteams: ['Electrical', 'Data Acquisition', 'Electronics'],
 			major: 'Electrical Engineering',
 			years: '2023–2025',
 			about: 'Handles wiring, sensors, and data acquisition systems.'
@@ -123,7 +123,7 @@
 		{
 			name: 'Noah',
 			picture: photo,
-			subteams: ['Business and Cost', 'Data Aquisition', 'Vice President'],
+			subteams: ['Business and Cost', 'Data Acquisition', 'Vice President'],
 			major: 'Business Administration',
 			years: '2022–2025',
 			about: 'Oversees budgeting, cost reports, and business outreach.'

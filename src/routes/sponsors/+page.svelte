@@ -48,7 +48,7 @@
 			id: 'bronze',
 			title: 'Bronze Partners',
 			color: 'blue',
-			description: 'Contributers',
+			description: 'Contributors',
 			sponsors: [
 				{ name: 'Supporter 1', url: '#', logo: placeholderLogo },
 				{ name: 'Supporter 2', url: '#', logo: placeholderLogo },
