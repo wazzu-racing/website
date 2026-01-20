@@ -5,6 +5,7 @@
 	import car2 from '$lib/assets/WR/4.jpg';
 	import pits from '$lib/assets/WR/30.jpg';
 	import shop from '$lib/assets/WR/5.jpg';
+	import fastCar from '$lib/assets/WR/21.png';
 </script>
 
 <svelte:head>
@@ -36,76 +37,32 @@
 
 			<p>
 				Currently ranked 60th out of the 120 teams that competed in Michigan 2025, we are
-				continually striving to improve.
+				continually striving to improve our team and car. Since 2023, we have improved our score by
+				280 points, and moved up 58 places in competition.
 			</p>
 		</div>
 
 		<figure class="leadImage">
-			<img src={teamPicture} alt="Wazzu Racing team posing in front of the car" />
-			<figcaption>The team with the car at competition in 2025</figcaption>
+			<img src={fastCar} alt="Wazzu Racing team posing in front of the car" />
 		</figure>
 	</section>
 
-	<section class="whatWeDo">
-		<h2>About Formula SAE</h2>
+	<section class="intro sideBySide">
+		<figure class="leadImage">
+			<img src={teamPicture} alt="Wazzu Racing team posing in front of the car" />
+			<figcaption>The team with the car at competition in 2025</figcaption>
+		</figure>
 
-		<p>
-			Formula SAE is a yearly collegiate competition. Students design and build small open-wheeled
-			racecars, then race them against other teams from all around the globe. Each year teams travel
-			to Michigan International Speedway to compete.
-		</p>
-
-		<!-- Formula SAE is an annual collegiate competition where students design,
-		build, and race a small open-wheeled racecar against other college
-		teams. Teams from all across the globe travel to Michigan International
-		Speedway each year to compete in this event. The competition is broken
-		into two categories: static events and dynamic events. Static events are
-		where industry professionals judge the quality of the car and the team
-		through a series of reports and presentations. Dynamic events are where
-		the car races a series of time trials against other teams. The five
-		dynamic events are Acceleration, Endurance, Autocross, Efficiency, and
-		Skidpad. A breakdown of the events and scoring is below. -->
-
-		<!-- <em>Some technical details about the car</em> -->
-		<!-- <br />
-		<br /> -->
-		<!-- <br />
-		<br />
-		<br />
-		<br /> -->
-
-		<p>
-			<!-- Each year we design and fabricate a new competition car. Work spans chassis and suspension
-			design, powertrain integration, aerodynamics, electronics, and safety systems. Prototyping and
-			testing are central — we iterate using data acquisition and driver feedback to improve
-			performance and reliability. -->
-		</p>
-
-		<ul>
-			<!-- <li>Full vehicle design and manufacturing each season</li>
-			<li>Aero development and CFD-informed updates</li>
-			<li>Data-driven testing and performance tuning</li>
-			<li>Documentation, cost analysis, and business presentations for static events</li> -->
-		</ul>
-	</section>
-
-	<section class="join">
-		<h2>Join the team</h2>
-		<p>
-			We welcome students from any major. Whether you're interested in design, fabrication,
-			electronics, programming, or business, there's a place for you. No prior FSAE experience is
-			required — we run workshops and mentorships to bring new members up to speed.
-		</p>
-	</section>
-
-	<section class="impact">
-		<h2>Impact & partnerships</h2>
-		<p>
-			Wazzu Racing has helped hundreds of students develop real-world engineering skills and
-			professional experience. Alumni have gone on to careers in motorsports, automotive, aerospace,
-			and other technical fields. We value collaborations with industry partners and alumni —
-			sponsorships, mentorship, and in-kind support all make a meaningful difference.
-		</p>
+		<div class="text">
+			<h2>Our Members</h2>
+			<p>
+				Wazzu Racing is made up of more than 50 students of diverse backgrounds and experiences,
+				joined together by a passion for motorsports. We have ten subteams covering all aspects of
+				the car, with students in many different majors, including business, communication,
+				engineering, and more. Members are encouraged to branch out and take on multifaceted
+				projects that cover a wide range of skills and expose them to new ideas.
+			</p>
+		</div>
 	</section>
 
 	<section class="contact">
@@ -113,12 +70,7 @@
 		<p>
 			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzu.racing@wsu.edu"
 				>wazzu.racing@wsu.edu</a
-			>. Follow our club pages and social media for the latest build updates and event
-			announcements.
-		</p>
-		<p>
-			Stay informed with our <a href="/newsletter">newsletter</a> for updates on events, build progress,
-			and team news.
+			>. For more information, see our <a href="/contact">contact page</a>.
 		</p>
 	</section>
 </main>
