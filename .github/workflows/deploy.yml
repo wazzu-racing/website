@@ -47,6 +47,9 @@ jobs:
         with:
           static_site_generator: 'sveltekit'
 
+      - name: Build blog files
+        run: node scripts/generate-articles.mjs
+
       - name: Build site
         run: npm run build
 
