@@ -209,9 +209,9 @@
 					</ul>
 				</div>
 
-				<a href="/members/current/" class="learn-more" data-sveltekit-preload-data
+				<!-- <a href="/members/current/" class="learn-more" data-sveltekit-preload-data
 					>Meet the Full Team →</a
-				>
+				> -->
 			</div>
 		</article>
 	</section>

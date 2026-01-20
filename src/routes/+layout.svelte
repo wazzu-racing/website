@@ -22,7 +22,7 @@
 
 	<div class="links-right">
 		<a href="/about">About</a>
-		<a href="/cars">Cars</a>
+		<!-- <a href="/cars">Cars</a>
 		<div class="dropdown" role="navigation" onmouseleave={closeMembersDropdown}>
 			<button
 				class="dropdown-toggle"
@@ -37,10 +37,10 @@
 					<a href="/members/alumni" onclick={closeMembersDropdown}>Alumni</a>
 				</div>
 			{/if}
-		</div>
+		</div> -->
 		<!-- <a href="/calendar">Calendar</a> -->
 		<!-- TODO Coming soon -->
-		<a href="/sponsors">Sponsors</a>
+		<!-- <a href="/sponsors">Sponsors</a> -->
 		<a href="/contact">Contact</a>
 		<a class="donate" href="/donate">Donate</a>
 	</div>
