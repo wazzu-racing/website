@@ -63,6 +63,7 @@ jobs:
   deploy:
     needs: build-site
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
 
     environment:
       name: github-pages
