@@ -5,14 +5,14 @@
 	import '@fortawesome/fontawesome-svg-core/styles.css';
 
 	// Hero / gallery images from the WR folder
-	import hero1 from '$lib/assets/WR/30.jpg';
-	import hero2 from '$lib/assets/WR/4.jpg';
-	import hero3 from '$lib/assets/WR/5.jpg';
+	import hero1 from '$lib/assets/WR/30.jpg?enhanced';
+	import hero2 from '$lib/assets/WR/4.jpg?enhanced';
+	import hero3 from '$lib/assets/WR/5.jpg?enhanced';
 
 	// Car image for officers section
-	import carImage from '$lib/assets/WR/e.png';
+	import carImage from '$lib/assets/WR/e.png?enhanced';
 
-	import teamPicture from '$lib/assets/WR/zeppos-team-picture.png';
+	import teamPicture from '$lib/assets/WR/zeppos-team-picture.png?enhanced';
 
 	// Gallery images (commented out since gallery is disabled)
 	/*
@@ -125,11 +125,13 @@
 		<div class="hero-visual">
 			{#each slides as slide (slide.id)}
 				{#if slide.id === current}
-					<img
+					<enhanced:img
 						class="hero-img"
 						src={slide.src}
 						alt=""
 						aria-hidden="true"
+						sizes="100vw"
+						fetchpriority={slide.id === 0 ? 'high' : 'auto'}
 						in:fade={{ duration: 600 }}
 						out:fade={{ duration: 400 }}
 					/>
@@ -188,7 +190,11 @@
 			</p>
 		</div>
 		<div class="about-image">
-			<img src={teamPicture} alt="The team with the car" />
+			<enhanced:img
+				src={teamPicture}
+				alt="The team with the car"
+				sizes="(min-width: 1200px) 600px, 50vw"
+			/>
 		</div>
 	</section>
 
@@ -196,7 +202,7 @@
 	<section id="officers" class="officers">
 		<article class="officer-entry">
 			<div class="officer-image">
-				<img src={carImage} alt="Wazzu Racing car" />
+				<enhanced:img src={carImage} alt="Wazzu Racing car" />
 			</div>
 
 			<div class="officer-info">
@@ -440,7 +446,8 @@
 		justify-content: center;
 	}
 
-	.about-image img {
+	.about-image :global(img),
+	.about-image :global(picture) {
 		width: 100%;
 		height: auto;
 		display: block;
@@ -472,7 +479,8 @@
 		justify-content: center;
 	}
 
-	.officer-image img {
+	.officer-image :global(img),
+	.officer-image :global(picture) {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;

@@ -1,11 +1,6 @@
 <script>
-	import logo from '$lib/assets/WR/backgroundless_clean.png';
-	import teamPicture from '$lib/assets/WR/12.jpg';
-	import car1 from '$lib/assets/WR/3.jpg';
-	import car2 from '$lib/assets/WR/4.jpg';
-	import pits from '$lib/assets/WR/30.jpg';
-	import shop from '$lib/assets/WR/5.jpg';
-	import fastCar from '$lib/assets/WR/21.png';
+	import teamPicture from '$lib/assets/WR/12.jpg?enhanced';
+	import fastCar from '$lib/assets/WR/21.png?enhanced';
 </script>
 
 <svelte:head>
@@ -43,13 +38,21 @@
 		</div>
 
 		<figure class="leadImage">
-			<img src={fastCar} alt="Wazzu Racing team posing in front of the car" />
+			<enhanced:img
+				src={fastCar}
+				alt="Wazzu Racing team posing in front of the car"
+				sizes="(min-width: 1100px) 500px, 45vw"
+			/>
 		</figure>
 	</section>
 
 	<section class="intro sideBySide">
 		<figure class="leadImage">
-			<img src={teamPicture} alt="Wazzu Racing team posing in front of the car" />
+			<enhanced:img
+				src={teamPicture}
+				alt="Wazzu Racing team posing in front of the car"
+				sizes="(min-width: 1100px) 500px, 45vw"
+			/>
 			<figcaption>The team with the car at competition in 2025</figcaption>
 		</figure>
 
@@ -113,10 +116,17 @@
 		text-align: center;
 	}
 
-	.leadImage img {
+	.leadImage :global(img),
+	.leadImage :global(picture) {
 		width: 100%;
 		border-radius: 8px;
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	}
+
+	.leadImage :global(picture img) {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
 
 	h2 {
