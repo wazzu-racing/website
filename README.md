@@ -28,7 +28,7 @@ preview it.
 - [x] better contrast on top page
 - [x] officers on main page
 - [x] car gallery page
-  - [x] tiled layout for different cars, click to see more.ait
+  - [x] tiled layout for different cars, click to see more.
 - [x] enroll in newsletter, both in contact and about
 - [x] update sponsorship packet file
 - [ ] buy merch page
