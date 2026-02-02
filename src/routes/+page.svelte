@@ -42,7 +42,7 @@
 			<h1 class="mb-4 text-5xl font-bold tracking-wider drop-shadow-lg md:text-6xl lg:text-7xl">
 				Wazzu Racing
 			</h1>
-			<p class="text-xl font-semibold drop-shadow-md md:text-2xl lg:text-3xl">
+			<p class="text-xl font-semibold text-white drop-shadow-md md:text-2xl lg:text-3xl">
 				Washington State University Formula SAE
 			</p>
 		</div>
