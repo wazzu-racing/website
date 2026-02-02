@@ -29,7 +29,7 @@
 				<Li>
 					<a
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						href="https://www.instagram.com/wazzu_racing"
 						class="font-semibold text-red-700 hover:underline"
 					>
@@ -40,7 +40,7 @@
 				<Li>
 					<a
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						href="https://www.linkedin.com/company/wazzu-racing/"
 						class="font-semibold text-red-700 hover:underline"
 					>
@@ -51,7 +51,7 @@
 				<Li>
 					<a
 						target="_blank"
-						rel="noopener"
+						rel="noopener noreferrer"
 						href="https://github.com/wazzu-racing"
 						class="font-semibold text-red-700 hover:underline"
 					>
@@ -69,7 +69,7 @@
 				<a
 					href="https://discord.gg/PQjz8bKtX9"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 					class="font-semibold text-red-700 hover:underline"
 				>
 					join our Discord
@@ -77,7 +77,7 @@
 				<a
 					href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 					class="font-semibold text-red-700 hover:underline"
 				>
 					shop
