@@ -1,10 +1,11 @@
 <script>
+	import { Heading, P, Button, List, Li } from 'flowbite-svelte';
+
 	const contactEmail = 'wazzu.racing@wsu.edu';
 
 	const foundationDonateUrl =
 		'https://foundation.wsu.edu/give/?fund=99981d7c-3c77-4fed-a76b-1267a2069cae&utm_source=sae-formula&utm_medium=wsu-link&utm_campaign=voiland-college-of-engineering-and-architecture';
 
-	// Sponsor packet PDF (bundled asset)
 	import sponsorPacket from '$lib/assets/Wazzu_Racing_Sponsorship_Packet.pdf';
 </script>
 
@@ -16,223 +17,119 @@
 	/>
 </svelte:head>
 
-<main class="container donate-page">
-	<header class="heroRow">
-		<div>
-			<h1>Support Wazzu Racing</h1>
-			<p>
-				Our student-led Formula SAE program depends on donations from alumni, industry partners, and
-				friends to design, build, and compete each season. Your support funds parts, materials,
-				travel, and hands-on learning opportunities for future engineers.
-			</p>
-		</div>
-	</header>
+<main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+	<!-- Hero Section -->
+	<div class="mb-12">
+		<Heading tag="h1" class="mb-4 text-4xl font-bold text-gray-900">Support Wazzu Racing</Heading>
+		<P class="text-lg text-gray-700">
+			Our student-led Formula SAE program depends on donations from alumni, industry partners, and
+			friends to design, build, and compete each season. Your support funds parts, materials,
+			travel, and hands-on learning opportunities for future engineers.
+		</P>
+	</div>
 
-	<section class="donation-options">
-		<h2>Give directly</h2>
-		<p>
-			You can make a secure online gift through the Washington State University Foundation. Select
-			"Other" and note "Wazzu Racing" in the designation, or contact us for a direct link.
-		</p>
-
-		<div class="cta-row">
-			<a class="btn primary" href={foundationDonateUrl} target="_blank" rel="noopener noreferrer"
-				>Donate via WSU Foundation</a
-			>
-			<a class="btn" href={'mailto:' + contactEmail}>Email: {contactEmail}</a>
+	<!-- Direct Donation Section -->
+	<section class="mb-12">
+		<div class="rounded-lg p-6">
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900">Give Directly</Heading>
+			<P class="mb-6 text-gray-700">
+				You can make a secure online gift through the Washington State University Foundation. Select
+				"Other" and note "Wazzu Racing" in the designation, or contact us for a direct link.
+			</P>
+			<div class="flex flex-col gap-3 sm:flex-row">
+				<a href={foundationDonateUrl} target="_blank" rel="noopener noreferrer">
+					<Button size="lg" color="red" class="w-full sm:w-auto">Donate via WSU Foundation</Button>
+				</a>
+				<a href={'mailto:' + contactEmail}>
+					<Button size="lg" color="alternative" class="w-full sm:w-auto">
+						Email: {contactEmail}
+					</Button>
+				</a>
+			</div>
 		</div>
 	</section>
 
-	<section class="corporate">
-		<h2>Corporate sponsorship & partnerships</h2>
-		<p>
-			Industry partners provide critical funding, mentorship, and in-kind support. Sponsorships help
-			cover manufacturing, testing, and travel costs while creating recruiting pipelines for
-			students.
-		</p>
+	<!-- Corporate Sponsorship Section -->
+	<section class="mb-12">
+		<div class="rounded-lg p-6">
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900">
+				Corporate Sponsorship & Partnerships
+			</Heading>
+			<P class="mb-8 text-gray-700">
+				Industry partners provide critical funding, mentorship, and in-kind support. Sponsorships
+				help cover manufacturing, testing, and travel costs while creating recruiting pipelines for
+				students.
+			</P>
 
-		<div class="sponsor-grid">
-			<article class="sponsor-card">
-				<h3>Crimson Package</h3>
-				<p class="amount">($4000+ or equivalent in products or services)</p>
-				<ul>
-					<li>Logos of your choice on this year’s car and/or apparel</li>
-					<li>Personal shop tour</li>
-					<li>Product display at competition with banner</li>
-					<li>Other benefits upon request</li>
-					<li>All items from lower tiers</li>
-				</ul>
-			</article>
+			<!-- Sponsor Packages Grid -->
+			<div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+				<!-- Crimson Package -->
+				<Card class="border-2 border-red-700 bg-red-50">
+					<Heading tag="h3" class="mb-2 text-xl font-bold text-red-700">Crimson Package</Heading>
+					<P class="mb-4 text-sm font-semibold text-gray-800">
+						($4000+ or equivalent in products or services)
+					</P>
+					<List tag="ul" class="space-y-1 text-sm text-gray-700">
+						<Li>Logos of your choice on this year's car and/or apparel</Li>
+						<Li>Personal shop tour</Li>
+						<Li>Product display at competition with banner</Li>
+						<Li>Other benefits upon request</Li>
+						<Li>All items from lower tiers</Li>
+					</List>
+				</Card>
 
-			<article class="sponsor-card">
-				<h3>Gold Package</h3>
-				<p class="amount">($2500 or equivalent in products or services)</p>
-				<ul>
-					<li>Featured on team media with special recognition</li>
-					<li>Large logo on this year’s car</li>
-					<li>Wazzu Racing banner</li>
-					<li>All items from lower tiers</li>
-				</ul>
-			</article>
+				<!-- Gold Package -->
+				<Card class="border-2 border-yellow-500 bg-yellow-50">
+					<Heading tag="h3" class="mb-2 text-xl font-bold text-yellow-700">Gold Package</Heading>
+					<P class="mb-4 text-sm font-semibold text-gray-800">
+						($2500 or equivalent in products or services)
+					</P>
+					<List tag="ul" class="space-y-1 text-sm text-gray-700">
+						<Li>Featured on team media with special recognition</Li>
+						<Li>Large logo on this year's car</Li>
+						<Li>Wazzu Racing banner</Li>
+						<Li>All items from lower tiers</Li>
+					</List>
+				</Card>
 
-			<br />
+				<!-- Silver Package -->
+				<Card class="border-2 border-gray-400 bg-gray-50">
+					<Heading tag="h3" class="mb-2 text-xl font-bold text-gray-600">Silver Package</Heading>
+					<P class="mb-4 text-sm font-semibold text-gray-800">
+						($1500 or equivalent in products or services)
+					</P>
+					<List tag="ul" class="space-y-1 text-sm text-gray-700">
+						<Li>Specific social media post about your company</Li>
+						<Li>Medium logo on this year's car</Li>
+						<Li>3D-printed model of this year's car</Li>
+						<Li>All items from lower tiers</Li>
+					</List>
+				</Card>
 
-			<article class="sponsor-card">
-				<h3>Silver Package</h3>
-				<p class="amount">($1500 or equivalent in products or services)</p>
-				<ul>
-					<li>Specific social media post about your company</li>
-					<li>Medium logo on this year’s car</li>
-					<li>3D-printed model of this year’s car</li>
-					<li>All items from lower tiers</li>
-				</ul>
-			</article>
+				<!-- Bronze Package -->
+				<Card class="border-2 border-orange-700 bg-orange-50">
+					<Heading tag="h3" class="mb-2 text-xl font-bold text-orange-700">Bronze Package</Heading>
+					<P class="mb-4 text-sm font-semibold text-gray-800">
+						($1000 or equivalent in products or services)
+					</P>
+					<List tag="ul" class="space-y-1 text-sm text-gray-700">
+						<Li>Small logo or name on this year's car</Li>
+						<Li>Wazzu Racing hat and T-shirt</Li>
+						<Li>All items from personal donation tier</Li>
+					</List>
+				</Card>
+			</div>
 
-			<article class="sponsor-card">
-				<h3>Bronze Package</h3>
-				<p class="amount">($1000 or equivalent in products or services)</p>
-				<ul>
-					<li>Small logo or name on this year’s car</li>
-					<li>Wazzu Racing hat and T-shirt</li>
-					<li>All items from personal donation tier</li>
-				</ul>
-			</article>
-		</div>
-
-		<div class="sponsor-packet">
-			<p>
-				Want to see sponsorship options and benefits in detail? Download our sponsorship packet
-				(PDF) for the 2025–2026 season.
-			</p>
-			<a class="btn primary" href={sponsorPacket} target="_blank" rel="noopener noreferrer" download
-				>Download Sponsorship Packet (PDF)</a
-			>
+			<!-- Sponsorship Packet Download -->
+			<div class="rounded-lg bg-gray-50 p-6">
+				<P class="mb-4 text-gray-700">
+					Want to see sponsorship options and benefits in detail? Download our sponsorship packet
+					(PDF) for the 2025–2026 season.
+				</P>
+				<a href={sponsorPacket} target="_blank" rel="noopener noreferrer" download>
+					<Button size="lg" color="red">Download Sponsorship Packet (PDF)</Button>
+				</a>
+			</div>
 		</div>
 	</section>
 </main>
-
-<style>
-	:global(body) {
-		font-family:
-			system-ui,
-			-apple-system,
-			'Segoe UI',
-			Roboto,
-			'Helvetica Neue',
-			Arial;
-		margin: 0;
-		color: #111;
-		background: #fff;
-	}
-
-	.container {
-		max-width: 1100px;
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	.heroRow {
-		display: flex;
-		align-items: flex-start;
-		gap: 1rem;
-		padding-bottom: 0.6rem;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-	}
-
-	/* Use the same paragraph styling as other pages */
-	p {
-		margin: 0 0 0.75rem 0;
-		color: #333;
-		line-height: 1.55;
-	}
-
-	.donation-options,
-	.corporate {
-		margin-top: 1.4rem;
-	}
-
-	.cta-row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
-		margin-top: 0.6rem;
-	}
-
-	.btn {
-		display: inline-block;
-		padding: 10px 14px;
-		border-radius: 6px;
-		text-decoration: none;
-		color: #111;
-		background: #f0f0f0;
-		border: 1px solid rgba(0, 0, 0, 0.06);
-		font-weight: 700;
-	}
-
-	.btn.primary {
-		background: #a60f2d;
-		color: #fff;
-		border: none;
-	}
-
-	.sponsor-grid {
-		/* 3 columns on wide screens, 2 on medium, 1 on small */
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 16px;
-		margin-top: 0.9rem;
-		align-items: start;
-	}
-
-	@media (max-width: 1000px) {
-		.sponsor-grid {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
-
-	@media (max-width: 560px) {
-		.sponsor-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.sponsor-card {
-		/* Make cards equal height and stack content vertically */
-		display: flex;
-		flex-direction: column;
-		padding: 16px;
-		border-radius: 8px;
-		background: #fff;
-		box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
-		min-height: 220px;
-	}
-
-	.sponsor-card h3 {
-		margin: 0 0 6px 0;
-		color: #8a0000;
-	}
-
-	.sponsor-card .amount {
-		font-weight: 800;
-		color: #333;
-		margin: 6px 0;
-	}
-
-	.sponsor-card ul {
-		padding-left: 1.05rem;
-		margin: 0.3rem 0;
-		color: #444;
-		/* allow the list area to take remaining space so cards align nicely */
-		flex-grow: 1;
-	}
-
-	@media (max-width: 720px) {
-		.heroRow {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-		.cta-row {
-			flex-direction: column;
-		}
-	}
-</style>

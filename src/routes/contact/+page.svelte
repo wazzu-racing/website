@@ -1,3 +1,7 @@
+<script>
+	import { Heading, P, List, Li } from 'flowbite-svelte';
+</script>
+
 <svelte:head>
 	<title>Contact — Wazzu Racing</title>
 	<meta
@@ -6,58 +10,79 @@
 	/>
 </svelte:head>
 
-<main class="container">
-	<section class="hero">
-		<h1>Contact</h1>
-	</section>
+<main class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+	<Heading tag="h1" class="mb-8 text-4xl font-bold text-gray-900">Contact</Heading>
 
-	<section class="contactCard">
-		<p>
-			Feel free to email us at <a href="mailto:wazzu.racing@wsu.edu">wazzu.racing@wsu.edu</a>
+	<div class="flex flex-col gap-6">
+		<P class="text-gray-700">
+			Feel free to email us at
+			<a href="mailto:wazzu.racing@wsu.edu" class="font-semibold text-red-700 hover:underline">
+				wazzu.racing@wsu.edu
+			</a>
 			for any questions you may have. We'll get back to you as soon as possible.
-		</p>
+		</P>
 
-		<h2>Social Media</h2>
-		Check out our social media accounts:
+		<div>
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900">Social Media</Heading>
+			<P class="mb-3 text-gray-700">Check out our social media accounts:</P>
+			<List tag="ul" class="space-y-2 text-gray-700">
+				<Li>
+					<a
+						target="_blank"
+						rel="noopener"
+						href="https://www.instagram.com/wazzu_racing"
+						class="font-semibold text-red-700 hover:underline"
+					>
+						@wazzu_racing
+					</a>
+					on Instagram
+				</Li>
+				<Li>
+					<a
+						target="_blank"
+						rel="noopener"
+						href="https://www.linkedin.com/company/wazzu-racing/"
+						class="font-semibold text-red-700 hover:underline"
+					>
+						wazzu-racing
+					</a>
+					on LinkedIn
+				</Li>
+				<Li>
+					<a
+						target="_blank"
+						rel="noopener"
+						href="https://github.com/wazzu-racing"
+						class="font-semibold text-red-700 hover:underline"
+					>
+						wazzu-racing
+					</a>
+					on GitHub
+				</Li>
+			</List>
+		</div>
 
-		<ul>
-			<li>
-				<a target="_blank" rel="noopener" href="https://www.instagram.com/wazzu_racing"
-					>@wazzu_racing</a
-				> on Instagram
-			</li>
-			<li>
-				<a target="_blank" rel="noopener" href="https://www.linkedin.com/company/wazzu-racing/"
-					>wazzu-racing</a
-				> on LinkedIn
-			</li>
-			<li>
-				<a target="_blank" rel="noopener" href="https://github.com/wazzu-racing">wazzu-racing</a> on
-				GitHub
-			</li>
-		</ul>
-
-		<h2>Join the Club</h2>
-		If you are a student at WSU and you are interested in joining the club, first
-		<a href="https://discord.gg/PQjz8bKtX9" target="_blank" rel="noopener">join our Discord</a>,
-		then come to one of our general meetings (11AM every Saturday, in our
-		<a href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7" target="_blank" rel="noopener">shop</a>).
-	</section>
+		<div>
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900">Join the Club</Heading>
+			<P class="text-gray-700">
+				If you are a student at WSU and you are interested in joining the club, first
+				<a
+					href="https://discord.gg/PQjz8bKtX9"
+					target="_blank"
+					rel="noopener"
+					class="font-semibold text-red-700 hover:underline"
+				>
+					join our Discord
+				</a>, then come to one of our general meetings (11AM every Saturday, in our
+				<a
+					href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7"
+					target="_blank"
+					rel="noopener"
+					class="font-semibold text-red-700 hover:underline"
+				>
+					shop
+				</a>).
+			</P>
+		</div>
+	</div>
 </main>
-
-<style>
-	.container {
-		max-width: 1100px;
-		margin: 2rem auto;
-		padding: 0 1rem;
-	}
-
-	@media (max-width: 600px) {
-		.container {
-			margin: 1rem;
-		}
-		.contactCard {
-			padding: 1rem;
-		}
-	}
-</style>

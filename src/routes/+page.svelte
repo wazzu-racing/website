@@ -1,5 +1,5 @@
 <script>
-	import { Carousel, Controls, CarouselIndicators, Card, Heading, P } from 'flowbite-svelte';
+	import { Carousel, Controls, CarouselIndicators, Heading, P } from 'flowbite-svelte';
 	import '@fortawesome/fontawesome-svg-core/styles.css';
 
 	import hero1 from '$lib/assets/WR/30.jpg?url';
@@ -53,93 +53,85 @@
 <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 	<!-- About Section -->
 	<section id="about" class="mb-12">
-		<Card size="xl" class="shadow-lg">
-			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-				<div class="flex flex-col gap-4">
-					<Heading tag="h2" class="text-3xl font-bold text-gray-900">About Us</Heading>
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+			<div class="flex flex-col gap-4">
+				<Heading tag="h2" class="text-3xl font-bold text-gray-900">About Us</Heading>
 
-					<P class="text-gray-700">
-						Wazzu Racing is the Formula SAE team for Washington State University. Every year we
-						design and build a race car, then compete against other teams at the Michigan
-						International Speedway.
-					</P>
+				<P class="text-gray-700">
+					Wazzu Racing is the Formula SAE team for Washington State University. Every year we design
+					and build a race car, then compete against other teams at the Michigan International
+					Speedway.
+				</P>
 
-					<P class="text-gray-700">
-						Formula SAE is a collegiate design competition organized by the Society of Automotive
-						Engineers. The competition is based on a formula race car with which students are
-						granted the opportunity to design, build, and compete on an international playing field.
-						By competing, students are challenged with applying classroom knowledge to real world
-						problems that bolster their ability to communicate and work in teams. Leadership roles
-						in the team further demand an ever-improving capacity to manage projects and leadership
-						to succeed.
-					</P>
-
-					<div>
-						<a
-							href="/about"
-							data-sveltekit-preload-data
-							class="font-semibold text-red-700 hover:text-red-800 hover:underline"
-						>
-							Learn more →
-						</a>
-					</div>
-				</div>
+				<P class="text-gray-700">
+					Formula SAE is a collegiate design competition organized by the Society of Automotive
+					Engineers. The competition is based on a formula race car with which students are granted
+					the opportunity to design, build, and compete on an international playing field. By
+					competing, students are challenged with applying classroom knowledge to real world
+					problems that bolster their ability to communicate and work in teams. Leadership roles in
+					the team further demand an ever-improving capacity to manage projects and leadership to
+					succeed.
+				</P>
 
 				<div>
-					<enhanced:img
-						src={teamPicture}
-						alt="The Wazzu Racing team with the car"
-						sizes="(min-width: 1024px) 600px, 100vw"
-						class="h-auto w-full rounded-lg"
-					/>
+					<a
+						href="/about"
+						data-sveltekit-preload-data
+						class="font-semibold text-red-700 hover:text-red-800 hover:underline"
+					>
+						Learn more →
+					</a>
 				</div>
 			</div>
-		</Card>
+
+			<div>
+				<enhanced:img
+					src={teamPicture}
+					alt="The Wazzu Racing team with the car"
+					sizes="(min-width: 1024px) 600px, 100vw"
+					class="h-auto w-full rounded-lg"
+				/>
+			</div>
+		</div>
 	</section>
 
 	<!-- Officers Section -->
 	<section id="officers" class="mb-12">
-		<Card size="xl" class="shadow-lg">
-			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
-				<div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
-					<enhanced:img
-						src={carImage}
-						alt="Wazzu Racing car"
-						class="h-full w-full object-contain"
-					/>
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+			<div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
+				<enhanced:img src={carImage} alt="Wazzu Racing car" class="h-full w-full object-contain" />
+			</div>
+
+			<div class="flex flex-col gap-5">
+				<div class="flex flex-wrap items-baseline gap-4">
+					<Heading tag="h2" class="text-3xl font-bold text-gray-900">Team Leadership</Heading>
+					<span class="text-xl font-semibold text-gray-500">2025–2026</span>
 				</div>
 
-				<div class="flex flex-col gap-5">
-					<div class="flex flex-wrap items-baseline gap-4">
-						<Heading tag="h2" class="text-3xl font-bold text-gray-900">Team Leadership</Heading>
-						<span class="text-xl font-semibold text-gray-500">2025–2026</span>
-					</div>
+				<P class="text-gray-700">
+					Our officers lead the team through design, fabrication, and competition. They coordinate
+					project timelines, manage resources, and ensure technical excellence across all
+					subsystems.
+				</P>
 
-					<P class="text-gray-700">
-						Our officers lead the team through design, fabrication, and competition. They coordinate
-						project timelines, manage resources, and ensure technical excellence across all
-						subsystems.
-					</P>
-
-					<div>
-						<Heading tag="h3" class="mb-3 text-xl font-semibold text-gray-900">
-							Current Officers
-						</Heading>
-						<ul class="space-y-2">
-							{#each officers as officer (officer.name)}
-								<li class="text-gray-700">
-									<strong class="font-semibold text-gray-900">
-										{officer.name}
-										{officer.lastname}
-									</strong>
-									<span class="text-gray-600"> — {officer.role}</span>
-								</li>
-							{/each}
-						</ul>
-					</div>
+				<div>
+					<Heading tag="h3" class="mb-3 text-xl font-semibold text-gray-900">
+						Current Officers
+					</Heading>
+					<ul class="space-y-2">
+						{#each officers as officer (officer.name)}
+							<li class="text-gray-700">
+								<strong class="font-semibold text-gray-900">
+									{officer.name}
+									{officer.lastname}
+								</strong>
+								<span class="text-gray-600"> — {officer.role}</span>
+							</li>
+						{/each}
+					</ul>
 				</div>
 			</div>
-		</Card>
+		</div>
 	</section>
 </main>
 
