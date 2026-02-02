@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@plugin 'flowbite/plugin';
+@custom-variant dark (&:where(.dark, .dark *));
+@source '../../node_modules/flowbite-svelte/dist';
+@source '../../node_modules/flowbite-svelte-icons/dist';
+
+/* Base theme tokens and global element resets using Tailwind */
+@layer base {
+	:root {
+		/* Map semantic tokens to Tailwind custom WSU theme colors */
+		--primary-crimson: theme(colors.wsu.crimson, #a60f2d);
+		--primary-gray: theme(colors.wsu.gray, #4d4d4d);
+
+		--secondary-red: theme(colors.wsu.red, #ca1237);
+		--secondary-black: theme(colors.wsu.black, #000000);
+		--secondary-white: theme(colors.wsu.white, #ffffff);
+
+		--accent-autumn: theme(colors.wsu.autumn, #ff6727);
+		--accent-goldfinch: theme(colors.wsu.goldfinch, #f3e700);
+		--accent-vineyard: theme(colors.wsu.vineyard, #aadc24);
+		--accent-pacific-sky: theme(colors.wsu.pacificSky, #5bc3f5);
+		--accent-midnight: theme(colors.wsu.midnight, #002d61);
+	}
+
+	html {
+		@apply m-0;
+	}
+
+	body {
+		@apply m-0 flex min-h-screen flex-col;
+	}
+
+	main {
+		@apply flex-1;
+	}
+
+	p {
+		@apply font-sans text-base font-light text-black;
+	}
+
+	/* Headings */
+	h1 {
+		@apply m-1 text-center font-sans text-3xl font-black tracking-wide sm:text-5xl md:text-6xl;
+		/* If you want white text in dark mode, uncomment:
+       @apply dark:text-white;
+    */
+	}
+
+	h2 {
+		@apply mb-2 font-sans text-3xl font-bold text-[var(--primary-crimson)];
+	}
+
+	h3 {
+		@apply mb-2 font-sans text-2xl font-semibold tracking-wide text-[color:var(--primary-gray)] uppercase;
+	}
+
+	h4 {
+		@apply font-sans text-4xl;
+	}
+}
+
+/* Utilities layer for optional responsive tweaks */
+@layer utilities {
+	/* Example: adjust heading sizes for narrow viewports */
+	@media (max-width: 860px) {
+		h1 {
+			@apply text-3xl;
+		}
+		h2 {
+			@apply text-2xl;
+		}
+	}
+}

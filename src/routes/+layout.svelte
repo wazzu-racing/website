@@ -1,4 +1,5 @@
 <script lang="ts">
+	import './layout.css';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 	import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -37,19 +38,14 @@
 	</div>
 </header>
 
-<main class="main">
-	{@render children?.()}
-</main>
+<main class="main">{@render children?.()}</main>
 
 <footer class="footer">
 	<div class="college">
 		<div id="vcea">
 			<a href="https://vcea.wsu.edu/">
-				<img
-					src="/vcea.png"
-					alt="Logo for the Voiland College of Engineering and Architecture"
-				/></a
-			>
+				<img src="/vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" />
+			</a>
 		</div>
 
 		<div id="social-icons">
@@ -61,6 +57,7 @@
 			>
 				<FontAwesomeIcon icon={faInstagram} size="2x" />
 			</a>
+
 			<a
 				href="https://www.linkedin.com/company/wazzu-racing/"
 				target="_blank"
@@ -69,6 +66,7 @@
 			>
 				<FontAwesomeIcon icon={faLinkedin} size="2x" />
 			</a>
+
 			<a
 				href="https://github.com/wazzu-racing"
 				target="_blank"
@@ -77,6 +75,7 @@
 			>
 				<FontAwesomeIcon icon={faGithub} size="2x" />
 			</a>
+
 			<a
 				href="https://maps.app.goo.gl/JHnJ2f79Gac3HZfU7"
 				target="_blank"
@@ -149,7 +148,6 @@
 
 	.links-right {
 		margin-left: auto;
-
 		display: flex;
 	}
 
@@ -173,10 +171,8 @@
 	}
 
 	#logo {
-		/*height: 50%;*/
 		height: 6vh;
 		width: auto;
-		/*position: relative;*/
 	}
 
 	.donate {
