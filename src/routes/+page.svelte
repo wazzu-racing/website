@@ -1,107 +1,19 @@
 <script>
-	import { onMount, onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
-	// Ensure Font Awesome CSS is present (import kept)
+	import { Carousel, Controls, CarouselIndicators, Heading, P } from 'flowbite-svelte';
 	import '@fortawesome/fontawesome-svg-core/styles.css';
 
-	// Hero / gallery images from the WR folder
-	import hero1 from '$lib/assets/WR/30.jpg?enhanced';
-	import hero2 from '$lib/assets/WR/4.jpg?enhanced';
-	import hero3 from '$lib/assets/WR/5.jpg?enhanced';
-
-	// Car image for officers section
+	import hero1 from '$lib/assets/WR/30.jpg?url';
+	import hero2 from '$lib/assets/WR/4.jpg?url';
+	import hero3 from '$lib/assets/WR/5.jpg?url';
 	import carImage from '$lib/assets/WR/e.png?enhanced';
-
 	import teamPicture from '$lib/assets/WR/zeppos-team-picture.png?enhanced';
 
-	// Gallery images (commented out since gallery is disabled)
-	/*
-	import g1 from '$lib/assets/WR/1.png';
-	import g2 from '$lib/assets/WR/3.jpg';
-	import g3 from '$lib/assets/WR/10.jpg';
-	import g4 from '$lib/assets/WR/11.jpg';
-	import g5 from '$lib/assets/WR/12.jpg';
-	import g6 from '$lib/assets/WR/13.jpg';
-	import g7 from '$lib/assets/WR/16.png';
-	import g8 from '$lib/assets/WR/19.jpg';
-	import g9 from '$lib/assets/WR/backgroundless_clean.png';
-	*/
-
-	const slides = [hero1, hero2, hero3].map((src, i) => ({ id: i, src }));
-	let current = 0;
-	/** @type {ReturnType<typeof setInterval>|undefined} */
-	let timer;
-
-	onMount(() => {
-		timer = setInterval(() => {
-			current = (current + 1) % slides.length;
-		}, 4500);
-	});
-
-	onDestroy(() => {
-		if (timer) clearInterval(timer);
-	});
-
-	/** @param {number} i */
-	function goTo(i) {
-		current = i;
-		// reset timer for a short delay after manual navigation
-		if (timer) {
-			clearInterval(timer);
-			timer = setInterval(() => {
-				current = (current + 1) % slides.length;
-			}, 4500);
-		}
-	}
-
-	// Gallery (lightbox) - commented out since gallery is disabled
-	/*
-	const gallery = [
-		{ src: g1, alt: 'Wazzu Racing — car front' },
-		{ src: g2, alt: 'Wazzu Racing — pit crew' },
-		{ src: g3, alt: 'Wazzu Racing — on track' },
-		{ src: g4, alt: 'Wazzu Racing — suspension detail' },
-		{ src: g5, alt: 'Wazzu Racing — team photo' },
-		{ src: g6, alt: 'Wazzu Racing — CAD and design' },
-		{ src: g7, alt: 'Wazzu Racing — logo' },
-		{ src: g8, alt: 'Wazzu Racing — rollout' },
-		{ src: g9, alt: 'Wazzu Racing — silhouette' }
+	const images = [
+		{ alt: 'Wazzu Racing car in action', src: hero1, title: 'Wazzu Racing' },
+		{ alt: 'Formula SAE competition', src: hero2, title: 'Competition' },
+		{ alt: 'Team and vehicle', src: hero3, title: 'Our Team' }
 	];
 
-	let lightboxOpen = false;
-	let lightboxIndex = 0;
-	*/
-
-	// Lightbox functions (commented out since gallery is currently disabled)
-	/*
-	function openLightbox(i) {
-		lightboxIndex = i;
-		lightboxOpen = true;
-		document.body.style.overflow = 'hidden';
-	}
-
-	function closeLightbox() {
-		lightboxOpen = false;
-		document.body.style.overflow = '';
-	}
-
-	function lbNext() {
-		lightboxIndex = (lightboxIndex + 1) % gallery.length;
-	}
-
-	function lbPrev() {
-		lightboxIndex = (lightboxIndex - 1 + gallery.length) % gallery.length;
-	}
-
-	function lbKey(e) {
-		if (!lightboxOpen) return;
-		if (e.key === 'Escape') closeLightbox();
-		if (e.key === 'ArrowRight') lbNext();
-		if (e.key === 'ArrowLeft') lbPrev();
-	}
-	*/
-
-	// Officers data
 	const officers = [
 		{ name: 'Malcolm', lastname: 'Childs', role: 'President' },
 		{ name: 'Carson', lastname: 'Clary', role: 'Vice President' },
@@ -118,457 +30,135 @@
 	/>
 </svelte:head>
 
-<main class="page">
-	<!-- HERO -->
-	<section class="hero" aria-label="Wazzu Racing hero">
-		<!-- background and image (keeps a visible photo at the top) -->
-		<div class="hero-visual">
-			{#each slides as slide (slide.id)}
-				{#if slide.id === current}
-					<enhanced:img
-						class="hero-img"
-						src={slide.src}
-						alt=""
-						aria-hidden="true"
-						sizes="100vw"
-						fetchpriority={slide.id === 0 ? 'high' : 'auto'}
-						in:fade={{ duration: 600 }}
-						out:fade={{ duration: 400 }}
-					/>
-				{/if}
-			{/each}
-			<!-- Gradient overlay for better text contrast -->
-			<div class="hero-gradient"></div>
-		</div>
+<!-- Hero Carousel -->
+<div class="carousel-container">
+	<Carousel {images} duration={7000} imgClass="w-full h-full" style="height: 75vh;">
+		<Controls />
+		<CarouselIndicators />
+	</Carousel>
 
-		<!-- Overlay contains the main headline and CTAs, centered and visually above the image -->
-		<div class="hero-overlay">
-			<div class="hero-text">
-				<div class="university">Washington State University</div>
-				<h1 class="team">Wazzu Racing</h1>
-				<p class="subtitle">
-					Formula SAE — student-designed, built, and tested prototype race cars
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Hero controls moved below the hero — dots-only control style -->
-	<div class="hero-controls-below" aria-hidden="false">
-		<div class="dots" role="tablist" aria-label="Hero slides">
-			{#each slides as slide (slide.id)}
-				<button
-					class:dot-active={slide.id === current}
-					aria-label={'Go to slide ' + (slide.id + 1)}
-					on:click={() => goTo(slide.id)}
-				></button>
-			{/each}
+	<div class="carousel-overlay">
+		<div class="max-w-4xl px-6 py-8 text-center text-white">
+			<h1 class="mb-4 text-5xl font-bold tracking-wider drop-shadow-lg md:text-6xl lg:text-7xl">
+				Wazzu Racing
+			</h1>
+			<p class="text-xl font-semibold text-white drop-shadow-md md:text-2xl lg:text-3xl">
+				Washington State University Formula SAE
+			</p>
 		</div>
 	</div>
+</div>
 
-	<!-- ABOUT / JOIN -->
-	<section id="about" class="about">
-		<div class="about-main">
-			<h2>About Us</h2>
-			<p>
-				Wazzu Racing is the Formula SAE team for Washington State University. Every year we design
-				and build a race car, then compete against other teams at the Michigan International
-				Speedway.
-			</p>
+<!-- Main Content -->
+<main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+	<!-- About Section -->
+	<section id="about" class="mb-12">
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+			<div class="flex flex-col gap-4">
+				<Heading tag="h2" class="text-3xl font-bold text-gray-900">About Us</Heading>
 
-			<p>
-				Formula SAE is a collegiate design competition organized by the Society of Automotive
-				Engineers. The competition is based on a formula race car with which students are granted
-				the opportunity to design , build, and compete on an international playing field. By
-				competing, students are challenged with applying classroom knowledge to real world problems
-				that bolster their ability to communicate and work in teams. Leadership roles in the team
-				further demand an ever-improving capacity to manage projects and leadership to succeed.
-			</p>
+				<P class="text-gray-700">
+					Wazzu Racing is the Formula SAE team for Washington State University. Every year we design
+					and build a race car, then compete against other teams at the Michigan International
+					Speedway.
+				</P>
 
-			<p>
-				<a href="/about" data-sveltekit-preload-data>Learn more</a>.
-			</p>
-		</div>
-		<div class="about-image">
-			<enhanced:img
-				src={teamPicture}
-				alt="The team with the car"
-				sizes="(min-width: 1200px) 600px, 50vw"
-			/>
+				<P class="text-gray-700">
+					Formula SAE is a collegiate design competition organized by the Society of Automotive
+					Engineers. The competition is based on a formula race car with which students are granted
+					the opportunity to design, build, and compete on an international playing field. By
+					competing, students are challenged with applying classroom knowledge to real world
+					problems that bolster their ability to communicate and work in teams. Leadership roles in
+					the team further demand an ever-improving capacity to manage projects and leadership to
+					succeed.
+				</P>
+
+				<div>
+					<a
+						href="/about"
+						data-sveltekit-preload-data
+						class="font-semibold text-red-700 hover:text-red-800 hover:underline"
+					>
+						Learn more →
+					</a>
+				</div>
+			</div>
+
+			<div>
+				<enhanced:img
+					src={teamPicture}
+					alt="The Wazzu Racing team with the car"
+					sizes="(min-width: 1024px) 600px, 100vw"
+					class="h-auto w-full rounded-lg"
+				/>
+			</div>
 		</div>
 	</section>
 
-	<!-- OFFICERS -->
-	<section id="officers" class="officers">
-		<article class="officer-entry">
-			<div class="officer-image">
-				<enhanced:img src={carImage} alt="Wazzu Racing car" />
+	<!-- Officers Section -->
+	<section id="officers" class="mb-12">
+		<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+			<div class="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg">
+				<enhanced:img src={carImage} alt="Wazzu Racing car" class="h-full w-full object-contain" />
 			</div>
 
-			<div class="officer-info">
-				<div class="officer-header">
-					<h2>Team Leadership</h2>
-					<span class="year">2025–2026</span>
+			<div class="flex flex-col gap-5">
+				<div class="flex flex-wrap items-baseline gap-4">
+					<Heading tag="h2" class="text-3xl font-bold text-gray-900">Team Leadership</Heading>
+					<span class="text-xl font-semibold text-gray-500">2025–2026</span>
 				</div>
 
-				<p class="officer-description">
+				<P class="text-gray-700">
 					Our officers lead the team through design, fabrication, and competition. They coordinate
 					project timelines, manage resources, and ensure technical excellence across all
 					subsystems.
-				</p>
+				</P>
 
-				<div class="team-leads">
-					<h3>Current Officers</h3>
-					<ul>
+				<div>
+					<Heading tag="h3" class="mb-3 text-xl font-semibold text-gray-900">
+						Current Officers
+					</Heading>
+					<ul class="space-y-2">
 						{#each officers as officer (officer.name)}
-							<li>
-								<strong>{officer.name} {officer.lastname}</strong> — {officer.role}
+							<li class="text-gray-700">
+								<strong class="font-semibold text-gray-900">
+									{officer.name}
+									{officer.lastname}
+								</strong>
+								<span class="text-gray-600"> — {officer.role}</span>
 							</li>
 						{/each}
 					</ul>
 				</div>
-
-				<!-- <a href="/members/current/" class="learn-more" data-sveltekit-preload-data
-					>Meet the Full Team →</a
-				> -->
 			</div>
-		</article>
+		</div>
 	</section>
-
-	<!-- GALLERY -->
-	<!-- <section id="gallery" class="gallery" aria-label="Team gallery">
-		<h2>Gallery</h2>
-		<div class="grid">
-			{#each gallery as item, i (i)}
-				<button
-					class="grid-item"
-					on:click={() => openLightbox(i)}
-					aria-label={'Open image ' + (i + 1)}
-				>
-					<img src={item.src} alt={item.alt} loading="lazy" />
-				</button>
-			{/each}
-		</div>
-	</section> -->
-
-	<!-- site footer removed here (redundant with sitewide footer) -->
-
-	<!-- LIGHTBOX (disabled since gallery is commented out) -->
-	<!-- {#if lightboxOpen}
-		<div
-			class="lightbox"
-			role="dialog"
-			aria-modal="true"
-			aria-label="Image preview"
-			tabindex="0"
-			on:keydown={lbKey}
-			on:click|self={closeLightbox}
-		>
-			<button class="lb-close" on:click={closeLightbox} aria-label="Close">✕</button>
-			<button class="lb-prev" on:click={lbPrev} aria-label="Previous">‹</button>
-			<div class="lb-inner">
-				<img src={gallery[lightboxIndex].src} alt={gallery[lightboxIndex].alt} />
-				<p class="lb-caption">{gallery[lightboxIndex].alt}</p>
-			</div>
-			<button class="lb-next" on:click={lbNext} aria-label="Next">›</button>
-		</div>
-	{/if} -->
 </main>
 
 <style>
-	:root {
-		--crimson: #a60f2d; /* The WSU crimson color */
-		--crimson-dark: #ca1237; /* Actually WSU red, a secondary color */
-		--muted: #4d4d4d; /* WSU gray */
-		--white: #ffffff;
-		--text: #000000;
-	}
-
-	.page {
-		font-family:
-			Inter,
-			system-ui,
-			-apple-system,
-			'Segoe UI',
-			Roboto,
-			Arial;
-		color: var(--text);
-		background: var(--white);
-		margin: 0;
-	}
-
-	/* HERO */
-	.hero {
+	.carousel-container {
 		position: relative;
-		/* full-bleed across the viewport with no horizontal gaps */
 		width: 100vw;
 		max-width: 100vw;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
-		height: min(68vh, 640px);
-		display: block;
-		overflow: visible;
-	}
-
-	.hero-visual {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		background: #000;
-	}
-
-	.hero-gradient {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			ellipse at center,
-			rgba(0, 0, 0, 0.35) 0%,
-			rgba(0, 0, 0, 0.55) 100%
-		);
-		z-index: 1;
-	}
-
-	/* explicit image ensures the topmost visible image loads (decorative alt) */
-	.hero-img {
-		position: absolute;
-		inset: 0;
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.hero-overlay {
-		position: relative;
-		z-index: 2;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		inset: 0;
-		min-height: 100%;
-		padding: 2.5rem 1rem;
-		pointer-events: none; /* allow buttons below overlay to be visually above but not blocked */
-	}
-
-	.hero-text {
-		max-width: 1100px;
-		text-align: center;
-		color: #fff;
-		padding: 2.25rem 1.5rem;
-		pointer-events: auto;
-	}
-
-	.university {
-		/* Doubled size for prominence; responsive with clamp */
-		font-size: clamp(2.1rem, 4.4vw, 3rem);
-		letter-spacing: 1px;
-		margin-bottom: 0.25rem;
-		color: #fff;
-		font-weight: 700;
-		-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
-	}
-
-	.subtitle {
-		/* larger and more readable subtitle */
-		margin: 0.5rem 0 1rem;
-		color: var(--white);
-		font-size: 1.25rem;
-		font-weight: 600;
-	}
-
-	/* HERO CONTROLS (dots-only and CTA under hero) */
-	.hero-controls-below {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-		margin: 0.6rem auto 1.2rem;
-		max-width: 1200px;
-		padding: 0 1rem;
-	}
-
-	/* small dot-only controls */
-	.dots {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.dots button {
-		width: 10px;
-		height: 10px;
-		background: #ddd;
-		border-radius: 50%;
-		border: none;
-		cursor: pointer;
-		padding: 0;
-	}
-
-	.dots button.dot-active {
-		background: var(--crimson);
-		box-shadow: 0 3px 10px rgba(181, 28, 28, 0.12);
-		transform: scale(1.05);
-	}
-
-	/* ABOUT */
-	.about {
-		max-width: 1200px;
-		margin: 1.25rem auto 2rem;
-		padding: 0 1rem;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		align-items: start;
-	}
-
-	.about-main {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.about-main h2 {
-		margin: 0 0 0.5rem 0;
-	}
-
-	.about-main p {
-		margin: 0;
-		line-height: 1.6;
-	}
-
-	.about-image {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.about-image :global(img),
-	.about-image :global(picture) {
-		width: 100%;
-		height: auto;
-		display: block;
-		border-radius: 8px;
-	}
-
-	/* OFFICERS */
-	.officers {
-		max-width: 1200px;
-		margin: 2.5rem auto 2.5rem;
-		padding: 0 1rem;
-	}
-
-	.officer-entry {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		align-items: start;
-	}
-
-	.officer-image {
-		width: 100%;
-		aspect-ratio: 4/3;
-		border-radius: 8px;
+		height: 75vh;
 		overflow: hidden;
-		background: #ffffff;
+	}
+
+	.carousel-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-
-	.officer-image :global(img),
-	.officer-image :global(picture) {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		display: block;
-	}
-
-	.officer-info {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
-
-	.officer-header {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	.officer-header h2 {
-		margin: 0;
-	}
-
-	.year {
-		font-size: 1.25rem;
-		color: var(--muted);
-		font-weight: 600;
-	}
-
-	.officer-description {
-		font-size: 1rem;
-		color: #333;
-		line-height: 1.6;
-		margin: 0;
-	}
-
-	.team-leads {
-		margin: 0;
-	}
-
-	.team-leads ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.team-leads li {
-		color: #444;
-		margin-bottom: 0.25rem;
-		font-size: 0.95rem;
-	}
-
-	.team-leads strong {
-		color: #222;
-	}
-
-	/* Responsive tweaks */
-	@media (max-width: 860px) {
-		.about {
-			grid-template-columns: 1fr;
-		}
-		.hero {
-			height: 56vh;
-		}
-		.hero-text {
-			padding: 1.25rem;
-		}
-
-		.hero-controls-below {
-			margin-top: 0.5rem;
-			gap: 10px;
-		}
-		.officer-entry {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-	}
-
-	@media (max-width: 420px) {
-		.hero {
-			height: 52vh;
-		}
-		.about-image {
-			margin-top: 1rem;
-		}
-
-		.year {
-			font-size: 1.1rem;
-		}
+		pointer-events: none;
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
 </style>
