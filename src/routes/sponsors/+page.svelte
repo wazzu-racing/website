@@ -101,7 +101,7 @@
 	</section>
 
 	<section class="tiers">
-		{#each tiers as tier}
+		{#each tiers as tier (tier.id)}
 			<article id={tier.id} class="tier">
 				<header class="tier-header">
 					<div class="tier-title" style="color: {tier.color}">{tier.title}</div>
@@ -111,13 +111,12 @@
 				</header>
 
 				<div class="sponsor-grid" role="list">
-					{#each tier.sponsors as sponsor}
+					{#each tier.sponsors as sponsor (sponsor.name)}
 						<a
 							class="sponsor-card"
 							href={sponsor.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							role="listitem"
 							aria-label={'Sponsor: ' + sponsor.name}
 						>
 							<div class="logo-wrap" aria-hidden="false">

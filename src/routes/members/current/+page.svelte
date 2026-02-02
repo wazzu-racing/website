@@ -52,116 +52,8 @@
 	];
 
 	// Replace or extend this array with real member data (e.g. fetched from a CMS or API).
-	// Each member can belong to multiple subteams by listing them in `subteams`.
+	// Each member can belong to multiple subteams by listing them in the `subteams` array.
 	// Note: titles have been removed as top-level fields and are instead included in the `subteams` array.
-	const oldMembers = [
-		{
-			name: 'Malcom',
-			picture: photo,
-			// moved title into subteams
-			subteams: ['Business and Cost', 'President'],
-			major: 'Mechanical Engineering',
-			years: '2022–2025',
-			about: 'Leads the team and coordinates project timelines, sponsorship, and outreach.'
-		},
-		{
-			name: 'Calvin',
-			picture: photo,
-			subteams: ['Data Acquisition', 'Vehicle Dynamics'],
-			major: 'Computer Science',
-			years: '2025-2025',
-			about: 'Collects and analyses data from car sensors to provide data for other subteams.'
-		},
-		{
-			name: 'Ava',
-			picture: photo,
-			subteams: ['Aero Composites', 'Vehicle Dynamics', 'Aerodynamics'],
-			major: 'Aerospace Engineering',
-			years: '2023–2025',
-			about: 'Focuses on aero package design and CFD validation for the car.'
-		},
-		{
-			name: 'Jordan',
-			picture: photo,
-			subteams: ['Drivetrain', 'Engine', 'Powertrain'],
-			major: 'Mechanical Engineering',
-			years: '2021–2024',
-			about: 'Works on powertrain integration, gear ratios, and reliability testing.'
-		},
-		{
-			name: 'Maya',
-			picture: photo,
-			subteams: ['Chassis', 'Cockpit Controls', 'Chassis'],
-			major: 'Mechanical Engineering',
-			years: '2022–2024',
-			about: 'Designs chassis components and ensures driver ergonomics and safety.'
-		},
-		{
-			name: 'Liam',
-			picture: photo,
-			subteams: ['Electrical', 'Data Acquisition', 'Electronics'],
-			major: 'Electrical Engineering',
-			years: '2023–2025',
-			about: 'Handles wiring, sensors, and data acquisition systems.'
-		},
-		{
-			name: 'Ethan',
-			picture: photo,
-			subteams: ['Suspension', 'Vehicle Dynamics', 'Suspension'],
-			major: 'Mechanical Engineering',
-			years: '2022–2025',
-			about: 'Responsible for suspension geometry, setup, and testing.'
-		},
-		{
-			name: 'Sophia',
-			picture: photo,
-			subteams: ['Manufacturing', 'Chassis', 'Safety Lead'],
-			major: 'Industrial Engineering',
-			years: '2021–2024',
-			about: 'Maintains safety procedures, PPE, and workshop safety training.'
-		},
-		{
-			name: 'Noah',
-			picture: photo,
-			subteams: ['Business and Cost', 'Data Acquisition', 'Vice President'],
-			major: 'Business Administration',
-			years: '2022–2025',
-			about: 'Oversees budgeting, cost reports, and business outreach.'
-		},
-		{
-			name: 'Olivia',
-			picture: photo,
-			subteams: ['Business and Cost', 'Logistics'],
-			major: 'Supply Chain Management',
-			years: '2023–2025',
-			about: 'Manages parts logistics, inventory, and event planning.'
-		},
-		{
-			name: 'Lucas',
-			picture: photo,
-			subteams: ['Vehicle Dynamics', 'Driver'],
-			isDriver: true,
-			major: 'Mechanical Engineering',
-			years: '2021–2024',
-			about: 'Primary test driver and assists with vehicle dynamics testing.'
-		},
-		{
-			name: 'Isabella',
-			picture: photo,
-			subteams: ['Aero Composites', 'Chassis', 'CAD Lead'],
-			major: 'Mechanical Engineering',
-			years: '2023–2025',
-			about: 'Leads CAD workflows and ensures manufacturability of parts.'
-		},
-		{
-			name: 'Mason',
-			picture: photo,
-			subteams: ['Drivetrain', 'Engine', 'Electrical', 'Chief Engineer'],
-			major: 'Mechanical Engineering',
-			years: '2020–2024',
-			about: 'Responsible for overall technical direction and integration across subsystems.'
-		}
-	];
 
 	// helper to get members in a given subteam
 	/**
@@ -177,10 +69,8 @@
 		(m.subteams || []).some((r) => leadershipRoles.includes(r))
 	);
 
-	// drivers: either flagged by `isDriver` or appear in a subteam that includes 'Driver'
-	const drivers = members.filter(
-		(m) => m.isDriver || (m.subteams || []).some((s) => /driver/i.test(s))
-	);
+	// drivers: appear in a subteam that includes 'Driver'
+	const drivers = members.filter((m) => (m.subteams || []).some((s) => /driver/i.test(s)));
 </script>
 
 <main class="members-page">

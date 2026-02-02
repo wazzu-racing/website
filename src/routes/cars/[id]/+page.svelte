@@ -266,38 +266,6 @@
 		font-style: italic;
 	}
 
-	.technical-details {
-		background: #fafafa;
-		padding: 2.5rem;
-		border-radius: 12px;
-		margin-bottom: 3rem;
-	}
-
-	.technical-details h2 {
-		color: var(--primary-crimson);
-		margin: 0 0 1.5rem 0;
-	}
-
-	.tech-list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 1rem;
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.tech-list li {
-		background: #fff;
-		padding: 1rem 1.25rem;
-		border-radius: 8px;
-		color: #333;
-		font-size: 0.95rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-		border-left: 3px solid var(--primary-crimson);
-		line-height: 1.5;
-	}
-
 	.car-navigation {
 		text-align: center;
 		padding: 2rem 0;
@@ -332,10 +300,6 @@
 		.tagline {
 			font-size: 1.1rem;
 		}
-
-		.tech-list {
-			grid-template-columns: 1fr;
-		}
 	}
 
 	@media (max-width: 600px) {
@@ -353,10 +317,6 @@
 
 		.title-section {
 			gap: 1rem;
-		}
-
-		.technical-details {
-			padding: 1.5rem;
 		}
 
 		.hero-image img {

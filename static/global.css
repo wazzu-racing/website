@@ -22,15 +22,20 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    max-height: 100vh;
     margin: 0;
+    overflow-y: auto;
 }
 
 main{
     flex: 1;
+    overflow-y: auto;
 }
 
 html{
     margin: 0;
+    height: 100vh;
+    overflow: hidden;
 }
 
 
