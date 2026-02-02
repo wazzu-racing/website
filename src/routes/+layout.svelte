@@ -12,11 +12,19 @@
 	<NavBrand href="/">
 		<img src="/racing_logo.png" class="h-12 w-auto" alt="Wazzu Racing Logo" />
 	</NavBrand>
-	<NavHamburger />
-	<NavUl class="ml-auto">
-		<NavLi href="/about" class="text-xl text-white hover:text-red-700">About</NavLi>
-		<NavLi href="/contact" class="text-xl text-white hover:text-red-700">Contact</NavLi>
-		<NavLi href="/donate">
+	<NavHamburger class="text-white hover:text-red-700 md:hidden" />
+	<NavUl class="order-1 ml-auto bg-black md:order-0 md:space-x-4 md:bg-transparent">
+		<NavLi
+			href="/about"
+			class="cursor-pointer text-xl text-white hover:text-red-700 md:py-0"
+			active={false}>About</NavLi
+		>
+		<NavLi
+			href="/contact"
+			class="cursor-pointer text-xl text-white hover:text-red-700 md:py-0"
+			active={false}>Contact</NavLi
+		>
+		<NavLi href="/donate" class="cursor-pointer md:py-0" active={false}>
 			<span class="rounded-md bg-red-700 px-4 py-2 text-xl text-white hover:bg-red-800">Donate</span
 			>
 		</NavLi>

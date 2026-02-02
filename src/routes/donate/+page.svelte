@@ -1,5 +1,5 @@
 <script>
-	import { Heading, P, Button, List, Li } from 'flowbite-svelte';
+	import { Heading, P, Button, List, Li, Card } from 'flowbite-svelte';
 
 	const contactEmail = 'wazzu.racing@wsu.edu';
 

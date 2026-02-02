@@ -98,3 +98,50 @@
 		}
 	}
 }
+
+/* Mobile navigation menu fixes */
+@layer components {
+	/* Ensure mobile menu items are visible and clickable */
+	@media (max-width: 768px) {
+		/* Make sure the mobile menu dropdown has proper background */
+		nav ul {
+			@apply mt-4 w-full rounded-lg bg-black;
+			padding: 1rem 0;
+		}
+
+		/* Ensure nav items are clickable and visible with proper spacing */
+		nav ul li {
+			@apply w-full bg-black;
+			margin: 0;
+			padding: 0.5rem 1rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		nav ul li:last-child {
+			border-bottom: none;
+		}
+
+		nav ul li a {
+			@apply block w-full text-white;
+			pointer-events: auto !important;
+			padding: 0.5rem 0;
+			text-decoration: none;
+		}
+
+		nav ul li a:hover {
+			@apply text-red-700;
+		}
+
+		/* Style the donate button properly in mobile menu */
+		nav ul li span {
+			@apply inline-block;
+			pointer-events: auto !important;
+		}
+
+		/* Ensure dropdown menu is properly positioned */
+		nav > div > ul {
+			@apply w-full bg-black;
+			position: relative;
+		}
+	}
+}
