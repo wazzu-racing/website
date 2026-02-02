@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Badge } from 'flowbite-svelte';
+	import { Button, Badge, Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -19,16 +19,11 @@
 </svelte:head>
 
 <div class="py-12">
-	<!-- Breadcrumb Navigation -->
-	<nav class="mb-8 text-sm">
-		<ol class="flex items-center space-x-2 text-gray-600">
-			<li><a href="/" class="hover:text-red-700">Home</a></li>
-			<li>/</li>
-			<li><a href="/shop" class="hover:text-red-700">Shop</a></li>
-			<li>/</li>
-			<li class="text-gray-900">{item.name}</li>
-		</ol>
-	</nav>
+	<Breadcrumb>
+		<BreadcrumbItem href="/" home>Home</BreadcrumbItem>
+		<BreadcrumbItem href="/shop">Shop</BreadcrumbItem>
+		<BreadcrumbItem>{item.name}</BreadcrumbItem>
+	</Breadcrumb>
 
 	<!-- Product Details Grid -->
 	<div class="grid gap-12 lg:grid-cols-2">
