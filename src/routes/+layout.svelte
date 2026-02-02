@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Footer } from 'flowbite-svelte';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 	import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -7,53 +8,42 @@
 	let { children } = $props();
 </script>
 
-<header class="navbar">
-	<a href="/">
-		<img id="logo" src="/racing_logo.png" alt="Wazzu Racing's logo" />
-	</a>
-
-	<div class="links-right">
-		<a href="/about">About</a>
-		<!-- <a href="/cars">Cars</a>
-		<div class="dropdown" role="navigation" onmouseleave={closeMembersDropdown}>
-			<button
-				class="dropdown-toggle"
-				onclick={toggleMembersDropdown}
-				onmouseenter={() => (membersDropdownOpen = true)}
+<Navbar class="bg-black px-4 py-2.5" fluid={true}>
+	<NavBrand href="/">
+		<img src="/racing_logo.png" class="h-12 w-auto" alt="Wazzu Racing Logo" />
+	</NavBrand>
+	<NavHamburger />
+	<NavUl class="ml-auto">
+		<NavLi href="/about" class="text-xl text-white hover:text-red-700">About</NavLi>
+		<NavLi href="/contact" class="text-xl text-white hover:text-red-700">Contact</NavLi>
+		<NavLi href="/donate">
+			<span class="rounded-md bg-red-700 px-4 py-2 text-xl text-white hover:bg-red-800">Donate</span
 			>
-				Members ▾
-			</button>
-			{#if membersDropdownOpen}
-				<div class="dropdown-menu">
-					<a href="/members/current" onclick={closeMembersDropdown}>Current Members</a>
-					<a href="/members/alumni" onclick={closeMembersDropdown}>Alumni</a>
-				</div>
-			{/if}
-		</div> -->
-		<!-- <a href="/calendar">Calendar</a> -->
-		<!-- TODO Coming soon -->
-		<!-- <a href="/sponsors">Sponsors</a> -->
-		<a href="/contact">Contact</a>
-		<a class="donate" href="/donate">Donate</a>
-	</div>
-</header>
+		</NavLi>
+	</NavUl>
+</Navbar>
 
-<main class="main">{@render children?.()}</main>
+<main class="px-[10%]">{@render children?.()}</main>
 
-<footer class="footer">
-	<div class="college">
-		<div id="vcea">
-			<a href="https://vcea.wsu.edu/">
-				<img src="/vcea.png" alt="Logo for the Voiland College of Engineering and Architecture" />
+<Footer class="bg-gray-800">
+	<div class="flex w-full flex-col items-center justify-between gap-6 px-8 py-6 sm:flex-row">
+		<div class="flex items-center">
+			<a href="https://vcea.wsu.edu/" target="_blank" rel="noopener noreferrer">
+				<img
+					src="/vcea.png"
+					alt="Voiland College of Engineering and Architecture"
+					class="h-auto w-48 sm:w-64"
+				/>
 			</a>
 		</div>
 
-		<div id="social-icons">
+		<div class="flex items-center gap-6">
 			<a
 				href="https://www.instagram.com/wazzu_racing"
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Instagram"
+				class="text-white transition-colors hover:text-red-700"
 			>
 				<FontAwesomeIcon icon={faInstagram} size="2x" />
 			</a>
@@ -63,6 +53,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="LinkedIn"
+				class="text-white transition-colors hover:text-red-700"
 			>
 				<FontAwesomeIcon icon={faLinkedin} size="2x" />
 			</a>
@@ -72,6 +63,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="GitHub"
+				class="text-white transition-colors hover:text-red-700"
 			>
 				<FontAwesomeIcon icon={faGithub} size="2x" />
 			</a>
@@ -81,103 +73,10 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Location"
+				class="text-white transition-colors hover:text-red-700"
 			>
 				<FontAwesomeIcon icon={faLocationDot} size="2x" />
 			</a>
 		</div>
 	</div>
-</footer>
-
-<style>
-	.main {
-		padding-left: 10%;
-		padding-right: 10%;
-	}
-
-	.footer {
-		background-color: var(--primary-gray);
-		display: flex;
-		flex-direction: column;
-	}
-
-	.college {
-		padding-top: 15px;
-		padding-bottom: 15px;
-		padding-left: 2vw;
-		padding-right: 2vw;
-		display: flex;
-	}
-
-	#vcea {
-		display: flex;
-		align-content: center;
-		width: 100%;
-	}
-
-	#vcea img {
-		display: flex;
-		align-content: center;
-		justify-content: center;
-		width: 20vw;
-	}
-
-	#social-icons {
-		display: flex;
-		align-items: center;
-		justify-content: right;
-		gap: 24px;
-		width: 100%;
-	}
-
-	#social-icons a {
-		color: var(--secondary-white);
-		transition: color 0.3s ease;
-	}
-
-	#social-icons a:hover {
-		color: var(--primary-crimson);
-	}
-
-	.navbar {
-		background-color: black;
-		overflow: visible;
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-	}
-
-	.links-right {
-		margin-left: auto;
-		display: flex;
-	}
-
-	.navbar a {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 300;
-		display: block;
-		margin: auto 14px;
-		color: var(--secondary-white);
-		text-align: center;
-		text-decoration: none;
-		font-size: 14pt;
-	}
-
-	.navbar a img {
-		width: 16vw;
-	}
-
-	.navbar a:hover {
-		color: var(--primary-crimson);
-	}
-
-	#logo {
-		height: 6vh;
-		width: auto;
-	}
-
-	.donate {
-		background-color: var(--primary-crimson);
-		border-radius: 5px;
-		padding: 10px;
-	}
-</style>
+</Footer>
