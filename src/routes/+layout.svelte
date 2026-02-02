@@ -24,11 +24,17 @@
 			class="cursor-pointer text-xl text-white hover:text-red-700 md:py-0"
 			active={false}>Contact</NavLi
 		>
+		<NavLi
+			href="/shop"
+			class="cursor-pointer text-xl text-white hover:text-red-700 md:py-0"
+			active={false}>Shop</NavLi
+		>
 		<NavLi href="/donate" class="cursor-pointer md:py-0" active={false}>
 			<span class="rounded-md bg-red-700 px-4 py-2 text-xl text-white hover:bg-red-800">Donate</span
 			>
 		</NavLi>
 	</NavUl>
+
 </Navbar>
 
 <main class="px-[10%]">{@render children?.()}</main>
