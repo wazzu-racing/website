@@ -7,9 +7,11 @@
 
 	let selectedSize = $state('');
 	let quantity = $state(1);
+	let selectedImageIndex = $state(0);
 
 	$effect(() => {
 		selectedSize = item.sizes?.[0] || '';
+		selectedImageIndex = 0; // Reset to first image when item changes
 	});
 </script>
 
@@ -27,9 +29,39 @@
 
 	<!-- Product Details Grid -->
 	<div class="grid gap-12 lg:grid-cols-2">
-		<!-- Product Image -->
-		<div class="overflow-hidden rounded-lg bg-gray-100">
-			<enhanced:img src={item.img} alt={item.name} class="h-auto w-full object-cover" />
+		<!-- Product Image Gallery -->
+		<div class="flex flex-col gap-4">
+			<!-- Main Image Display -->
+			<div class="overflow-hidden rounded-lg bg-gray-100">
+				<enhanced:img
+					src={item.images[selectedImageIndex]}
+					alt="{item.name} - Image {selectedImageIndex + 1}"
+					class="h-auto w-full object-cover"
+				/>
+			</div>
+
+			<!-- Thumbnail Navigation -->
+			{#if item.images.length > 1}
+				<div class="flex gap-3">
+					{#each item.images as image, index (index)}
+						<button
+							type="button"
+							onclick={() => (selectedImageIndex = index)}
+							aria-label="View image {index + 1} of {item.images.length}"
+							class="overflow-hidden rounded-md border-2 transition-all {selectedImageIndex ===
+							index
+								? 'border-red-700 ring-2 ring-red-700 ring-offset-2'
+								: 'border-gray-300 hover:border-red-700'}"
+						>
+							<enhanced:img
+								src={image}
+								alt="{item.name} - Thumbnail {index + 1}"
+								class="h-20 w-20 object-cover"
+							/>
+						</button>
+					{/each}
+				</div>
+			{/if}
 		</div>
 
 		<!-- Product Information -->

@@ -1,4 +1,5 @@
 import shirtFront from '$lib/assets/shop/shirt-front.png?enhanced';
+import shirtBack from '$lib/assets/shop/shirt-back.png?enhanced';
 import hat from '$lib/assets/shop/hat.png?enhanced';
 
 export interface ShopItem {
@@ -6,7 +7,7 @@ export interface ShopItem {
 	name: string;
 	slug: string;
 	price: number;
-	img: typeof shirtFront | typeof hat;
+	images: Array<typeof shirtFront | typeof shirtBack | typeof hat>;
 	description: string;
 	details?: string;
 	sizes?: string[];
@@ -20,7 +21,7 @@ export const shopItems: ShopItem[] = [
 		name: 'T-Shirt',
 		slug: 't-shirt',
 		price: 15.0,
-		img: shirtFront,
+		images: [shirtFront, shirtBack],
 		description: 'A t-shirt with the Wazzu Racing logo on the front and an image on the back.',
 		details:
 			'Show your Wazzu Racing pride with this comfortable, high-quality t-shirt. Features the official Wazzu Racing logo on the front and a striking design on the back. Perfect for race day or everyday wear.',
@@ -32,8 +33,8 @@ export const shopItems: ShopItem[] = [
 		name: 'Hat',
 		slug: 'hat',
 		price: 10.0,
+		images: [hat],
 		description: 'A Wazzu Racing branded hat',
-		img: hat,
 		details:
 			'Stay cool and look great with our official Wazzu Racing hat. Adjustable fit with embroidered logo for a premium look and feel. Perfect for sunny race days or casual wear.',
 		sizes: ['One Size'],

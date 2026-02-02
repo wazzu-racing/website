@@ -25,7 +25,7 @@
 					<!-- Image Container -->
 					<div class="overflow-hidden bg-gray-100">
 						<enhanced:img
-							src={item.img}
+							src={item.images[0]}
 							alt={item.name}
 							class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
