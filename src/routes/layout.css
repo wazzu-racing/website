@@ -3,6 +3,31 @@
 @plugin '@tailwindcss/typography';
 @plugin 'flowbite/plugin';
 @custom-variant dark (&:where(.dark, .dark *));
+@theme {
+	/* Derived tint/shade scales: Primary = WSU Crimson (#a60f2d), Secondary = WSU Primary Gray (#4d4d4d) */
+	--color-primary-50: #fff5f5;
+	--color-primary-100: #ffeaea;
+	--color-primary-200: #f9cfd6;
+	--color-primary-300: #f3a9b6;
+	--color-primary-400: #e86b82;
+	--color-primary-500: #cf2748;
+	--color-primary-600: #a60f2d; /* base crimson */
+	--color-primary-700: #840b23;
+	--color-primary-800: #69081c;
+	--color-primary-900: #4a0513;
+
+	--color-secondary-50: #f7f7f7;
+	--color-secondary-100: #eaeaea;
+	--color-secondary-200: #d4d4d4;
+	--color-secondary-300: #b3b3b3;
+	--color-secondary-400: #8f8f8f;
+	--color-secondary-500: #6b6b6b;
+	--color-secondary-600: #4d4d4d; /* base primary-gray */
+	--color-secondary-700: #383838;
+	--color-secondary-800: #2b2b2b;
+	--color-secondary-900: #1f1f1f;
+}
+
 @source '../../node_modules/flowbite-svelte/dist';
 @source '../../node_modules/flowbite-svelte-icons/dist';
 
