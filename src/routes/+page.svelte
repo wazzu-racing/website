@@ -1,13 +1,12 @@
 <script>
-	import { onMount, onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { Carousel, Controls, CarouselIndicators } from 'flowbite-svelte';
 	// Ensure Font Awesome CSS is present (import kept)
 	import '@fortawesome/fontawesome-svg-core/styles.css';
 
 	// Hero / gallery images from the WR folder
-	import hero1 from '$lib/assets/WR/30.jpg?enhanced';
-	import hero2 from '$lib/assets/WR/4.jpg?enhanced';
-	import hero3 from '$lib/assets/WR/5.jpg?enhanced';
+	import hero1 from '$lib/assets/WR/30.jpg?url';
+	import hero2 from '$lib/assets/WR/4.jpg?url';
+	import hero3 from '$lib/assets/WR/5.jpg?url';
 
 	// Car image for officers section
 	import carImage from '$lib/assets/WR/e.png?enhanced';
@@ -27,79 +26,11 @@
 	import g9 from '$lib/assets/WR/backgroundless_clean.png';
 	*/
 
-	const slides = [hero1, hero2, hero3].map((src, i) => ({ id: i, src }));
-	let current = 0;
-	/** @type {ReturnType<typeof setInterval>|undefined} */
-	let timer;
-
-	onMount(() => {
-		timer = setInterval(() => {
-			current = (current + 1) % slides.length;
-		}, 4500);
-	});
-
-	onDestroy(() => {
-		if (timer) clearInterval(timer);
-	});
-
-	/** @param {number} i */
-	function goTo(i) {
-		current = i;
-		// reset timer for a short delay after manual navigation
-		if (timer) {
-			clearInterval(timer);
-			timer = setInterval(() => {
-				current = (current + 1) % slides.length;
-			}, 4500);
-		}
-	}
-
-	// Gallery (lightbox) - commented out since gallery is disabled
-	/*
-	const gallery = [
-		{ src: g1, alt: 'Wazzu Racing — car front' },
-		{ src: g2, alt: 'Wazzu Racing — pit crew' },
-		{ src: g3, alt: 'Wazzu Racing — on track' },
-		{ src: g4, alt: 'Wazzu Racing — suspension detail' },
-		{ src: g5, alt: 'Wazzu Racing — team photo' },
-		{ src: g6, alt: 'Wazzu Racing — CAD and design' },
-		{ src: g7, alt: 'Wazzu Racing — logo' },
-		{ src: g8, alt: 'Wazzu Racing — rollout' },
-		{ src: g9, alt: 'Wazzu Racing — silhouette' }
+	const images = [
+		{ alt: 'Alt of image', src: hero1, title: 'title' },
+		{ alt: 'Alt of image', src: hero2, title: 'title' },
+		{ alt: 'Alt of image', src: hero3, title: 'title' }
 	];
-
-	let lightboxOpen = false;
-	let lightboxIndex = 0;
-	*/
-
-	// Lightbox functions (commented out since gallery is currently disabled)
-	/*
-	function openLightbox(i) {
-		lightboxIndex = i;
-		lightboxOpen = true;
-		document.body.style.overflow = 'hidden';
-	}
-
-	function closeLightbox() {
-		lightboxOpen = false;
-		document.body.style.overflow = '';
-	}
-
-	function lbNext() {
-		lightboxIndex = (lightboxIndex + 1) % gallery.length;
-	}
-
-	function lbPrev() {
-		lightboxIndex = (lightboxIndex - 1 + gallery.length) % gallery.length;
-	}
-
-	function lbKey(e) {
-		if (!lightboxOpen) return;
-		if (e.key === 'Escape') closeLightbox();
-		if (e.key === 'ArrowRight') lbNext();
-		if (e.key === 'ArrowLeft') lbPrev();
-	}
-	*/
 
 	// Officers data
 	const officers = [
@@ -118,54 +49,21 @@
 	/>
 </svelte:head>
 
-<main class="page">
-	<!-- HERO -->
-	<section class="hero" aria-label="Wazzu Racing hero">
-		<!-- background and image (keeps a visible photo at the top) -->
-		<div class="hero-visual">
-			{#each slides as slide (slide.id)}
-				{#if slide.id === current}
-					<enhanced:img
-						class="hero-img"
-						src={slide.src}
-						alt=""
-						aria-hidden="true"
-						sizes="100vw"
-						fetchpriority={slide.id === 0 ? 'high' : 'auto'}
-						in:fade={{ duration: 600 }}
-						out:fade={{ duration: 400 }}
-					/>
-				{/if}
-			{/each}
-			<!-- Gradient overlay for better text contrast -->
-			<div class="hero-gradient"></div>
-		</div>
+<div class="carousel-container">
+	<Carousel {images} duration={7000} imgClass="w-full h-full" style="height: 75vh;">
+		<Controls />
+		<CarouselIndicators />
+	</Carousel>
 
-		<!-- Overlay contains the main headline and CTAs, centered and visually above the image -->
-		<div class="hero-overlay">
-			<div class="hero-text">
-				<div class="university">Washington State University</div>
-				<h1 class="team">Wazzu Racing</h1>
-				<p class="subtitle">
-					Formula SAE — student-designed, built, and tested prototype race cars
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Hero controls moved below the hero — dots-only control style -->
-	<div class="hero-controls-below" aria-hidden="false">
-		<div class="dots" role="tablist" aria-label="Hero slides">
-			{#each slides as slide (slide.id)}
-				<button
-					class:dot-active={slide.id === current}
-					aria-label={'Go to slide ' + (slide.id + 1)}
-					on:click={() => goTo(slide.id)}
-				></button>
-			{/each}
+	<div class="carousel-overlay">
+		<div class="carousel-text">
+			<h1 class="carousel-title">Wazzu Racing</h1>
+			<p class="carousel-subtitle">Washington State University Formula SAE</p>
 		</div>
 	</div>
+</div>
 
+<main class="page">
 	<!-- ABOUT / JOIN -->
 	<section id="about" class="about">
 		<div class="about-main">
@@ -234,45 +132,6 @@
 			</div>
 		</article>
 	</section>
-
-	<!-- GALLERY -->
-	<!-- <section id="gallery" class="gallery" aria-label="Team gallery">
-		<h2>Gallery</h2>
-		<div class="grid">
-			{#each gallery as item, i (i)}
-				<button
-					class="grid-item"
-					on:click={() => openLightbox(i)}
-					aria-label={'Open image ' + (i + 1)}
-				>
-					<img src={item.src} alt={item.alt} loading="lazy" />
-				</button>
-			{/each}
-		</div>
-	</section> -->
-
-	<!-- site footer removed here (redundant with sitewide footer) -->
-
-	<!-- LIGHTBOX (disabled since gallery is commented out) -->
-	<!-- {#if lightboxOpen}
-		<div
-			class="lightbox"
-			role="dialog"
-			aria-modal="true"
-			aria-label="Image preview"
-			tabindex="0"
-			on:keydown={lbKey}
-			on:click|self={closeLightbox}
-		>
-			<button class="lb-close" on:click={closeLightbox} aria-label="Close">✕</button>
-			<button class="lb-prev" on:click={lbPrev} aria-label="Previous">‹</button>
-			<div class="lb-inner">
-				<img src={gallery[lightboxIndex].src} alt={gallery[lightboxIndex].alt} />
-				<p class="lb-caption">{gallery[lightboxIndex].alt}</p>
-			</div>
-			<button class="lb-next" on:click={lbNext} aria-label="Next">›</button>
-		</div>
-	{/if} -->
 </main>
 
 <style>
@@ -297,120 +156,55 @@
 		margin: 0;
 	}
 
-	/* HERO */
-	.hero {
+	/* CAROUSEL */
+	.carousel-container {
 		position: relative;
-		/* full-bleed across the viewport with no horizontal gaps */
 		width: 100vw;
 		max-width: 100vw;
 		left: 50%;
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
-		height: min(68vh, 640px);
-		display: block;
-		overflow: visible;
+		height: 75vh;
+		overflow: hidden;
 	}
 
-	.hero-visual {
+	.carousel-overlay {
 		position: absolute;
-		inset: 0;
-		z-index: 0;
-		background: #000;
-	}
-
-	.hero-gradient {
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			ellipse at center,
-			rgba(0, 0, 0, 0.35) 0%,
-			rgba(0, 0, 0, 0.55) 100%
-		);
-		z-index: 1;
-	}
-
-	/* explicit image ensures the topmost visible image loads (decorative alt) */
-	.hero-img {
-		position: absolute;
-		inset: 0;
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.hero-overlay {
-		position: relative;
-		z-index: 2;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		inset: 0;
-		min-height: 100%;
-		padding: 2.5rem 1rem;
-		pointer-events: none; /* allow buttons below overlay to be visually above but not blocked */
+		pointer-events: none;
+		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
 	}
 
-	.hero-text {
-		max-width: 1100px;
+	.carousel-text {
 		text-align: center;
 		color: #fff;
-		padding: 2.25rem 1.5rem;
-		pointer-events: auto;
+		padding: 2rem 1.5rem;
+		max-width: 1100px;
 	}
 
-	.university {
-		/* Doubled size for prominence; responsive with clamp */
-		font-size: clamp(2.1rem, 4.4vw, 3rem);
-		letter-spacing: 1px;
-		margin-bottom: 0.25rem;
-		color: #fff;
+	.carousel-title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
 		font-weight: 700;
-		-webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+		letter-spacing: 2px;
+		margin: 0 0 1rem 0;
+		color: #fff;
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 	}
 
-	.subtitle {
-		/* larger and more readable subtitle */
-		margin: 0.5rem 0 1rem;
-		color: var(--white);
-		font-size: 1.25rem;
+	.carousel-subtitle {
+		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 		font-weight: 600;
-	}
-
-	/* HERO CONTROLS (dots-only and CTA under hero) */
-	.hero-controls-below {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 10px;
-		margin: 0.6rem auto 1.2rem;
-		max-width: 1200px;
-		padding: 0 1rem;
-	}
-
-	/* small dot-only controls */
-	.dots {
-		display: flex;
-		gap: 8px;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.dots button {
-		width: 10px;
-		height: 10px;
-		background: #ddd;
-		border-radius: 50%;
-		border: none;
-		cursor: pointer;
-		padding: 0;
-	}
-
-	.dots button.dot-active {
-		background: var(--crimson);
-		box-shadow: 0 3px 10px rgba(181, 28, 28, 0.12);
-		transform: scale(1.05);
+		margin: 0;
+		color: #fff;
+		text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 	}
 
 	/* ABOUT */
@@ -542,33 +336,32 @@
 		.about {
 			grid-template-columns: 1fr;
 		}
-		.hero {
-			height: 56vh;
-		}
-		.hero-text {
-			padding: 1.25rem;
-		}
 
-		.hero-controls-below {
-			margin-top: 0.5rem;
-			gap: 10px;
-		}
 		.officer-entry {
 			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
+
+		.carousel-text {
+			padding: 1.25rem;
+		}
+
+		.carousel-title {
+			font-size: clamp(2rem, 6vw, 3rem);
+		}
 	}
 
 	@media (max-width: 420px) {
-		.hero {
-			height: 52vh;
-		}
 		.about-image {
 			margin-top: 1rem;
 		}
 
 		.year {
 			font-size: 1.1rem;
+		}
+
+		.carousel-container {
+			height: 60vh;
 		}
 	}
 </style>
