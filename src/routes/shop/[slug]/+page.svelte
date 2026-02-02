@@ -1,6 +1,9 @@
 <script lang="ts">
-	import { Button, Badge, Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
+	import { Button, Badge, Breadcrumb, BreadcrumbItem, Toast } from 'flowbite-svelte';
+	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
+	import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 	import type { PageData } from './$types';
+	import { cart } from '$lib/stores/cart';
 
 	let { data }: { data: PageData } = $props();
 	let item = $derived(data.item);
@@ -8,11 +11,30 @@
 	let selectedSize = $state('');
 	let quantity = $state(1);
 	let selectedImageIndex = $state(0);
+	let showAddedToast = $state(false);
 
 	$effect(() => {
 		selectedSize = item.sizes?.[0] || '';
 		selectedImageIndex = 0; // Reset to first image when item changes
 	});
+
+	function addToCart() {
+		cart.addItem({
+			id: item.id,
+			name: item.name,
+			slug: item.slug,
+			price: item.price,
+			size: selectedSize,
+			image: item.images[0],
+			quantity: quantity
+		});
+
+		// Show success toast
+		showAddedToast = true;
+		setTimeout(() => {
+			showAddedToast = false;
+		}, 3000);
+	}
 </script>
 
 <svelte:head>
@@ -152,6 +174,7 @@
 					size="xl"
 					class="flex-1 bg-red-700 hover:bg-red-800"
 					disabled={!item.inStock}
+					onclick={addToCart}
 				>
 					Add to Cart
 				</Button>
@@ -170,4 +193,20 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Success Toast -->
+	{#if showAddedToast}
+		<div class="fixed right-4 bottom-4 z-50">
+			<Toast color="green" class="shadow-lg">
+				<svelte:fragment slot="icon">
+					<FontAwesomeIcon icon={faCheckCircle} class="h-5 w-5" />
+				</svelte:fragment>
+				<span class="font-semibold">Added to cart!</span>
+				<span class="text-sm">
+					{quantity}
+					{quantity === 1 ? 'item' : 'items'} added
+				</span>
+			</Toast>
+		</div>
+	{/if}
 </div>
