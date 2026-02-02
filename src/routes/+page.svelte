@@ -186,7 +186,7 @@
 			</p>
 
 			<p>
-				<a href="/about">Learn more</a>.
+				<a href="/about" data-sveltekit-preload-data>Learn more</a>.
 			</p>
 		</div>
 		<div class="about-image">

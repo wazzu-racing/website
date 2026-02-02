@@ -73,7 +73,8 @@
 		<p>
 			For recruitment, sponsorship, or general inquiries: <a href="mailto:wazzu.racing@wsu.edu"
 				>wazzu.racing@wsu.edu</a
-			>. For more information, see our <a href="/contact">contact page</a>.
+			>. For more information, see our
+			<a href="/contact" data-sveltekit-preload-data>contact page</a>.
 		</p>
 	</section>
 </main>

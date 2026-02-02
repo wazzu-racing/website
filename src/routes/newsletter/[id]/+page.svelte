@@ -1,4 +1,5 @@
 <script>
+	/* eslint-disable svelte/no-at-html-tags */
 	// @ts-nocheck
 	// Accept server-provided load data when available; fallback to client-side lookup.
 	export let data;

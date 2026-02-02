@@ -1,3 +1,14 @@
+/** @typedef {Object} Article
+ * @property {string} id
+ * @property {'article'} type
+ * @property {string} title
+ * @property {string} date
+ * @property {string|null} relatedEventId
+ * @property {string} excerpt
+ * @property {string} content
+ * @property {string[]} tags
+ */
+
 import { error } from '@sveltejs/kit';
 import { entries as allEntries } from '$lib/content/entries';
 
@@ -28,7 +39,9 @@ export function load(event) {
 	const id = params.id;
 
 	// Find the article entry by id
-	const articleEntry = allEntries.find((e) => e.type === 'article' && e.id === id);
+	const articleEntry = /** @type {Article} */ (
+		allEntries.find((e) => e.type === 'article' && e.id === id)
+	);
 
 	if (!articleEntry) {
 		// Return a 404 so the SvelteKit app can render a not-found response server-side.

@@ -22,6 +22,7 @@ The team departed early on competition day after a final systems check and brief
 During the first day of dynamic events, we noticed increased understeer at high speed. The Fabrication and Suspension subteams collaborated on a small but effective tweak to the front anti-roll setup. The change improved turn-in and reduced tire scrub on the outside compound.
 
 Other notable fixes:
+
 - Adjusted brake bias slightly after telemetry showed rear locking tendencies under heavy braking.
 - Corrected a minor wiring harness chafe found during pre-race inspection.
 
@@ -36,6 +37,7 @@ These adjustments were low-effort but high-impact and demonstrated the value of 
 ## Team & Community
 
 A competition is as much about people as it is about engineering. We were grateful for:
+
 - Faculty advisors for technical guidance,
 - Alumni volunteers for logistical support,
 - On-site volunteers and friends who helped with setup and crowd engagement.

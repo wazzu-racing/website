@@ -4,15 +4,6 @@
 	import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 	let { children } = $props();
-	let membersDropdownOpen = $state(false);
-
-	function toggleMembersDropdown() {
-		membersDropdownOpen = !membersDropdownOpen;
-	}
-
-	function closeMembersDropdown() {
-		membersDropdownOpen = false;
-	}
 </script>
 
 <header class="navbar">

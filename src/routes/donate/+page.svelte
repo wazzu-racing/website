@@ -1,10 +1,6 @@
 <script>
 	const contactEmail = 'wazzu.racing@wsu.edu';
-	const mailingAddress = `Wazzu Racing
-c/o Voiland College of Engineering and Architecture
-Engineering Laboratory Building
-900 NE College Ave
-Pullman, WA 99163`;
+
 	const foundationDonateUrl =
 		'https://foundation.wsu.edu/give/?fund=99981d7c-3c77-4fed-a76b-1267a2069cae&utm_source=sae-formula&utm_medium=wsu-link&utm_campaign=voiland-college-of-engineering-and-architecture';
 
