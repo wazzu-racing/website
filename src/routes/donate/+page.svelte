@@ -5,6 +5,14 @@
 
 	const foundationDonateUrl =
 		'https://foundation.wsu.edu/give/?fund=99981d7c-3c77-4fed-a76b-1267a2069cae&utm_source=sae-formula&utm_medium=wsu-link&utm_campaign=voiland-college-of-engineering-and-architecture';
+	const touchnetUrl =
+		'https://secure.touchnet.net/C20607_ustores/web/store_cat.jsp?STOREID=105&CATID=195';
+	const cougstarterUrl = 'https://cougstarter.wsu.edu/project/49106';
+
+	import shirtFront from '$lib/assets/shirt-front.png';
+	import shirtBack from '$lib/assets/shirt-back.png';
+	import sweatshirt from '$lib/assets/sweatshirt.jpg';
+	import hat from '$lib/assets/hat.png';
 
 	import sponsorPacket from '$lib/assets/Wazzu_Racing_Sponsorship_Packet.pdf';
 </script>
@@ -27,6 +35,64 @@
 			travel, and hands-on learning opportunities for future engineers.
 		</P>
 	</div>
+
+	<section class="mb-12">
+		<div class="rounded-lg p-6">
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900">Buy our Merch</Heading>
+			<P class="mb-6 text-gray-700">Help support us by buying our merch!</P>
+			<div class="flex flex-col gap-3 sm:flex-row">
+				<a href={touchnetUrl} target="_blank" rel="noopener noreferrer">
+					<Button size="lg" color="red" class="w-full sm:w-auto">Buy our Merch</Button>
+				</a>
+			</div>
+			<!-- IMAGES HERE -->
+			<div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				<div class="overflow-hidden rounded-lg bg-white shadow-md">
+					<a
+						href="https://secure.touchnet.net/C20607_ustores/web/product_detail.jsp?PRODUCTID=3758"
+					>
+						<img
+							src={shirtFront}
+							alt="Wazzu Racing T-shirt Front"
+							class="h-64 w-full object-contain p-4"
+						/>
+					</a>
+				</div>
+				<div class="overflow-hidden rounded-lg bg-white shadow-md">
+					<a
+						href="https://secure.touchnet.net/C20607_ustores/web/product_detail.jsp?PRODUCTID=3780"
+					>
+						<img
+							src={sweatshirt}
+							alt="Wazzu Racing T-shirt Back"
+							class="h-64 w-full object-contain p-4"
+						/>
+					</a>
+				</div>
+				<div class="overflow-hidden rounded-lg bg-white shadow-md">
+					<a
+						href="https://secure.touchnet.net/C20607_ustores/web/product_detail.jsp?PRODUCTID=3781"
+					>
+						<img src={hat} alt="Wazzu Racing Hat" class="h-64 w-full object-contain p-4" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mb-12">
+		<div class="rounded-lg p-6">
+			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900"
+				>Check out our Cougstarter</Heading
+			>
+			<P class="mb-6 text-gray-700">Help support us by donating on our Cougstarter page.</P>
+			<div class="flex flex-col gap-3 sm:flex-row">
+				<a href={cougstarterUrl} target="_blank" rel="noopener noreferrer">
+					<Button size="lg" color="red" class="w-full sm:w-auto">Donate on Cougstarter</Button>
+				</a>
+			</div>
+		</div>
+	</section>
 
 	<!-- Direct Donation Section -->
 	<section class="mb-12">
