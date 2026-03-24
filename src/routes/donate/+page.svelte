@@ -80,7 +80,7 @@
 		</div>
 	</section>
 
-	<section class="mb-12">
+	<!-- <section class="mb-12">
 		<div class="rounded-lg p-6">
 			<Heading tag="h2" class="mb-4 text-2xl font-bold text-gray-900"
 				>Check out our Cougstarter</Heading
@@ -92,7 +92,7 @@
 				</a>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- Direct Donation Section -->
 	<section class="mb-12">
