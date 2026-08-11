@@ -67,7 +67,7 @@
 			<P class="text-gray-700">
 				If you are a student at WSU and you are interested in joining the club, first
 				<a
-					href="https://discord.gg/PQjz8bKtX9"
+					href="https://discord.gg/pH9tQbwusN"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="font-semibold text-red-700 hover:underline"
