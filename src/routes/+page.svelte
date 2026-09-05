@@ -17,8 +17,7 @@
 	const officers = [
 		{ name: 'Malcolm', lastname: 'Childs', role: 'President' },
 		{ name: 'Carson', lastname: 'Clary', role: 'Vice President' },
-		{ name: 'Kasey', lastname: 'Kirschling', role: 'Chief Engineer' },
-		{ name: 'Alex', lastname: 'Diaz', role: 'Safety Officer' }
+		{ name: 'Alex', lastname: 'Diaz', role: 'Chief Engineer' },
 	];
 </script>
 
